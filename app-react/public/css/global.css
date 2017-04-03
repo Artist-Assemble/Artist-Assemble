@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box;
+}
+img {
+    width: 100%;
+}
+
+@font-face { 
+	font-family: "Kollektif"; 
+	src: url('../font/Kollektif.WOFF'); 
+}
+
+body {
+    background: linear-gradient(#626262, #363636) !important;
+    font-family: "Kollektif";
+}
+
+/*header-home*/
+
+header {
+    padding-top: 25px;
+    background-image: linear-gradient( 45deg, RGBA(140, 146, 252, .8), RGBA(252, 79, 97, .8) ), url('../img/header.jpg');
+    background-size: cover;
+    position: relative;
+    z-index: 2;
+    box-shadow: 1px 1px 10px rgba(0,0,0,0.2);
+}
+
+.login-btn {
+    margin-right: 25px;
+    border: none;
+    color: white;
+    letter-spacing: 2px;
+    background: #565656;
+    float: right;
+}
+
+.login-btn:hover {
+    margin-right: 25px;
+    border: none;
+    color: white;
+    letter-spacing: 2px;
+    background: grey;
+    float: right;
+}
+
+header img {
+    width: 70vw;
+    max-width: 800px;
+    height: auto;
+    margin: 80px 0; 
+}
+
+.signup-btn {
+    padding: 1px 1px 2px 1px;
+    display: inline-block;
+    width: 95px;
+    color: white;
+    letter-spacing: 2px;
+    border: 1px solid white;
+    margin-bottom: 80px;
+}
+
+.signup-btn:hover {
+    padding: 1px 1px 2px 1px;
+    display: inline-block;
+    width: 95px;
+    color: white;
+    background-color: RGBA(255, 255, 255, 0.2);
+    letter-spacing: 2px;
+    border: 1px solid white;
+    margin-bottom: 80px;
+}
+
+/*sec-gap*/
+
+.sec-gap {
+    margin: 150px 0;
+}
+
+/*lines*/
+
+.lines {
+    background: url('../img/lines.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+/*sec-top*/
+
+.sec-top .top-p {
+    margin-bottom: 150px;
+    color: white;
+    letter-spacing: 2px;
+}
+
+
