@@ -39,7 +39,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'pry-rails'
 gem 'bootstrap-sass'
 gem 'kaminari'
-gem 'kaminari-bootstrap', '~> 3.0.1'
+gem 'socialization'
 gem "rails_12factor", group: :production
 gem 'simple_form'
 gem 'sendgrid-ruby'
@@ -52,6 +52,10 @@ gem 'rails_admin', '~> 1.1.1'
 gem 'active_model_serializers'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'rails_admin', '~> 1.1.1'
+gem 'omniauth', '~> 1.3.1'
+gem 'omniauth-auth0', '~> 1.4.2'
+gem 'rack-cors', :require => 'rack/cors'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
