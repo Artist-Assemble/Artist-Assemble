@@ -1,5 +1,5 @@
 import React from 'react'
-// import { browserHistory } from 'react-router'
+import { browserHistory } from 'react-router'
 import HeaderMin from './HeaderMin'
 
 class Signup extends React.Component {
@@ -10,7 +10,7 @@ class Signup extends React.Component {
             </header>
             <div className="lines">
                 <section className="container field-container">
-                    <img src="img/close.png" alt="close" className="close"/> 
+                    <img src="img/close.png" alt="close" className="close" onClick={() => browserHistory.push('/')}/> 
                     <div className="columns has-text-centered is-mobile">
                         <div className="column is-offset-2 is-8 signup-fields">
                             <div className="field">
