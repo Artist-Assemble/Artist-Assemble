@@ -4,7 +4,7 @@ import { browserHistory } from 'react-router'
 class HeaderSub extends React.Component {
     render() {
         return <div className="container my-container hdr-sub">
-            <div className="columns is-mobile">
+            <div className="columns is-mobile vertical">
                 <div className="column is-4">
                     <img src="img/logo.png" alt="artist assemble logo" className="hdr-img-sub"/>
                 </div>

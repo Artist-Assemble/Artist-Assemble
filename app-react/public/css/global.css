@@ -25,6 +25,12 @@ body {
     max-width: 550px;
 }
 
+.vertical {
+    align-items: center;
+    justify-content: center;
+}
+  
+
 /*header-home*/
 
 header {
@@ -85,10 +91,10 @@ header img {
 /*hdr-sub*/
 
 .hdr-img-sub {
-   width: 30vw;
+   width: 45vw;
     max-width: 800px;
     height: auto;
-    margin: 10px 0; 
+    margin: 30px 0; 
 }
 
 .hdr-img-min {
@@ -102,34 +108,35 @@ header img {
     padding: 0 5px;
     float: right;
     color: white;
-    margin-top: 10px;
+    margin-bottom: 15px;
 }
 
 .hdr-sub .search-artists {
     padding: 0 5px;
     color: white;
-    margin-top: 16px;
     float: right;
     font-size: 0.75rem;
     letter-spacing: 2px;
+    margin-bottom: 15px;
+
 }
 
 .search-artists > i {
     display: inline-block;
-    margin-top: 4px;
+    padding-top: 4px;
+
 }
 
 .search-artists-mobile > i {
-    /*display: inline-block;*/
+    margin-bottom: 15px;
     padding: 0 5px;
     color: white;
-    margin-top: 10px;
     float: right;
 }
 
 .hdr-sub .logout {
     padding: 0 5px;
-    margin-top: 12px;
+    margin-bottom: 15px;
     float: right !important;
     border: none;
     color: white;
@@ -139,7 +146,6 @@ header img {
 
 .logout:hover {
     padding: 0 5px;
-    margin-top: 12px;
     float: right !important;
     border: none;
     color: white;
