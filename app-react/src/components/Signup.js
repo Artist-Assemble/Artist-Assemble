@@ -83,7 +83,7 @@ class Signup extends React.Component {
                                     </span>
                                 </p>
                             </div>
-                            <a className="signup-next">
+                            <a className="signup-next" onClick={()=> browserHistory.push('/soundcloudauthenticate')}>
                                 next <i className="fa fa-step-forward" aria-hidden="true"></i>
                             </a>
                         </div>
