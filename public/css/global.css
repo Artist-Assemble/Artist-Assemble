@@ -15,6 +15,16 @@ body {
     font-family: "Kollektif";
 }
 
+.my-container {
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.field-container {
+    margin: 0 auto;
+    max-width: 550px;
+}
+
 /*header-home*/
 
 header {
@@ -72,6 +82,72 @@ header img {
     margin-bottom: 80px;
 }
 
+/*hdr-sub*/
+
+.hdr-img-sub {
+   width: 30vw;
+    max-width: 800px;
+    height: auto;
+    margin: 10px 0; 
+}
+
+.hdr-img-min {
+    width: 70vw;
+    max-width: 800px;
+    height: auto;
+    margin: 30px 0; 
+}
+
+.hdr-sub .user {
+    padding: 0 5px;
+    float: right;
+    color: white;
+    margin-top: 10px;
+}
+
+.hdr-sub .search-artists {
+    padding: 0 5px;
+    color: white;
+    margin-top: 16px;
+    float: right;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+}
+
+.search-artists > i {
+    display: inline-block;
+    margin-top: 4px;
+}
+
+.search-artists-mobile > i {
+    /*display: inline-block;*/
+    padding: 0 5px;
+    color: white;
+    margin-top: 10px;
+    float: right;
+}
+
+.hdr-sub .logout {
+    padding: 0 5px;
+    margin-top: 12px;
+    float: right !important;
+    border: none;
+    color: white;
+    letter-spacing: 2px;
+    background: #565656;
+}
+
+.logout:hover {
+    padding: 0 5px;
+    margin-top: 12px;
+    float: right !important;
+    border: none;
+    color: white;
+    letter-spacing: 2px;
+    background: #626262;
+}
+
+
 /*sec-gap*/
 
 .sec-gap {
@@ -99,6 +175,8 @@ header img {
     background-image: linear-gradient( 45deg, RGBA(140, 146, 252, .8), RGBA(252, 79, 97, .8) ), url('../img/vocals.png');
     background-size: cover;
     box-shadow: 1px 1px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+    cursor: hand;
 }
 
 .singer-tab p {
@@ -126,6 +204,8 @@ header img {
     background-image: linear-gradient( 45deg, RGBA(140, 146, 252, .8), RGBA(252, 79, 97, .8) ), url('../img/header.jpg');
     background-size: cover;
     box-shadow: 1px 1px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+    cursor: hand;
 }
 
 .producer-tab p {
@@ -154,6 +234,8 @@ header img {
     background-image: linear-gradient( 45deg, RGBA(140, 146, 252, .8), RGBA(252, 79, 97, .8) ), url('../img/mix-master.png');
     background-size: cover;
     box-shadow: 1px 1px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+    cursor: hand;
 }
 
 .eng-tab p {
@@ -214,3 +296,151 @@ footer i {
     padding:0 20px;
     margin-bottom: 30px;
 }
+
+/*signup*/
+
+.close {
+    margin: 50px 0 0 50px;
+    display: inline-block;
+    width: 40px;
+    cursor: pointer;
+    cursor: hand;
+}
+
+.signup-fields {
+    margin: 30px 0;
+}
+
+.signup-fields .label {
+    color: white;
+    letter-spacing: 2px;
+}
+
+.input {
+    border-radius: 0 !important;  
+    background-color: RGBA(255, 255, 255, 0.8);
+    border: none;
+}
+
+.textarea {
+    border-radius: 0 !important;
+    background-color: RGBA(255, 255, 255, 0.8);
+    border: none;
+}
+
+.checkboxes {
+    text-align: left;
+    margin-bottom: 45px;
+}
+
+.checkbox {
+    color: white;
+}
+
+.checkbox:hover {
+    color:RGBA(255, 255, 255, 0.8);
+}
+
+.select {
+    display: block;
+    width: 100% !important;
+}
+
+select {
+    width: 100% !important; 
+}
+
+.options {
+    display: block !important;
+    border-radius: 0 !important;
+    border: none !important;
+    background-color: RGBA(255, 255, 255, 0.8) !important;
+
+}
+
+.signup-next {
+    display:block;
+    padding: 5px 0;
+    margin: 60px 0;
+    border: 1px solid white;
+    color: white;
+    letter-spacing: 2px;
+}
+
+.signup-next:hover {
+    display:block;
+    padding: 5px 0;
+    border: 1px solid white;
+    color: white;
+    background-color: RGBA(255, 255, 255, 0.1);
+    letter-spacing: 2px;
+}
+
+.signup-next > i {
+    padding-top: 4px;
+    color: white;
+}
+
+/*login*/
+
+.login-go {
+    display:block;
+    padding: 5px 0;
+    margin: 60px 0 400px 0;
+    border: 1px solid white;
+    color: white;
+    letter-spacing: 2px;
+}
+
+.login-go:hover {
+    display:block;
+    padding: 5px 0;
+    border: 1px solid white;
+    color: white;
+    background-color: RGBA(255, 255, 255, 0.1);
+    letter-spacing: 2px;
+}
+
+.login-go > i {
+    padding-top: 4px;
+    color: white;
+}
+
+/*soundcloud-auth*/
+
+
+.orange {
+    color: #FF5906;
+}
+
+.sca-cont {
+    margin-top: 60px;
+}
+
+.sca-note {
+    color: white;
+}
+
+.sca-link {
+    display:block;
+    padding: 5px 0;
+    margin: 60px 0;
+    border: 1px solid white;
+    color: white;
+    letter-spacing: 2px;
+}
+
+.sca-link:hover {
+    display:block;
+    padding: 5px 0;
+    border: 1px solid white;
+    color: white;
+    background-color: RGBA(255, 255, 255, 0.1);
+    letter-spacing: 2px;
+}
+
+.sca-link > i {
+    padding-top: 4px;
+    color: #FF5906;
+}
+

@@ -1,5 +1,5 @@
 import React from 'react'
-// import { browserHistory } from 'react-router'
+import { browserHistory } from 'react-router'
 
 class HeaderHome extends React.Component {
     render() {
@@ -8,7 +8,7 @@ class HeaderHome extends React.Component {
                 <div className="column is-9">
                 </div>
                 <div className="column">
-                    <a className="button login-btn">login</a>
+                    <a className="button login-btn" onClick={() => browserHistory.push('/login')}>login</a>
                 </div>
             </div>
             <div className="columns has-text-centered">
@@ -18,7 +18,7 @@ class HeaderHome extends React.Component {
             </div>
             <div className="columns has-text-centered">
                 <div className="column is-12">
-                    <a href="#" alt="signup" className="signup-btn">sign up</a>
+                    <a href="#" alt="signup" className="signup-btn"  onClick={() => browserHistory.push('/signup')}>sign up</a>
                 </div>
             </div>
         </div>
