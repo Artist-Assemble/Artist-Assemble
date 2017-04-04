@@ -343,6 +343,11 @@ footer i {
 
 .select {
     display: block;
+    width: 100% !important;
+}
+
+select {
+    width: 100% !important; 
 }
 
 .options {
