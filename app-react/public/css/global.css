@@ -15,6 +15,16 @@ body {
     font-family: "Kollektif";
 }
 
+.my-container {
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.field-container {
+    margin: 0 auto;
+    max-width: 550px;
+}
+
 /*header-home*/
 
 header {
@@ -71,6 +81,72 @@ header img {
     border: 1px solid white;
     margin-bottom: 80px;
 }
+
+/*hdr-sub*/
+
+.hdr-img-sub {
+   width: 30vw;
+    max-width: 800px;
+    height: auto;
+    margin: 10px 0; 
+}
+
+.hdr-img-min {
+    width: 70vw;
+    max-width: 800px;
+    height: auto;
+    margin: 30px 0; 
+}
+
+.hdr-sub .user {
+    padding: 0 5px;
+    float: right;
+    color: white;
+    margin-top: 10px;
+}
+
+.hdr-sub .search-artists {
+    padding: 0 5px;
+    color: white;
+    margin-top: 16px;
+    float: right;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+}
+
+.search-artists > i {
+    display: inline-block;
+    margin-top: 4px;
+}
+
+.search-artists-mobile > i {
+    /*display: inline-block;*/
+    padding: 0 5px;
+    color: white;
+    margin-top: 10px;
+    float: right;
+}
+
+.hdr-sub .logout {
+    padding: 0 5px;
+    margin-top: 12px;
+    float: right !important;
+    border: none;
+    color: white;
+    letter-spacing: 2px;
+    background: #565656;
+}
+
+.logout:hover {
+    padding: 0 5px;
+    margin-top: 12px;
+    float: right !important;
+    border: none;
+    color: white;
+    letter-spacing: 2px;
+    background: #626262;
+}
+
 
 /*sec-gap*/
 
@@ -213,4 +289,70 @@ footer i {
     color: white;
     padding:0 20px;
     margin-bottom: 30px;
+}
+
+/*signup*/
+
+.signup-fields {
+    margin: 60px 0;
+}
+
+.signup-fields .label {
+    color: white;
+    letter-spacing: 2px;
+}
+
+.input {
+    border-radius: 0 !important;  
+    background-color: RGBA(255, 255, 255, 0.8);
+    border: none;
+}
+
+.textarea {
+    border-radius: 0 !important;
+    background-color: RGBA(255, 255, 255, 0.8);
+    border: none;
+}
+
+.checkboxes {
+    text-align: left;
+    margin-bottom: 45px;
+}
+
+.checkbox {
+    color: white;
+}
+
+.checkbox:hover {
+    color:RGBA(255, 255, 255, 0.8);
+}
+
+.select {
+    display: block;
+}
+
+.options {
+    display: block !important;
+}
+
+.signup-next {
+    display:block;
+    padding: 5px 0;
+    border: 1px solid white;
+    color: white;
+    letter-spacing: 2px;
+}
+
+.signup-next:hover {
+    display:block;
+    padding: 5px 0;
+    border: 1px solid white;
+    color: white;
+    background-color: RGBA(255, 255, 255, 0.1);
+    letter-spacing: 2px;
+}
+
+.signup-next > i {
+    padding-top: 4px;
+    color: white;
 }
