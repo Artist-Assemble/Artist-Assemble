@@ -293,8 +293,14 @@ footer i {
 
 /*signup*/
 
+.close {
+    margin: 50px 0 0 50px;
+    display: inline-block;
+    width: 40px;
+}
+
 .signup-fields {
-    margin: 60px 0;
+    margin: 30px 0;
 }
 
 .signup-fields .label {
@@ -333,11 +339,16 @@ footer i {
 
 .options {
     display: block !important;
+    border-radius: 0 !important;
+    border: none !important;
+    background-color: RGBA(255, 255, 255, 0.8) !important;
+
 }
 
 .signup-next {
     display:block;
     padding: 5px 0;
+    margin: 60px 0;
     border: 1px solid white;
     color: white;
     letter-spacing: 2px;

@@ -10,6 +10,7 @@ class Signup extends React.Component {
             </header>
             <div className="lines">
                 <section className="container field-container">
+                    <img src="img/close.png" alt="close" className="close"/> 
                     <div className="columns has-text-centered is-mobile">
                         <div className="column is-offset-2 is-8 signup-fields">
                             <div className="field">
