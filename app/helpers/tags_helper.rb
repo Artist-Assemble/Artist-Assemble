@@ -1,2 +1,2 @@
-module TagHelper
+module TagsHelper
 end

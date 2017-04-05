@@ -10,10 +10,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    params[:tags].split(',').each do |name|
-      tag = Tag.find_or_create_by!(name: name)
-      @user.tags << tag
-    end
+    tag = Tag.find_or_create_by!(name: params[:tag])
+    @user.tags << tag
     if @user.save
       render json: @user, serializer: UserExtendedSerializer
     else
@@ -39,7 +37,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params_permit(:name, :email, :password, :bio, :artist, :producer, :engineer, :photo)
+    params.permit(:name, :email, :password, :password_confirmation, :bio, :artist, :producer, :engineer, :photo)
   end
 
   def find_user
