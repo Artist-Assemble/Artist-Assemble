@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
 }
+
 img {
     width: 100%;
 }
@@ -643,8 +644,98 @@ select {
 
 /*search artists*/
 
+.results-cont {
+    padding:20px 20px 200px 20px;
+}
+
+.result-cont {
+    background: linear-gradient( 45deg, RGBA(140, 146, 252, .5), RGBA(252, 79, 97, .5));
+    border-radius: 3px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    cursor: hand;
+}
+
 .result-img {
-    width: 30px;
+    width: 60px;
     height: auto;
     border-radius: 50%;
 }
+
+.result-img-cont  {
+    display: inline-block;
+    /*float: left;*/
+    padding-top: 17px;
+    padding-left: 17px;
+}
+
+
+
+.result-ratings-cont {
+    display: inline-block;
+}
+
+.shake-cont {
+    background-color: #8077C4;
+    border-radius: 3px;
+    cursor: pointer;
+    cursor: hand;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+}
+
+.shake-cont > i {
+    color: white;
+    padding: 25px 0;
+}
+
+.result-name {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: white;
+    letter-spacing: 2px;
+}
+
+/*view profile*/
+
+.back-cont {
+    padding: 50px 0 0 10px;
+}
+
+.back-icon {
+    width: 40px;
+    height: auto;
+    cursor: pointer;
+    cursor: hand;
+}
+
+.view-profile-img {
+    margin-top: 60px;
+    border-radius: 50%;
+    width: 120px;
+    filter: drop-shadow( 1px 1px 3px rgba(0,0,0,0.2));
+    opacity: 0.9;
+}
+
+.rate-cont {
+    margin: 100px 0;
+    border: 1px solid white;
+    padding: 20px;
+}
+
+.rate-track-h1 {
+    color: #8077C4;
+}
+
+
+
+
+
+
+
+/*TEMPORARY*/
+
+.temp-spacer {
+    padding: 10px 0;
+}
+
+

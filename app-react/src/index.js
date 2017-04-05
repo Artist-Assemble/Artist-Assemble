@@ -7,6 +7,7 @@ import Login from './components/Login'
 import Signup from './components/Signup'
 import SoundcloudAuth from './components/SoundcloudAuth'
 import SearchArtists from './components/SearchArtists'
+import ViewProfile from './components/ViewProfile'
 
 ReactDOM.render(
   <Router history={browserHistory}>
@@ -16,6 +17,7 @@ ReactDOM.render(
     <Route path="signup" component={Signup} />
     <Route path="searchartists" component={SearchArtists} />
     <Route path="soundcloudauthenticate" component={SoundcloudAuth} />
+    <Route path="viewprofile" component={ViewProfile} />
   </Router>,
 
   document.getElementById('root')

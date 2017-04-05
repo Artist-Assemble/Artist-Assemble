@@ -3,6 +3,32 @@ import { browserHistory } from 'react-router'
 import HeaderMin from './HeaderMin'
 
 class Login extends React.Component {
+    constructor(props){
+        super(props)
+        this.loginUser.state=this.loginUser.bind(this)
+        this.state = {
+            email: '',
+            password: ''
+        }
+    }
+
+     loginUser() {
+    console.log(this.state)
+    fetch('/api/login',{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        
+        body: JSON.stringify({
+            email: this.state.email,
+            password: this.state.password
+        })
+    })
+      .then(response => response.json())
+      .then(response => console.log(response));
+    }
+
     render() {
         return <div>
             <header>
@@ -16,16 +42,16 @@ class Login extends React.Component {
                             <div className="field">
                                 <label className="label" id="email">email</label>
                                 <p className="control">
-                                    <input className="input" type="text"/>
+                                    <input className="input" type="text" onChange={(e)=> this.setState({email: e.target.value})}/>
                                 </p>
                             </div>
                             <div className="field">
                                 <label className="label" id="password">password</label>
                                 <p className="control">
-                                    <input className="input" type="text"/>
+                                    <input className="input" type="text" onChange={(e)=> this.setState({password: e.target.value})}/>
                                 </p>
                             </div>
-                            <a className="login-go" onClick={()=> browserHistory.push('/account')}>
+                            <a className="login-go"  onClick={this.loginUser} >
                                 go <i className="fa fa-play" aria-hidden="true"></i>
                             </a>
                         </div>
@@ -37,3 +63,5 @@ class Login extends React.Component {
 }
 
 export default Login
+
+/*onClick={()=> browserHistory.push('/account')}*/

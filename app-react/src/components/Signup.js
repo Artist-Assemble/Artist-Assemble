@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+// import ReactDOM from 'react-dom'
 import { browserHistory } from 'react-router'
 import HeaderMin from './HeaderMin'
 
@@ -20,13 +20,13 @@ class Signup extends React.Component {
       artist: false,
       producer: false,
       engineer: false,
-      tags: ''
+      tag: ''
+    //   user: {}
     }
-  }
-
+}
 
  postUser() {
-    console.log(this.state)
+    // console.log(this.state)
     fetch('/api/users',{
         method: 'POST',
         headers: {
@@ -42,13 +42,13 @@ class Signup extends React.Component {
             artist: this.state.artist,
             producer: this.state.producer,
             engineer: this.state.engineer,
-            tags: this.state.tags
-            
+            tag: this.state.tag
         })
     })
       .then(response => response.json())
-      .then(response => this.setState({user: response}))
-      .then(response => console.log(response));
+    //   .then(response => this.setState({user: response}))
+      .then(response => console.log(response))
+      .then(()=> browserHistory.push('/soundcloudauthenticate'))
 }
 
     render() {
@@ -118,7 +118,7 @@ class Signup extends React.Component {
                                  <label className="label" id="name">my genre</label>
                                 <p className="control">
                                     <span className="select">
-                                    <select className="options" onChange=        {(e)=> this.setState({tags: e.target.value})}>
+                                    <select className="options" onChange={(e)=> this.setState({tag: e.target.value})}>
                                         <option value="edm" >edm</option>
                                         <option value="electronic">electronic</option>
                                         <option value="rap/hip-hop">rap/hip-hop</option>
