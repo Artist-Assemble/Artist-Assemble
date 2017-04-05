@@ -1,7 +1,7 @@
 class UserSerializer < ActiveModel::Serializer
   attributes :id, :name, :email, :bio, :artist, :producer, :engineer
 
-  has_one :rating
+  has_one :ratings
     class RatingSerializer < ActiveModel::Serializer
       attributes :collab
     end
@@ -15,5 +15,5 @@ class UserSerializer < ActiveModel::Serializer
     class CollaborationSerializer < ActiveModel::Serializer
       attributes :status
     end
-    
+
 end
