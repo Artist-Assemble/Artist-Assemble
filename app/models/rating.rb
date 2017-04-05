@@ -3,5 +3,8 @@ class Rating < ApplicationRecord
 
   validates_numericality_of :collab, :in => 1..5
 
+  def average_rating
+    self.class.average(:collab).group(:user_id).round(2)
+  end
 
 end
