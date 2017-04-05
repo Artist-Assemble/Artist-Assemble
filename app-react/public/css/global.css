@@ -506,7 +506,7 @@ select {
 }
 
 .ratings2 {
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 
 .rating-h1 {
@@ -523,7 +523,7 @@ select {
 }
 
 .tags {
-    margin-bottom: 10px;
+    margin-bottom: 18px;
 }
 .tag {
     margin: 0 10px;
@@ -584,7 +584,7 @@ select {
 
 .collab-me {
     float: left;
-    width: 40px;
+    width: 34px;
     height: auto;
     border-radius: 50%;
 }
@@ -592,10 +592,11 @@ select {
 .collab-project {
     display: inline-block;
     color: white;
+    font-size: 12px;
 }
 
 .collab-you {
-    width: 40px;
+    width: 34px;
     height: auto;
     border-radius: 50%;
     float: right;
@@ -606,7 +607,8 @@ select {
 }
 
 .collab-delete img {
-    width: 20px;
+    padding-top: 7px;
+    width: 12px;
 }
 
 /*search artists*/
@@ -637,4 +639,12 @@ select {
 .search-btn > i {
     float: left;
     padding-right: 5px;
+}
+
+/*search artists*/
+
+.result-img {
+    width: 30px;
+    height: auto;
+    border-radius: 50%;
 }

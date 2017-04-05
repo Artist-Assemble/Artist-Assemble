@@ -1,8 +1,56 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import { browserHistory } from 'react-router'
 import HeaderMin from './HeaderMin'
 
+
 class Signup extends React.Component {
+
+    constructor(props) {
+    super(props)
+
+    this.postUser=this.postUser.bind(this)
+
+    this.state={
+      name: '',
+      email: '',
+      password: '',
+      password_confirmation: '',
+      bio: '',
+      artist: false,
+      producer: false,
+      engineer: false,
+      tags: ''
+    }
+  }
+
+
+ postUser() {
+    console.log(this.state)
+    fetch('/api/users',{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        
+        body: JSON.stringify({
+            name: this.state.name,
+            email: this.state.email,
+            password: this.state.password,
+            password_confirmation: this.state.password_confirmation,
+            bio: this.state.bio,
+            artist: this.state.artist,
+            producer: this.state.producer,
+            engineer: this.state.engineer,
+            tags: this.state.tags
+            
+        })
+    })
+      .then(response => response.json())
+      .then(response => this.setState({user: response}))
+      .then(response => console.log(response));
+}
+
     render() {
         return <div>
             <header>
@@ -16,31 +64,31 @@ class Signup extends React.Component {
                             <div className="field">
                                 <label className="label" id="name">name</label>
                                 <p className="control">
-                                    <input className="input" type="text"/>
+                                    <input className="input" type="text" onChange={(e)=> this.setState({name: e.target.value})}/>
                                 </p>
                             </div>
                             <div className="field">
                                 <label className="label" id="email">email</label>
                                 <p className="control">
-                                    <input className="input" type="text"/>
+                                    <input className="input" type="text" onChange={(e)=> this.setState({email: e.target.value})}/>
                                 </p>
                             </div>
                             <div className="field">
                                 <label className="label" id="password">password</label>
                                 <p className="control">
-                                    <input className="input" type="text"/>
+                                    <input className="input" type="text" onChange={(e)=> this.setState({password: e.target.value})}/>
                                 </p>
                             </div>
                             <div className="field">
                                 <label className="label" id="re-password">retype password</label>
                                 <p className="control">
-                                    <input className="input" type="text"/>
+                                    <input className="input" type="text" onChange={(e)=> this.setState({password_confirmation: e.target.value})}/>
                                 </p>
                             </div>
                             <div className="field">
                                 <label className="label">Bio</label>
                                 <p className="control">
-                                    <textarea className="textarea" placeholder="In one or two sentences, tell others about yourself and your music!"></textarea>
+                                    <textarea className="textarea" placeholder="In one or two sentences, tell others about yourself and your music!" onChange={(e)=> this.setState({bio: e.target.value})}></textarea>
                                 </p>
                             </div>
                             <div className="field">
@@ -48,19 +96,19 @@ class Signup extends React.Component {
                                 <div className="checkboxes">
                                     <p className="control">
                                     <label className="checkbox">
-                                        <input type="checkbox"/>
+                                        <input type="checkbox" checked={this.state.artist}/>
                                         singer/songwriter
                                     </label>
                                     </p>
                                     <p className="control">
                                         <label className="checkbox">
-                                            <input type="checkbox"/>
+                                            <input type="checkbox" checked={this.state.producer}/>
                                             producer
                                         </label>
                                     </p>
                                     <p className="control">
                                         <label className="checkbox">
-                                            <input type="checkbox"/>
+                                            <input type="checkbox" checked={this.state.engineer}/>
                                             mix &amp; or mastering engineer
                                         </label>
                                     </p>
@@ -70,20 +118,20 @@ class Signup extends React.Component {
                                  <label className="label" id="name">my genre</label>
                                 <p className="control">
                                     <span className="select">
-                                    <select className="options">
-                                        <option>edm</option>
-                                        <option>electronic</option>
-                                        <option>rap/hip-hop</option>
-                                        <option>pop</option>
-                                        <option>experimental</option>
-                                        <option>ambient</option>
-                                        <option>Indie</option>
-                                        <option>other</option>
+                                    <select className="options" onChange=        {(e)=> this.setState({tags: e.target.value})}>
+                                        <option value="edm" >edm</option>
+                                        <option value="electronic">electronic</option>
+                                        <option value="rap/hip-hop">rap/hip-hop</option>
+                                        <option value="pop">pop</option>
+                                        <option value="experimental">experimental</option>
+                                        <option value="ambient">ambient</option>
+                                        <option value="Indie">Indie</option>
+                                        <option value="other">other</option>
                                     </select>
                                     </span>
                                 </p>
                             </div>
-                            <a className="signup-next" onClick={()=> browserHistory.push('/soundcloudauthenticate')}>
+                            <a className="signup-next" onClick={this.postUser}>
                                 next <i className="fa fa-step-forward" aria-hidden="true"></i>
                             </a>
                         </div>
@@ -95,3 +143,6 @@ class Signup extends React.Component {
 }
 
 export default Signup
+
+/*onClick={()=> browserHistory.push('/soundcloudauthenticate')}*/
+/*onClick= {this.setState({artist: true})}*/
