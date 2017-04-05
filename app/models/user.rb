@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :tags, through: :taggings
   has_many :ratings
   has_many :collaborations, through: :collaborators
+  has_many :collaborators
   has_many :messages, dependent: :destroy
 
   has_secure_password
