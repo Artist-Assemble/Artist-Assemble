@@ -106,14 +106,18 @@ header img {
    width: 45vw;
     max-width: 800px;
     height: auto;
-    margin: 30px 0; 
+    margin: 30px 0;
+    cursor: pointer;
+    cursor: hand;
 }
 
 .hdr-img-min {
     width: 70vw;
     max-width: 800px;
     height: auto;
-    margin: 30px 0; 
+    margin: 30px 0;
+    cursor: pointer;
+    cursor: hand;
 }
 
 .hdr-sub .user {
@@ -121,6 +125,8 @@ header img {
     float: right;
     color: white;
     margin-bottom: 15px;
+    cursor: pointer;
+    cursor: hand;
 }
 
 .hdr-sub .search-artists {
@@ -130,12 +136,16 @@ header img {
     font-size: 0.75rem;
     letter-spacing: 2px;
     margin-bottom: 15px;
+    cursor: pointer;
+    cursor: hand;
 
 }
 
 .search-artists > i {
     display: inline-block;
     padding-top: 4px;
+    cursor: pointer;
+    cursor: hand;
 
 }
 
@@ -144,6 +154,8 @@ header img {
     padding: 0 5px;
     color: white;
     float: right;
+    cursor: pointer;
+    cursor: hand;
 }
 
 .hdr-sub .logout {
@@ -506,24 +518,41 @@ select {
     color: #D04C5E
 }
 
+.tags-cont {
+    margin-bottom: 10px;
+}
+
+.tags {
+    margin-bottom: 10px;
+}
 .tag {
     margin: 0 10px;
     padding: 0 10px;
-    color: white;
 }
 
 .tag-si {
     background-color: #8077C4;
+    color: white;
 }
 
 .tag-pr {
     background-color: #AB74AC;
+    color: white;
 }
 
 .tag-en {
-    background-color: #D46178
+    background-color: #D46178;
+    color: white;
 }
 
+.genres {
+    margin-bottom: 10px;
+}
+
+.genre {
+    background-color: white;
+    border-radius: 15px;
+}
 
 /*collaborations*/
 
@@ -573,9 +602,39 @@ select {
 }
 
 .collab-delete {
-    background-color: #D24A59
+    background-color: #D24A59;
 }
 
 .collab-delete img {
     width: 20px;
+}
+
+/*search artists*/
+
+.search-cont {
+    margin-top: 100px;
+    padding-bottom: 100px;
+}
+
+.search-field {
+    width: 100% !important;
+}
+
+.search-input {
+    border-radius: 3px 0 0 3px !important;
+}
+
+.search-filter {
+    background-color: #D24A59 !important;
+    border: none !important; 
+    color: white !important;
+}
+
+.search-btn {
+    background-color: #8077C4 !important;
+}
+
+.search-btn > i {
+    float: left;
+    padding-right: 5px;
 }

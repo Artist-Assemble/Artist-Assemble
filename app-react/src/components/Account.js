@@ -56,11 +56,14 @@ class Account extends React.Component {
                                     onStarTwoClick={this.onStarTwoClick.bind(this)}
                                 />
                             </div>
-                            <div className="tags-cont">
+                            <div className="tags-cont has-text-centered">
                                 <ul className="tags">
                                     <li className="tag tag-si">singer/songwriter</li>
                                     <li className="tag tag-pr">producer</li>
-                                    <li className=" tag tag-en" /*style={{display: 'none'}}*/>>engineer</li>
+                                    <li className=" tag tag-en" /*style={{display: 'none'}}*/>engineer</li>
+                                </ul>
+                                <ul className="genres tags">
+                                    <li className="genre tag" /*style={{display: 'none'}}*/>electronic</li>
                                 </ul>
                             </div>
                         </div>
