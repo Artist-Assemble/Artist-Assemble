@@ -25,6 +25,18 @@ body {
     max-width: 550px;
 }
 
+.profile-container {
+    margin:0 auto;
+    padding: 45px 30px;
+    max-width: 1500px;
+}
+
+
+.bio-container {
+    margin: 0 auto;
+    max-width: 400px;
+}
+
 .vertical {
     align-items: center;
     justify-content: center;
@@ -450,3 +462,96 @@ select {
     color: #FF5906;
 }
 
+/*profile*/
+
+.profile {
+    background: linear-gradient( 45deg, RGBA(140, 146, 252, .3), RGBA(252, 79, 97, .3) );
+    border-radius: 5px;
+}
+
+.profile-h {
+    color: white;
+    letter-spacing: 2px;
+    font-size: 22px;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.profile-img {
+    margin-top: 60px;
+    width: 120px;
+    filter: drop-shadow( 1px 1px 3px rgba(0,0,0,0.2));
+    opacity: 0.9;
+}
+
+.profile-bio {
+    margin-top: 30px;
+    color: white;
+    letter-spacing: 2px;
+}
+
+.ratings2 {
+    margin-bottom: 60px;
+}
+
+.rating-h1 {
+    margin-top: 30px;
+    color: #D04C5E
+}
+
+.rating-h2 {
+    color: #D04C5E
+}
+
+/*collaborations*/
+
+.collaborations {
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 0 5px 5px 0;
+}
+
+.collab-h {
+    color: white;
+    letter-spacing: 2px;
+    font-size: 22px;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.collab-bar {
+    margin-top: 45px;
+    padding: 10px;
+    background: linear-gradient( 45deg, RGBA(140, 146, 252, .3), RGBA(252, 79, 97, .3) );
+    border-radius: 5px;
+}
+
+.collab-shake {
+    background-color: #8077C4;
+}
+
+.collab-shake > i {
+    color: white;
+} 
+
+
+
+.collab-me {
+    float: left;
+    width: 40px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.collab-project {
+    display: inline-block;
+    color: white;
+}
+
+.collab-you {
+    width: 40px;
+    height: auto;
+    border-radius: 50%;
+    float: right;
+}
+
+.collab-delete {
+    background-color: #D24A59;
+}
