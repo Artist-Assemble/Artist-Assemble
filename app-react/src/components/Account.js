@@ -35,11 +35,8 @@ class Account extends React.Component {
                 <section className="profile-container">
                     <div className="columns has-text-centered profile">
                         <div className="column is-6">
-                        <h1 className="profile-h">profile</h1>
+                            <h1 className="profile-h">profile</h1>
                             <img src="img/profile-default.png" alt="profile default" className="profile-img"/>
-                            <div className="tags">
-                                
-                            </div>
                             <p className="profile-bio bio-container">Hammock culpa odio, 8-bit tacos mlkshk veniam eu. Pour-over marfa stumptown elit vice ugh, cred excepteur. Synth YOLO sustainable non  ugh. Direct trade eu man bun shoreditch chia stumptown.</p>
                             <div className="ratings1">
                                 <h2 className="rating-h1">my demo: {rating}</h2>
@@ -59,6 +56,13 @@ class Account extends React.Component {
                                     onStarTwoClick={this.onStarTwoClick.bind(this)}
                                 />
                             </div>
+                            <div className="tags-cont">
+                                <ul className="tags">
+                                    <li className="tag tag-si">singer/songwriter</li>
+                                    <li className="tag tag-pr">producer</li>
+                                    <li className=" tag tag-en" /*style={{display: 'none'}}*/>>engineer</li>
+                                </ul>
+                            </div>
                         </div>
                         <div className="column is-6 collaborations">
                             <h1 className="collab-h">collaborations</h1>
@@ -72,6 +76,7 @@ class Account extends React.Component {
                                       <img src="http://lorempixel.com/400/400/people" className="collab-you" alt="me"/>
                                 </div>
                                 <div className="collab-delete column is-2">
+                                    <img src="img/close.png" alt="close"/>
                                 </div>
                             </div>
                             <div className="colums has-text-centered collab-bar is-mobile">
@@ -80,10 +85,11 @@ class Account extends React.Component {
                                 </div>
                                 <div className="column is-8">
                                     <img src="http://lorempixel.com/400/400/people" className="collab-me" alt="me"/>
-                                    <p className="collab-project">you and Dan's project</p>
+                                    <p className="collab-project">you and Michelles's project</p>
                                       <img src="http://lorempixel.com/400/400/people" className="collab-you" alt="me"/>
                                 </div>
                                 <div className="collab-delete column is-2">
+                                    <img src="img/close.png" alt="close"/>
                                 </div>
                             </div> 
                         </div>

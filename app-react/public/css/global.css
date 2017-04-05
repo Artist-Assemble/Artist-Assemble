@@ -464,6 +464,10 @@ select {
 
 /*profile*/
 
+.profile-container {
+    padding-bottom: 300px;
+}
+
 .profile {
     background: linear-gradient( 45deg, RGBA(140, 146, 252, .3), RGBA(252, 79, 97, .3) );
     border-radius: 5px;
@@ -502,6 +506,25 @@ select {
     color: #D04C5E
 }
 
+.tag {
+    margin: 0 10px;
+    padding: 0 10px;
+    color: white;
+}
+
+.tag-si {
+    background-color: #8077C4;
+}
+
+.tag-pr {
+    background-color: #AB74AC;
+}
+
+.tag-en {
+    background-color: #D46178
+}
+
+
 /*collaborations*/
 
 .collaborations {
@@ -518,7 +541,6 @@ select {
 
 .collab-bar {
     margin-top: 45px;
-    padding: 10px;
     background: linear-gradient( 45deg, RGBA(140, 146, 252, .3), RGBA(252, 79, 97, .3) );
     border-radius: 5px;
 }
@@ -530,8 +552,6 @@ select {
 .collab-shake > i {
     color: white;
 } 
-
-
 
 .collab-me {
     float: left;
@@ -553,5 +573,9 @@ select {
 }
 
 .collab-delete {
-    background-color: #D24A59;
+    background-color: #D24A59
+}
+
+.collab-delete img {
+    width: 20px;
 }
