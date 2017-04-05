@@ -69,9 +69,9 @@ ActiveRecord::Schema.define(version: 20170404152409) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "bio"
-    t.boolean  "artist"
-    t.boolean  "producer"
-    t.boolean  "engineer"
+    t.boolean  "artist",          default: false
+    t.boolean  "producer",         default: false
+    t.boolean  "engineer",         default: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "token"
