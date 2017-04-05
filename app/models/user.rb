@@ -13,4 +13,8 @@ class User < ApplicationRecord
   validates :name, :email, presence: true
   validates :email, uniqueness: true
 
+  def average_rating
+    ratings.average(:collab).round(2)
+  end
+
 end
