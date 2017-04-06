@@ -1,7 +1,7 @@
 class UserSerializer < ActiveModel::Serializer
   attributes :id, :name, :email, :bio, :artist, :producer, :engineer, :demo_rating, :collab_rating
 
-  has_one :ratings
+  has_many :ratings
     class RatingSerializer < ActiveModel::Serializer
       attributes :demo, :collab, :review, :reviewer
     end
