@@ -487,10 +487,10 @@ select {
 }
 
 .profile-h {
+    margin-top: 10px;
     color: white;
     letter-spacing: 2px;
     font-size: 22px;
-    background-color: rgba(0,0,0,0.5);
 }
 
 .profile-img {
@@ -563,10 +563,10 @@ select {
 }
 
 .collab-h {
+    margin-top: 10px;
     color: white;
     letter-spacing: 2px;
     font-size: 22px;
-    background-color: rgba(0,0,0,0.5);
 }
 
 .collab-bar {
