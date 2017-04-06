@@ -6,13 +6,35 @@ import StarRatingComponent from 'react-star-rating-component';
 class Account extends React.Component {
      constructor() {
         super();
-
+        this.renderAccount = this.renderAccount.bind(this)
         this.state = {
+            name: '',
+            bio: '',
+            artist: false,
+            producer: false,
+            engineer: false,
+            average_rating: 1,
+            tags: {},
+            collaborators: {},
+            ratings: {},
             ratingOne: 1,
             ratingTwo: 1
 
         };
     }
+
+    renderAccount() {  
+        // console.log(window.user)
+        fetch('/api/users/' + window.user.id)
+            .then(response => response.json())
+            .then(response => console.log(response))
+
+    }
+
+    componentWillMount() {
+        this.renderAccount()
+    }
+        
 
     onStarOneClick(nextValue, prevValue, name) {
         this.setState({ratingOne: nextValue});
@@ -81,7 +103,7 @@ class Account extends React.Component {
                                     <img src="img/close.png" alt="close"/>
                                 </div>
                             </div>
-                            <div className="colums has-text-centered collab-bar is-mobile">
+                            <div className="columns has-text-centered collab-bar is-mobile">
                                 <div className="collab-shake column is-2">
                                     <i className="fa fa-handshake-o" aria-hidden="true"></i>
                                 </div>

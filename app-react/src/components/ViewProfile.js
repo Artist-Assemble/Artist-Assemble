@@ -10,7 +10,6 @@ class ViewProfile extends React.Component {
         this.state = {
             ratingOne: 1,
             ratingTwo: 1
-
         };
     }
 
