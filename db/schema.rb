@@ -10,23 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170404152409) do
+ActiveRecord::Schema.define(version: 20170406140300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "collaborations", force: :cascade do |t|
-    t.string   "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "collaborators", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "collaboration_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.index ["collaboration_id"], name: "index_collaborators_on_collaboration_id", using: :btree
+    t.integer  "collaborator_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "status"
     t.index ["user_id"], name: "index_collaborators_on_user_id", using: :btree
   end
 
@@ -70,15 +64,14 @@ ActiveRecord::Schema.define(version: 20170404152409) do
     t.string   "password_digest"
     t.string   "bio"
     t.boolean  "artist",          default: false
-    t.boolean  "producer",         default: false
-    t.boolean  "engineer",         default: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.boolean  "producer",        default: false
+    t.boolean  "engineer",        default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "token"
     t.string   "photo"
   end
 
-  add_foreign_key "collaborators", "collaborations"
   add_foreign_key "collaborators", "users"
   add_foreign_key "ratings", "users"
   add_foreign_key "taggings", "tags"

@@ -11,9 +11,5 @@ class UserSerializer < ActiveModel::Serializer
       attributes :name
     end
 
-  has_many :collaborations
-    class CollaborationSerializer < ActiveModel::Serializer
-      attributes :status
-    end
 
 end
