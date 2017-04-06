@@ -4,6 +4,7 @@ class CollaboratorsController < ApplicationController
 
   def create
     @collab = Collaborator.new(collab_params)
+    render json: @collab
   end
 
   private
