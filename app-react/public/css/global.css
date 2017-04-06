@@ -560,6 +560,7 @@ select {
 .collaborations {
     background-color: rgba(0,0,0,0.5);
     border-radius: 0 5px 5px 0;
+    padding-bottom: 20px;
 }
 
 .collab-h {
@@ -570,16 +571,23 @@ select {
 }
 
 .collab-bar {
-    margin-top: 45px;
+    margin: 20px 10px;
     background: linear-gradient( 45deg, RGBA(140, 146, 252, .3), RGBA(252, 79, 97, .3) );
     border-radius: 5px;
 }
 
+.columns:last-child {
+    margin-bottom: 0 !important;
+}
+
 .collab-shake {
     background-color: #8077C4;
+
+    border-radius: 3px 0 0 3px;
 }
 
 .collab-shake > i {
+    padding-top: 9px;
     color: white;
 } 
 
@@ -591,6 +599,7 @@ select {
 }
 
 .collab-project {
+    padding-top: 7px;
     display: inline-block;
     color: white;
     font-size: 12px;
@@ -605,10 +614,11 @@ select {
 
 .collab-delete {
     background-color: #D24A59;
+    border-radius: 0 3px 3px 0;
 }
 
 .collab-delete img {
-    padding-top: 7px;
+    padding-top: 11px;
     width: 12px;
 }
 
@@ -652,6 +662,7 @@ select {
     background: linear-gradient( 45deg, RGBA(140, 146, 252, .5), RGBA(252, 79, 97, .5));
     border-radius: 3px;
     margin-bottom: 20px;
+    
     cursor: pointer;
     cursor: hand;
 }
@@ -725,17 +736,4 @@ select {
 .rate-track-h1 {
     color: #8077C4;
 }
-
-
-
-
-
-
-
-/*TEMPORARY*/
-
-.temp-spacer {
-    padding: 10px 0;
-}
-
 

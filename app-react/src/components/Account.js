@@ -8,17 +8,7 @@ class Account extends React.Component {
         super();
         this.renderAccount = this.renderAccount.bind(this)
         this.state = {
-            name: '',
-            bio: '',
-            artist: false,
-            producer: false,
-            engineer: false,
-            average_rating: 1,
-            tags: {},
-            collaborators: {},
-            ratings: {},
-            ratingOne: 1,
-            ratingTwo: 1
+            content: []
 
         };
     }
@@ -27,14 +17,15 @@ class Account extends React.Component {
         // console.log(window.user)
         fetch('/api/users/' + window.user.id)
             .then(response => response.json())
-            .then(response => console.log(response))
+            // .then(response => console.log(response))
+            .then(response => this.setState({content: response}))
+            .then(response => console.log(this.state.content))
 
     }
 
     componentWillMount() {
         this.renderAccount()
     }
-        
 
     onStarOneClick(nextValue, prevValue, name) {
         this.setState({ratingOne: nextValue});
@@ -47,7 +38,6 @@ class Account extends React.Component {
 
     render() {
         const { rating } = this.state;
-
         return <div>
             <header>
                 <HeaderSub/>
@@ -58,7 +48,7 @@ class Account extends React.Component {
                         <div className="column is-6">
                             <h1 className="profile-h">profile</h1>
                             <img src="img/profile-default.png" alt="profile default" className="profile-img"/>
-                            <p className="profile-bio bio-container">Hammock culpa odio, 8-bit tacos mlkshk veniam eu. Pour-over marfa stumptown elit vice ugh, cred excepteur. Synth YOLO sustainable non  ugh. Direct trade eu man bun shoreditch chia stumptown.</p>
+                            <p className="profile-bio bio-container">{this.state.content.bio}</p>
                             <div className="ratings1">
                                 <h2 className="rating-h1">my demo: {rating}</h2>
                                 <StarRatingComponent 
@@ -79,12 +69,12 @@ class Account extends React.Component {
                             </div>
                             <div className="tags-cont has-text-centered">
                                 <ul className="tags">
-                                    <li className="tag tag-si">singer/songwriter</li>
-                                    <li className="tag tag-pr">producer</li>
-                                    <li className=" tag tag-en" /*style={{display: 'none'}}*/>engineer</li>
+                                    <li className="tag tag-si" style={ this.state.content.artist ? { display:'inline-flex'} : {display : 'none'}}>singer/songwriter</li>
+                                    <li className="tag tag-pr" style={ this.state.content.producer ? { display:'inline-flex'} : {display : 'none'}}>producer</li>
+                                    <li className=" tag tag-en" style={ this.state.content.engineer ? { display:'inline-flex'} : {display : 'none'}}>engineer</li>
                                 </ul>
                                 <ul className="genres tags">
-                                    <li className="genre tag" /*style={{display: 'none'}}*/>electronic</li>
+                                    <li className="genre tag"></li>
                                 </ul>
                             </div>
                         </div>
@@ -94,12 +84,12 @@ class Account extends React.Component {
                                 <div className="collab-shake column is-2">
                                     <i className="fa fa-handshake-o" aria-hidden="true"></i>
                                 </div>
-                                <div className="column is-8">
+                                <div className="column is-9">
                                     <img src="http://lorempixel.com/400/400/people" className="collab-me" alt="me"/>
                                     <p className="collab-project">you and Dan's project</p>
                                       <img src="http://lorempixel.com/400/400/people" className="collab-you" alt="me"/>
                                 </div>
-                                <div className="collab-delete column is-2">
+                                <div className="collab-delete column is-1">
                                     <img src="img/close.png" alt="close"/>
                                 </div>
                             </div>
@@ -107,12 +97,12 @@ class Account extends React.Component {
                                 <div className="collab-shake column is-2">
                                     <i className="fa fa-handshake-o" aria-hidden="true"></i>
                                 </div>
-                                <div className="column is-8">
+                                <div className="column is-9">
                                     <img src="http://lorempixel.com/400/400/people" className="collab-me" alt="me"/>
                                     <p className="collab-project">you and Michelles's project</p>
                                       <img src="http://lorempixel.com/400/400/people" className="collab-you" alt="me"/>
                                 </div>
-                                <div className="collab-delete column is-2">
+                                <div className="collab-delete column is-1">
                                     <img src="img/close.png" alt="close"/>
                                 </div>
                             </div> 
@@ -125,3 +115,5 @@ class Account extends React.Component {
 }
 
 export default Account
+
+// {this.state.content.tags[0].name}

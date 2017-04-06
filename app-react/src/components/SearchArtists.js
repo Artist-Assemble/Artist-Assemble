@@ -6,12 +6,21 @@ import StarRatingComponent from 'react-star-rating-component';
 class SearchArtists extends React.Component {
      constructor() {
         super();
-
+        this.getArtists = this.getArtists.bind(this)
         this.state = {
+
             ratingOne: 1,
             ratingTwo: 1
 
         };
+    }
+
+    componentWillMount() {
+
+    }
+
+    getArtists() {
+        fetch('api/')
     }
 
     onStarOneClick(nextValue, prevValue, name) {
