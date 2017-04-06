@@ -16,7 +16,6 @@ class SearchArtists extends React.Component {
     }
 
     componentWillMount() {
-
     }
 
     getArtists() {
