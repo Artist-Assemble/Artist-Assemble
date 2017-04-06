@@ -17,6 +17,8 @@ class User < ApplicationRecord
       0
     else
       ratings.average(:demo).round(2)
+    end
+  end
 
   def collab_rating
     if ratings.blank?
