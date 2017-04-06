@@ -96,19 +96,19 @@ class Signup extends React.Component {
                                 <div className="checkboxes">
                                     <p className="control">
                                     <label className="checkbox">
-                                        <input type="checkbox" checked={this.state.artist}/>
+                                        <input type="checkbox" checked={this.state.artist} onClick={()=> this.setState({artist: true})}/>
                                         singer/songwriter
                                     </label>
                                     </p>
                                     <p className="control">
                                         <label className="checkbox">
-                                            <input type="checkbox" checked={this.state.producer}/>
+                                            <input type="checkbox" checked={this.state.producer} onClick={()=> this.setState({producer: true})}/>
                                             producer
                                         </label>
                                     </p>
                                     <p className="control">
                                         <label className="checkbox">
-                                            <input type="checkbox" checked={this.state.engineer}/>
+                                            <input type="checkbox" checked={this.state.engineer} onClick={()=> this.setState({engineer: true})}/>
                                             mix &amp; or mastering engineer
                                         </label>
                                     </p>
@@ -119,7 +119,6 @@ class Signup extends React.Component {
                                 <p className="control">
                                     <span className="select">
                                     <select className="options" onChange={(e)=> this.setState({tag: e.target.value})}>
-                                        <option value="edm" >edm</option>
                                         <option value="electronic">electronic</option>
                                         <option value="rap/hip-hop">rap/hip-hop</option>
                                         <option value="pop">pop</option>

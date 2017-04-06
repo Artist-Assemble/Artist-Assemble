@@ -9,15 +9,17 @@ import SoundcloudAuth from './components/SoundcloudAuth'
 import SearchArtists from './components/SearchArtists'
 import ViewProfile from './components/ViewProfile'
 
+window.user = JSON.parse(sessionStorage.getItem('user'));
+
 ReactDOM.render(
   <Router history={browserHistory}>
     <Route path="/" component={Home} />
-    <Route path="account" component={Account} />
-    <Route path="login" component={Login} />
-    <Route path="signup" component={Signup} />
-    <Route path="searchartists" component={SearchArtists} />
-    <Route path="soundcloudauthenticate" component={SoundcloudAuth} />
-    <Route path="viewprofile" component={ViewProfile} />
+    <Route path="/account" component={Account} />
+    <Route path="/login" component={Login} />
+    <Route path="/signup" component={Signup} />
+    <Route path="/searchartists" component={SearchArtists} />
+    <Route path="/soundcloudauthenticate" component={SoundcloudAuth} />
+    <Route path="/viewprofile" component={ViewProfile} />
   </Router>,
 
   document.getElementById('root')

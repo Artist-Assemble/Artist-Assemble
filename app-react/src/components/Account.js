@@ -3,7 +3,6 @@ import React from 'react'
 import HeaderSub from './HeaderSub'
 import StarRatingComponent from 'react-star-rating-component';
 
-
 class Account extends React.Component {
      constructor() {
         super();
@@ -69,7 +68,7 @@ class Account extends React.Component {
                         </div>
                         <div className="column is-6 collaborations">
                             <h1 className="collab-h">collaborations</h1>
-                            <div className="colums has-text-centered collab-bar is-mobile">
+                            <div className="columns has-text-centered collab-bar is-mobile">
                                 <div className="collab-shake column is-2">
                                     <i className="fa fa-handshake-o" aria-hidden="true"></i>
                                 </div>

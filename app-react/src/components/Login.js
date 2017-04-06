@@ -26,7 +26,15 @@ class Login extends React.Component {
         })
     })
       .then(response => response.json())
-      .then(response => console.log(response));
+      .then(response => {
+          if (response.token) {
+              sessionStorage.setItem('user', JSON.stringify(response))
+              browserHistory.push('/account')
+          }
+          else {
+              alert('Failed to login.')
+          }
+      })
     }
 
     render() {
@@ -64,4 +72,4 @@ class Login extends React.Component {
 
 export default Login
 
-/*onClick={()=> browserHistory.push('/account')}*/
+/*{"id":5,"email":"gabe1331@gmail.com","token":"7fGaymBy48zUoDtiAnW92fzZ"}*/

@@ -24,7 +24,6 @@ class SearchArtists extends React.Component {
 
 
     render() {
-
          const { rating } = this.state;
 
         return <div>
@@ -61,121 +60,122 @@ class SearchArtists extends React.Component {
                 <div className="columns has-text-centered">
                     <div className="column is-offset-2 is-8 is-mobile">
 
-            
-                        <div className="columns result-cont is-mobile vertical">
-                            <div className="column is-3 result-img-cont has-text-centered">
-                                 <img src="http://lorempixel.com/400/400/people" className="result-img" alt="profile"/>
-                            </div>
-                            <div className="column is-4">
-                                <p className="result-name">Steve George</p>
-                                <ul className="tags">
-                                    <li className="tag tag-pr">
-                                        producer
-                                    </li>
-                                    <li className="tag tag-genre">
-                                        edm
-                                    </li>
-                                </ul>
-                            </div>
-                            <div className="column is-3result-ratings-cont">
-                                <p >track:</p>
-                                 <StarRatingComponent 
-                                    name="rate1" 
-                                    starCount={5}
-                                    value={rating}
-                                    onStarOneClick={this.onStarOneClick.bind(this)}
-                                /><br/>
-                                <p>collaborations:</p>
-                                <StarRatingComponent 
-                                    name="rate2" 
-                                    starCount={5}
-                                    value={rating}
-                                    onStarTwoClick={this.onStarTwoClick.bind(this)}
-                                />
-                            </div>
-                            <div className="column is-2">
-                                <div className="shake-cont">
-                                    <i className="fa fa-handshake-o" aria-hidden="true"></i>
+                        <div className="result-cont">
+                            <div className="columns is-mobile vertical">
+                                <div className="column is-3 result-img-cont has-text-centered">
+                                    <img src="http://lorempixel.com/400/400/people" className="result-img" alt="profile"/>
+                                </div>
+                                <div className="column is-4">
+                                    <p className="result-name">Steve George</p>
+                                    <ul className="tags">
+                                        <li className="tag tag-pr">
+                                            producer
+                                        </li>
+                                        <li className="tag tag-genre">
+                                            edm
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div className="column is-3result-ratings-cont">
+                                    <p >track:</p>
+                                    <StarRatingComponent 
+                                        name="rate1" 
+                                        starCount={5}
+                                        value={rating}
+                                        onStarOneClick={this.onStarOneClick.bind(this)}
+                                    /><br/>
+                                    <p>collaborations:</p>
+                                    <StarRatingComponent 
+                                        name="rate2" 
+                                        starCount={5}
+                                        value={rating}
+                                        onStarTwoClick={this.onStarTwoClick.bind(this)}
+                                    />
+                                </div>
+                                <div className="column is-2">
+                                    <div className="shake-cont">
+                                        <i className="fa fa-handshake-o" aria-hidden="true"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="temp-spacer"></div>
-
-                        <div className="columns result-cont is-mobile vertical">
-                            <div className="column is-3 result-img-cont has-text-centered">
-                                 <img src="http://lorempixel.com/400/400/people" className="result-img" alt="profile"/>
-                            </div>
-                            <div className="column is-4">
-                                <p className="result-name">Dan Dingus</p>
-                                <ul className="tags">
-                                    <li className="tag tag-en">
-                                        engineer
-                                    </li>
-                                    <li className="tag tag-genre">
-                                        pop
-                                    </li>
-                                </ul>
-                            </div>
-                            <div className="column is-3result-ratings-cont">
-                                <p >track:</p>
-                                 <StarRatingComponent 
-                                    name="rate1" 
-                                    starCount={5}
-                                    value={rating}
-                                    onStarOneClick={this.onStarOneClick.bind(this)}
-                                /><br/>
-                                <p>collaborations:</p>
-                                <StarRatingComponent 
-                                    name="rate2" 
-                                    starCount={5}
-                                    value={rating}
-                                    onStarTwoClick={this.onStarTwoClick.bind(this)}
-                                />
-                            </div>
-                            <div className="column is-2">
-                                <div className="shake-cont">
-                                    <i className="fa fa-handshake-o" aria-hidden="true"></i>
+                        <div className="result-cont">
+                            <div className="columns is-mobile vertical">
+                                <div className="column is-3 result-img-cont has-text-centered">
+                                    <img src="http://lorempixel.com/400/400/people" className="result-img" alt="profile"/>
+                                </div>
+                                <div className="column is-4">
+                                    <p className="result-name">Dan Dingus</p>
+                                    <ul className="tags">
+                                        <li className="tag tag-en">
+                                            engineer
+                                        </li>
+                                        <li className="tag tag-genre">
+                                            pop
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div className="column is-3result-ratings-cont">
+                                    <p >track:</p>
+                                    <StarRatingComponent 
+                                        name="rate1" 
+                                        starCount={5}
+                                        value={rating}
+                                        onStarOneClick={this.onStarOneClick.bind(this)}
+                                    /><br/>
+                                    <p>collaborations:</p>
+                                    <StarRatingComponent 
+                                        name="rate2" 
+                                        starCount={5}
+                                        value={rating}
+                                        onStarTwoClick={this.onStarTwoClick.bind(this)}
+                                    />
+                                </div>
+                                <div className="column is-2">
+                                    <div className="shake-cont">
+                                        <i className="fa fa-handshake-o" aria-hidden="true"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="temp-spacer"></div>
-
-                        <div className="columns result-cont is-mobile vertical">
-                            <div className="column is-3 result-img-cont has-text-centered">
-                                 <img src="http://lorempixel.com/400/400/people" className="result-img" alt="profile"/>
-                            </div>
-                            <div className="column is-4">
-                                <p className="result-name">Stacy Stace</p>
-                                <ul className="tags">
-                                    <li className="tag tag-si">
-                                        songwriter
-                                    </li>
-                                    <li className="tag tag-genre">
-                                        indie
-                                    </li>
-                                </ul>
-                            </div>
-                            <div className="column is-3result-ratings-cont">
-                                <p >track:</p>
-                                 <StarRatingComponent 
-                                    name="rate1" 
-                                    starCount={5}
-                                    value={rating}
-                                    onStarOneClick={this.onStarOneClick.bind(this)}
-                                /><br/>
-                                <p>collaborations:</p>
-                                <StarRatingComponent 
-                                    name="rate2" 
-                                    starCount={5}
-                                    value={rating}
-                                    onStarTwoClick={this.onStarTwoClick.bind(this)}
-                                />
-                            </div>
-                            <div className="column is-2">
-                                <div className="shake-cont">
-                                    <i className="fa fa-handshake-o" aria-hidden="true"></i>
+                        <div className="result-cont">
+                            <div className="columns is-mobile vertical">
+                                <div className="column is-3 result-img-cont has-text-centered">
+                                    <img src="http://lorempixel.com/400/400/people" className="result-img" alt="profile"/>
+                                </div>
+                                <div className="column is-4">
+                                    <p className="result-name">Stacy Stace</p>
+                                    <ul className="tags">
+                                        <li className="tag tag-si">
+                                            songwriter
+                                        </li>
+                                        <li className="tag tag-genre">
+                                            indie
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div className="column is-3result-ratings-cont">
+                                    <p >track:</p>
+                                    <StarRatingComponent 
+                                        name="rate1" 
+                                        starCount={5}
+                                        value={rating}
+                                        onStarOneClick={this.onStarOneClick.bind(this)}
+                                    /><br/>
+                                    <p>collaborations:</p>
+                                    <StarRatingComponent 
+                                        name="rate2" 
+                                        starCount={5}
+                                        value={rating}
+                                        onStarTwoClick={this.onStarTwoClick.bind(this)}
+                                    />
+                                </div>
+                                <div className="column is-2">
+                                    <div className="shake-cont">
+                                        <i className="fa fa-handshake-o" aria-hidden="true"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
