@@ -74,7 +74,7 @@ class Account extends React.Component {
                                     <li className=" tag tag-en" style={ this.state.content.engineer ? { display:'inline-flex'} : {display : 'none'}}>engineer</li>
                                 </ul>
                                 <ul className="genres tags">
-                                    <li className="genre tag"></li>
+                                    <li className="genre tag">{this.state.content.tags ? this.state.content.tags[0].name : ""}</li>
                                 </ul>
                             </div>
                         </div>

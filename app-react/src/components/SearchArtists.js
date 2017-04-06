@@ -8,7 +8,7 @@ class SearchArtists extends React.Component {
         super();
         this.getArtists = this.getArtists.bind(this)
         this.state = {
-
+            artists: [],
             ratingOne: 1,
             ratingTwo: 1
 
@@ -16,10 +16,15 @@ class SearchArtists extends React.Component {
     }
 
     componentWillMount() {
+        this.getArtists()
     }
 
     getArtists() {
-        fetch('api/')
+        fetch('/api/users')
+        .then(response => response.json())
+        // .then(response => console.log(response))
+        .then(response => this.setState({artists: response}))
+        // .then(response => console.log(this.state.artists))
     }
 
     onStarOneClick(nextValue, prevValue, name) {
@@ -32,7 +37,55 @@ class SearchArtists extends React.Component {
 
 
     render() {
-         const { rating } = this.state;
+        const { rating } = this.state;
+
+        let artists = this.state.artists.map((artist, key) => {
+            return <div className="result-cont" key={key}>
+                <div className="columns is-mobile vertical">
+                    <div className="column is-3 result-img-cont has-text-centered">
+                        <img src="http://lorempixel.com/400/400/people" className="result-img" alt="profile"/>
+                    </div>
+                    <div className="column is-4">
+                        <p className="result-name">{artist.name}</p>
+                        <ul className="tags">
+                            <li className="tag tag-pr" style={ artist.artist ? { display:'inline-flex'} : {display : 'none'}}>
+                                songwriter
+                            </li>
+                            <li className="tag tag-pr" style={ artist.producer ? { display:'inline-flex'} : {display : 'none'}}>
+                                producer
+                            </li>
+                            <li className="tag tag-pr" style={ artist.engineer ? { display:'inline-flex'} : {display : 'none'}}>
+                                engineer
+                            </li>
+                            <li className="tag tag-genre">
+                                {artist.tags ? artist.tags[0].name : ""}
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="column is-3result-ratings-cont">
+                        <p >track:</p>
+                        <StarRatingComponent 
+                            name="rate1" 
+                            starCount={5}
+                            value={rating}
+                            onStarOneClick={this.onStarOneClick.bind(this)}
+                        /><br/>
+                        <p>collaborations:</p>
+                        <StarRatingComponent 
+                            name="rate2" 
+                            starCount={5}
+                            value={rating}
+                            onStarTwoClick={this.onStarTwoClick.bind(this)}
+                        />
+                    </div>
+                    <div className="column is-2">
+                        <div className="shake-cont">
+                            <i className="fa fa-handshake-o" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        })
 
         return <div>
         <header>
@@ -68,7 +121,20 @@ class SearchArtists extends React.Component {
                 <div className="columns has-text-centered">
                     <div className="column is-offset-2 is-8 is-mobile">
 
-                        <div className="result-cont">
+                    {artists}
+
+                    </div>
+                </div>
+            </section>
+        </div>
+        </div>
+    }
+}
+
+export default SearchArtists
+
+
+/*<div className="result-cont">
                             <div className="columns is-mobile vertical">
                                 <div className="column is-3 result-img-cont has-text-centered">
                                     <img src="http://lorempixel.com/400/400/people" className="result-img" alt="profile"/>
@@ -186,15 +252,4 @@ class SearchArtists extends React.Component {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-
-                    </div>
-                </div>
-            </section>
-        </div>
-        </div>
-    }
-}
-
-export default SearchArtists
+                        </div>*/
