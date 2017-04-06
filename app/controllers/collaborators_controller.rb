@@ -4,7 +4,11 @@ class CollaboratorsController < ApplicationController
 
   def create
     @collab = Collaborator.new(collab_params)
-    render json: @collab
+    if @collab.save
+      render json: @collab
+    else
+    render json: @collab.errors.full_messages, status: 400
+    end
   end
 
   private
