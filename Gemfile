@@ -52,8 +52,6 @@ gem 'rails_admin', '~> 1.1.1'
 gem 'active_model_serializers'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'rails_admin', '~> 1.1.1'
-gem 'omniauth', '~> 1.3.1'
-gem 'omniauth-auth0', '~> 1.4.2'
 gem 'rack-cors', :require => 'rack/cors'
 
 

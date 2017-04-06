@@ -3,7 +3,6 @@ class User < ApplicationRecord
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
   has_many :ratings
-  has_many :collaborations, through: :collaborators
   has_many :collaborators
   has_many :messages, dependent: :destroy
 
@@ -14,7 +13,11 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
 
   def average_rating
-    ratings.average(:collab).round(2)
+    if ratings.blank?
+      "No ratings yet."
+    else
+      ratings.average(:collab).round(2)
+    end
   end
 
 end

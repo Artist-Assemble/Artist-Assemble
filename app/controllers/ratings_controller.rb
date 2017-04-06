@@ -1,8 +1,13 @@
 class RatingsController < ApplicationController
 
+  before_action :require_user
+
   def create
     @rating = Rating.new(rating_params)
+    render json: @rating
   end
+
+  #reviewer is current user:
 
   private
 
