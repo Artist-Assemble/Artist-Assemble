@@ -13,7 +13,11 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
 
   def average_rating
-    ratings.average(:collab).round(2)
+    if ratings.blank?
+      "No ratings yet."
+    else
+      ratings.average(:collab).round(2)
+    end
   end
 
 end
