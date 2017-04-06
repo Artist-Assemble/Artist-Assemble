@@ -14,7 +14,7 @@ class User < ApplicationRecord
 
   def average_rating
     if ratings.blank?
-      "No ratings yet."
+      0
     else
       ratings.average(:collab).round(2)
     end
