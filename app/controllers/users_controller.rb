@@ -20,7 +20,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    render json: @user
+    if current_user
+      render json: current_user
+    else
+      render json: @user
+    end
   end
 
   def update
