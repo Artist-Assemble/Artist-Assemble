@@ -5,7 +5,7 @@ import HeaderMin from './HeaderMin'
 class Login extends React.Component {
     constructor(props){
         super(props)
-        this.loginUser.state=this.loginUser.bind(this)
+        this.loginUser = this.loginUser.bind(this)
         this.state = {
             email: '',
             password: ''
@@ -13,7 +13,7 @@ class Login extends React.Component {
     }
 
      loginUser() {
-    console.log(this.state)
+    // console.log(this.state)
     fetch('/api/login',{
         method: 'POST',
         headers: {
@@ -48,7 +48,7 @@ class Login extends React.Component {
                             <div className="field">
                                 <label className="label" id="password">password</label>
                                 <p className="control">
-                                    <input className="input" type="text" onChange={(e)=> this.setState({password: e.target.value})}/>
+                                    <input className="input" type="password" onChange={(e)=> this.setState({password: e.target.value})}/>
                                 </p>
                             </div>
                             <a className="login-go"  onClick={this.loginUser} >

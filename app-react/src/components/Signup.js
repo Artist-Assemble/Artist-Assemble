@@ -76,13 +76,13 @@ class Signup extends React.Component {
                             <div className="field">
                                 <label className="label" id="password">password</label>
                                 <p className="control">
-                                    <input className="input" type="text" onChange={(e)=> this.setState({password: e.target.value})}/>
+                                    <input className="input" type="password" onChange={(e)=> this.setState({password: e.target.value})}/>
                                 </p>
                             </div>
                             <div className="field">
                                 <label className="label" id="re-password">retype password</label>
                                 <p className="control">
-                                    <input className="input" type="text" onChange={(e)=> this.setState({password_confirmation: e.target.value})}/>
+                                    <input className="input" type="password" onChange={(e)=> this.setState({password_confirmation: e.target.value})}/>
                                 </p>
                             </div>
                             <div className="field">
