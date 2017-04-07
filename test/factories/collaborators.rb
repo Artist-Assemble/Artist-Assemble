@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :collaborator do
     user nil
-    collaboration nil
+    collaborator nil
+    status nil
   end
 end
