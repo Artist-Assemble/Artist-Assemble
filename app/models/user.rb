@@ -1,5 +1,8 @@
 class User < ApplicationRecord
 
+  mount_uploader :photo, PhotoUploader
+
+
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
   has_many :ratings, dependent: :destroy
