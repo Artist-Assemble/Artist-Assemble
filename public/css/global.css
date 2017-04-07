@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
 }
+
 img {
     width: 100%;
 }
@@ -24,6 +25,24 @@ body {
     margin: 0 auto;
     max-width: 550px;
 }
+
+.profile-container {
+    margin:0 auto;
+    padding: 45px 30px;
+    max-width: 1500px;
+}
+
+
+.bio-container {
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+.vertical {
+    align-items: center;
+    justify-content: center;
+}
+  
 
 /*header-home*/
 
@@ -85,51 +104,64 @@ header img {
 /*hdr-sub*/
 
 .hdr-img-sub {
-   width: 30vw;
+   width: 45vw;
     max-width: 800px;
     height: auto;
-    margin: 10px 0; 
+    margin: 30px 0;
+    cursor: pointer;
+    cursor: hand;
 }
 
 .hdr-img-min {
     width: 70vw;
     max-width: 800px;
     height: auto;
-    margin: 30px 0; 
+    margin: 30px 0;
+    cursor: pointer;
+    cursor: hand;
 }
 
 .hdr-sub .user {
     padding: 0 5px;
     float: right;
     color: white;
-    margin-top: 10px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    cursor: hand;
 }
 
 .hdr-sub .search-artists {
     padding: 0 5px;
     color: white;
-    margin-top: 16px;
     float: right;
     font-size: 0.75rem;
     letter-spacing: 2px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    cursor: hand;
+
 }
 
 .search-artists > i {
     display: inline-block;
-    margin-top: 4px;
+    padding-top: 4px;
+    cursor: pointer;
+    cursor: hand;
+
 }
 
 .search-artists-mobile > i {
-    /*display: inline-block;*/
+    margin-bottom: 15px;
     padding: 0 5px;
     color: white;
-    margin-top: 10px;
     float: right;
+    cursor: pointer;
+    cursor: hand;
 }
 
 .hdr-sub .logout {
     padding: 0 5px;
-    margin-top: 12px;
+    margin-bottom: 15px;
     float: right !important;
     border: none;
     color: white;
@@ -139,7 +171,6 @@ header img {
 
 .logout:hover {
     padding: 0 5px;
-    margin-top: 12px;
     float: right !important;
     border: none;
     color: white;
@@ -442,5 +473,275 @@ select {
 .sca-link > i {
     padding-top: 4px;
     color: #FF5906;
+}
+
+/*profile*/
+
+.profile-container {
+    padding-bottom: 300px;
+}
+
+.profile {
+    background: linear-gradient( 45deg, RGBA(140, 146, 252, .3), RGBA(252, 79, 97, .3) );
+    border-radius: 5px;
+}
+
+.profile-h {
+    margin-top: 10px;
+    color: white;
+    letter-spacing: 2px;
+    font-size: 22px;
+}
+
+.profile-img {
+    margin-top: 60px;
+    width: 120px;
+    filter: drop-shadow( 1px 1px 3px rgba(0,0,0,0.2));
+    opacity: 0.9;
+}
+
+.profile-bio {
+    margin-top: 30px;
+    color: white;
+    letter-spacing: 2px;
+}
+
+.ratings2 {
+    margin-bottom: 40px;
+}
+
+.rating-h1 {
+    margin-top: 30px;
+    color: #D04C5E
+}
+
+.rating-h2 {
+    color: #D04C5E
+}
+
+.tags-cont {
+    margin-bottom: 10px;
+}
+
+.tags {
+    margin-bottom: 18px;
+}
+.tag {
+    margin: 0 10px;
+    padding: 0 10px;
+}
+
+.tag-si {
+    background-color: #8077C4;
+    color: white;
+}
+
+.tag-pr {
+    background-color: #AB74AC;
+    color: white;
+    padding: 0 14px;
+}
+
+.tag-en {
+    background-color: #D46178;
+    color: white;
+    padding: 0 15px;
+}
+
+.genres {
+    margin-bottom: 10px;
+}
+
+.genre {
+    background-color: white;
+    border-radius: 15px;
+}
+
+/*collaborations*/
+
+.collaborations {
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 0 5px 5px 0;
+    padding-bottom: 20px;
+}
+
+.collab-h {
+    margin-top: 10px;
+    color: white;
+    letter-spacing: 2px;
+    font-size: 22px;
+}
+
+.collab-bar {
+    margin: 20px 10px;
+    background: linear-gradient( 45deg, RGBA(140, 146, 252, .3), RGBA(252, 79, 97, .3) );
+    border-radius: 5px;
+}
+
+.columns:last-child {
+    margin-bottom: 0 !important;
+}
+
+.collab-shake {
+    background-color: #8077C4;
+
+    border-radius: 3px 0 0 3px;
+}
+
+.collab-shake > i {
+    padding-top: 9px;
+    color: white;
+} 
+
+.collab-me {
+    float: left;
+    width: 34px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.collab-project {
+    padding-top: 7px;
+    display: inline-block;
+    color: white;
+    font-size: 12px;
+}
+
+.collab-you {
+    width: 34px;
+    height: auto;
+    border-radius: 50%;
+    float: right;
+}
+
+.collab-delete {
+    background-color: #D24A59;
+    border-radius: 0 3px 3px 0;
+}
+
+.collab-delete img {
+    padding-top: 11px;
+    width: 12px;
+}
+
+/*search artists*/
+
+.search-cont {
+    margin-top: 100px;
+    padding-bottom: 100px;
+}
+
+.search-field {
+    width: 100% !important;
+}
+
+.search-input {
+    border-radius: 3px 0 0 3px !important;
+}
+
+.search-filter {
+    background-color: #D24A59 !important;
+    border: none !important; 
+    color: white !important;
+}
+
+.search-btn {
+    background-color: #8077C4 !important;
+}
+
+.search-btn > i {
+    float: left;
+    padding-right: 5px;
+}
+
+/*search artists*/
+
+.results-cont {
+    padding:20px 20px 200px 20px;
+}
+
+.result-cont {
+    background: linear-gradient( 45deg, RGBA(140, 146, 252, .5), RGBA(252, 79, 97, .5));
+    border-radius: 3px;
+    margin-bottom: 20px;
+    
+    cursor: pointer;
+    cursor: hand;
+}
+
+.result-img {
+    width: 80px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.result-img-cont  {
+    display: inline-block;
+    /*float: left;*/
+    padding-top: 17px;
+    padding-left: 17px;
+}
+
+.search-tag-cont {
+    margin-top: 10px;
+}
+
+.search-tag {
+    margin-top: 7px;
+}
+
+.result-ratings-cont {
+    display: inline-block;
+}
+
+.shake-cont {
+    background-color: #8077C4;
+    border-radius: 3px;
+    cursor: pointer;
+    cursor: hand;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+}
+
+.shake-cont > i {
+    color: white;
+    padding: 25px 0;
+}
+
+.result-name {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: white;
+    letter-spacing: 2px;
+}
+
+/*view profile*/
+
+.back-cont {
+    padding: 50px 0 0 10px;
+}
+
+.back-icon {
+    width: 40px;
+    height: auto;
+    cursor: pointer;
+    cursor: hand;
+}
+
+.view-profile-img {
+    margin-top: 60px;
+    border-radius: 50%;
+    width: 120px;
+    filter: drop-shadow( 1px 1px 3px rgba(0,0,0,0.2));
+    opacity: 0.9;
+}
+
+.rate-cont {
+    margin: 100px 0;
+    border: 1px solid white;
+    padding: 20px;
+}
+
+.rate-track-h1 {
+    color: #8077C4;
 }
 
