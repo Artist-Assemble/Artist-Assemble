@@ -35,7 +35,6 @@ class Account extends React.Component {
         this.setState({rating: nextValue});
     }
 
-
     render() {
         const { rating } = this.state;
         return <div>

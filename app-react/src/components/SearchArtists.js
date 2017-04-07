@@ -38,7 +38,7 @@ class SearchArtists extends React.Component {
 
     render() {
         const { rating } = this.state;
-
+        
         let artists = this.state.artists.map((artist, key) => {
             return <div className="result-cont" key={key}>
                 <div className="columns  vertical">
@@ -86,6 +86,7 @@ class SearchArtists extends React.Component {
                         </div>
                     </div>
                 </div>
+                <div id="waveform"></div>
             </div>
         })
 
