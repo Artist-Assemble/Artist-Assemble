@@ -539,11 +539,13 @@ select {
 .tag-pr {
     background-color: #AB74AC;
     color: white;
+    padding: 0 14px;
 }
 
 .tag-en {
     background-color: #D46178;
     color: white;
+    padding: 0 15px;
 }
 
 .genres {
@@ -668,7 +670,7 @@ select {
 }
 
 .result-img {
-    width: 60px;
+    width: 80px;
     height: auto;
     border-radius: 50%;
 }
@@ -680,7 +682,13 @@ select {
     padding-left: 17px;
 }
 
+.search-tag-cont {
+    margin-top: 10px;
+}
 
+.search-tag {
+    margin-top: 7px;
+}
 
 .result-ratings-cont {
     display: inline-block;
