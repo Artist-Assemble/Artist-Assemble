@@ -45,8 +45,7 @@ class ViewProfile extends React.Component {
                                     name="rate1" 
                                     starCount={5}
                                     value={rating}
-                                    onStarOneClick={this.onStarOneClick.bind(this)}
-                                />
+                                    onStarOneClick={this.onStarOneClick.bind(this)}/>
                             </div>
                             <div  className="ratings2">
                                 <h2 className="rating-h2">collaborations: {rating}</h2>
@@ -54,8 +53,7 @@ class ViewProfile extends React.Component {
                                     name="rate2" 
                                     starCount={5}
                                     value={rating}
-                                    onStarTwoClick={this.onStarTwoClick.bind(this)}
-                                />
+                                    onStarTwoClick={this.onStarTwoClick.bind(this)}/>
                             </div>
                             <div className="tags-cont has-text-centered">
                                 <ul className="tags">
@@ -74,8 +72,7 @@ class ViewProfile extends React.Component {
                                         name="rate1" 
                                         starCount={5}
                                         value={rating}
-                                        onStarOneClick={this.onStarOneClick.bind(this)}
-                                    />
+                                        onStarOneClick={this.onStarOneClick.bind(this)}/>
                                 </div>
                                 <div className="field">
                                     <p className="control">

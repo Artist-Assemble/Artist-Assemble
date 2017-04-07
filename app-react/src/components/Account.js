@@ -34,7 +34,7 @@ class Account extends React.Component {
     onStarTwoClick(nextValue, prevValue, name) {
         this.setState({rating: nextValue});
     }
-
+    
     render() {
         const { rating } = this.state;
         return <div>

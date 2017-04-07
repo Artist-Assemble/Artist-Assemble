@@ -2,6 +2,7 @@ import React from 'react'
 import { browserHistory } from 'react-router'
 import HeaderSub from './HeaderSub'
 import StarRatingComponent from 'react-star-rating-component'
+import Wavesurfer from 'react-wavesurfer'
 
 class SearchArtists extends React.Component {
      constructor() {
@@ -10,13 +11,17 @@ class SearchArtists extends React.Component {
         this.state = {
             artists: [],
             ratingOne: 1,
-            ratingTwo: 1
-
+            ratingTwo: 1,
+            playing: false
         };
     }
 
     componentWillMount() {
         this.getArtists()
+    }
+
+    componentDidMount() {
+        setTimeout(() => this.setState({playing: true}), 1000)
     }
 
     getArtists() {
@@ -38,7 +43,7 @@ class SearchArtists extends React.Component {
 
     render() {
         const { rating } = this.state;
-        
+
         let artists = this.state.artists.map((artist, key) => {
             return <div className="result-cont" key={key}>
                 <div className="columns  vertical">
@@ -86,7 +91,17 @@ class SearchArtists extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div id="waveform"></div>
+                <Wavesurfer
+                    audioFile={'audio/audio.wav'}
+                    playing={this.state.playing}
+                    pos={0}
+                    volume={1}
+                    audioRate={1}
+                    options={{
+                        barWidth: 2,
+                        barHeight: 5
+                    }}
+                />
             </div>
         })
 
@@ -120,11 +135,11 @@ class SearchArtists extends React.Component {
                     </div>
                 </div>
             </section>
-            <section className="results-cont" onClick={()=> browserHistory.push('/viewprofile')}>
+            <section className="results-cont">
                 <div className="columns has-text-centered">
                     <div className="column is-offset-2 is-8">
 
-                    {artists}
+                    {artists[5]}
 
                     </div>
                 </div>
