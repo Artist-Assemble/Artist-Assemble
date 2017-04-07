@@ -51,6 +51,8 @@ gem 'mini_magick'
 gem 'rails_admin', '~> 1.1.1'
 gem 'active_model_serializers'
 gem 'rack-cors', :require => 'rack/cors'
+gem 'pusher'
+gem 'wavesurfer'
 
 
 group :development, :test do
