@@ -130,6 +130,12 @@ class Signup extends React.Component {
                                     </span>
                                 </p>
                             </div>
+                            <div className="field upload-cont">
+                                <label className="label">upload track</label>
+                                <p className="contol">
+                                    <input type="file" className=" uploadFile"/>
+                                </p>
+                            </div>
                             <a className="signup-next" onClick={this.postUser}>
                                 next <i className="fa fa-step-forward" aria-hidden="true"></i>
                             </a>
