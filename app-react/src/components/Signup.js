@@ -66,8 +66,18 @@ class Signup extends React.Component {
     })
       .then(response => response.json())
     //   .then(response => this.setState({user: response}))
-      .then(response => console.log(response))
-      .then(()=> browserHistory.push('/account'))
+    //   .then(response => console.log(response))
+      .then(response => {
+          if (response.token) {
+              sessionStorage.setItem('user', JSON.stringify(response))
+              window.user = JSON.parse(sessionStorage.getItem('user'))
+              browserHistory.push('/account')
+          }
+          else {
+              alert('Failed to login.')
+          }
+      })
+    //   .then(()=> browserHistory.push('/account'))
 }
 
     render() {
