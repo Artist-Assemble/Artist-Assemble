@@ -389,6 +389,17 @@ select {
 
 }
 
+.upload-cont {
+    margin-top: 60px;
+    background-color: RGBA(255, 255, 255, 0.8) !important;
+}
+
+
+
+.upload-cont > input {
+    display: block;
+}
+
 .signup-next {
     display:block;
     padding: 5px 0;
@@ -712,6 +723,22 @@ select {
     margin-bottom: 10px;
     color: white;
     letter-spacing: 2px;
+}
+
+.pause-play-cont {
+    margin: 10px;
+    display: inline-block;
+    border: 1px solid white;
+    padding: 10px 12px 0 15px;
+    border-radius: 3px;
+}
+
+.pause-play-cont > i {
+    color: white;
+}
+
+.pause-play-cont > i:hover {
+    color: white;
 }
 
 /*view profile*/

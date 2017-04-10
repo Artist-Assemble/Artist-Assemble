@@ -2,14 +2,12 @@ import React from 'react'
 // import { browserHistory } from 'react-router'
 import HeaderSub from './HeaderSub'
 import StarRatingComponent from 'react-star-rating-component';
-
 class Account extends React.Component {
      constructor() {
         super();
         this.renderAccount = this.renderAccount.bind(this)
         this.state = {
             content: []
-
         };
     }
 
@@ -34,9 +32,9 @@ class Account extends React.Component {
     onStarTwoClick(nextValue, prevValue, name) {
         this.setState({rating: nextValue});
     }
-
-
+    
     render() {
+
         const { rating } = this.state;
         return <div>
             <header>

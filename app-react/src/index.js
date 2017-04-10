@@ -17,11 +17,15 @@ ReactDOM.render(
     <Route path="/account" component={Account} />
     <Route path="/login" component={Login} />
     <Route path="/signup" component={Signup} />
-    <Route path="/searchartists" component={SearchArtists} />
+    <Route path="/searchartists" component={SearchArtists}/>
+      <Route path="/api/user/:user" component={ViewProfile}/>
     <Route path="/soundcloudauthenticate" component={SoundcloudAuth} />
-    <Route path="/viewprofile" component={ViewProfile} />
   </Router>,
 
   document.getElementById('root')
   
 )
+
+
+
+// <Route path="/viewprofile" component={ViewProfile} />
