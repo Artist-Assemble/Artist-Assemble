@@ -2,12 +2,16 @@ import React from 'react'
 // import { browserHistory } from 'react-router'
 import HeaderSub from './HeaderSub'
 import StarRatingComponent from 'react-star-rating-component';
+
+
 class Account extends React.Component {
      constructor() {
         super();
         this.renderAccount = this.renderAccount.bind(this)
+        this.postPhoto = this.postPhoto.bind(this)
         this.state = {
-            content: []
+            content: [],
+            photo: {}
         };
     }
 
@@ -23,6 +27,15 @@ class Account extends React.Component {
 
     componentWillMount() {
         this.renderAccount()
+    }
+
+    postPhoto() {
+        var data = new FormData()
+        data.append('photo', this.state.photo)
+        fetch('/api/users/' + this.state.content.id, {
+        method: 'PUT',
+        body: data
+        })
     }
 
     onStarOneClick(nextValue, prevValue, name) {
@@ -45,6 +58,12 @@ class Account extends React.Component {
                     <div className="columns has-text-centered profile">
                         <div className="column is-6">
                             <h1 className="profile-h">profile</h1>
+                            <div className="field upload-cont">
+                                <p className="contol">
+                                    <input type="file" className="uploadFile" onChange={(e) => this.setState({photo: e.target.files[0]})}/>
+                                </p>
+                                <a href="#" onClick={this.postPhoto}>upload photo</a>
+                            </div>
                             <img src="img/profile-default.png" alt="profile default" className="profile-img"/>
                             <p className="profile-bio bio-container">{this.state.content.bio}</p>
                             <div className="ratings1">
