@@ -2,6 +2,7 @@ import React from 'react'
 // import ReactDOM from 'react-dom'
 import { browserHistory } from 'react-router'
 import HeaderMin from './HeaderMin'
+import Fetch from 'whatwg-fetch'
 
 
 class Signup extends React.Component {
@@ -20,38 +21,57 @@ class Signup extends React.Component {
       artist: false,
       producer: false,
       engineer: false,
-      tag: ''
+      tag: '',
+      audio: {},
     //   user: {}
     }
 }
 
  postUser() {
     // console.log(this.state)
-    fetch('/api/users',{
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
+    // var input = this.state.audio.url
+
+    var data = new FormData()
+    data.append('audio', this.state.audio)
+    data.append('name', this.state.name)
+    data.append('email', this.state.email)
+    data.append('password', this.state.password)
+    data.append('password_confirmation', this.state.password_confirmation)
+    data.append('bio', this.state.bio)
+    data.append('artist', this.state.artist)
+    data.append('producer', this.state.producer)
+    data.append('engineer', this.state.engineer)
+    data.append('tag', this.state.tag)
+
+    fetch('/api/users', {
+    method: 'POST',
+    body: data
+    // fetch('',{
+        // method: 'POST',
+        // headers: {
+        //     'Content-Type': 'application/json'
+        // },
         
-        body: JSON.stringify({
-            name: this.state.name,
-            email: this.state.email,
-            password: this.state.password,
-            password_confirmation: this.state.password_confirmation,
-            bio: this.state.bio,
-            artist: this.state.artist,
-            producer: this.state.producer,
-            engineer: this.state.engineer,
-            tag: this.state.tag
-        })
+        // body: JSON.stringify({
+        //     name: this.state.name,
+        //     email: this.state.email,
+        //     password: this.state.password,
+        //     password_confirmation: this.state.password_confirmation,
+        //     bio: this.state.bio,
+        //     artist: this.state.artist,
+        //     producer: this.state.producer,
+        //     engineer: this.state.engineer,
+        //     tag: this.state.tag
+        // })
     })
       .then(response => response.json())
     //   .then(response => this.setState({user: response}))
       .then(response => console.log(response))
-      .then(()=> browserHistory.push('/soundcloudauthenticate'))
+      .then(()=> browserHistory.push('/account'))
 }
 
     render() {
+
         return <div>
             <header>
                 <HeaderMin/>
@@ -133,7 +153,7 @@ class Signup extends React.Component {
                             <div className="field upload-cont">
                                 <label className="label">upload track</label>
                                 <p className="contol">
-                                    <input type="file" className=" uploadFile"/>
+                                    <input type="file" className="uploadFile" onChange={(e) => this.setState({audio: e.target.files[0]})}/>
                                 </p>
                             </div>
                             <a className="signup-next" onClick={this.postUser}>

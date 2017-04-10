@@ -2,17 +2,12 @@ import React from 'react'
 // import { browserHistory } from 'react-router'
 import HeaderSub from './HeaderSub'
 import StarRatingComponent from 'react-star-rating-component';
-import ImagesUploader from 'react-images-uploader';
-import 'react-images-uploader/styles.css';
-import 'react-images-uploader/font.css';
-
 class Account extends React.Component {
      constructor() {
         super();
         this.renderAccount = this.renderAccount.bind(this)
         this.state = {
             content: []
-
         };
     }
 
@@ -51,17 +46,6 @@ class Account extends React.Component {
                         <div className="column is-6">
                             <h1 className="profile-h">profile</h1>
                             <img src="img/profile-default.png" alt="profile default" className="profile-img"/>
-                            <ImagesUploader
-                                url="http://localhost:9090/notmultiple"
-                                optimisticPreviews
-                                multiple={false}
-                                onLoadEnd={(err) => {
-                                    if (err) {
-                                        console.error(err);
-                                    }
-                                }}
-                                label="Upload a picture"
-                            />
                             <p className="profile-bio bio-container">{this.state.content.bio}</p>
                             <div className="ratings1">
                                 <h2 className="rating-h1">my demo: {rating}</h2>
