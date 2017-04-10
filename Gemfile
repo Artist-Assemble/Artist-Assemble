@@ -53,6 +53,8 @@ gem 'active_model_serializers'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'pusher'
 gem 'wavesurfer'
+gem 'file_validators'
+
 
 
 group :development, :test do
