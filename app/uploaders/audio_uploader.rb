@@ -10,9 +10,9 @@ class AudioUploader < CarrierWave::Uploader::Base
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
-  def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-  end
+  # def store_dir
+  #   "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  # end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
@@ -37,7 +37,7 @@ class AudioUploader < CarrierWave::Uploader::Base
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_whitelist
-    %w(AIFF WAVE FLAC OGG MP2 MP3 MP4 AAC AMR WMA)
+    %w(aiff wav flac ogg mp2 mp3 mp4 aac amr wma)
   end
 
   # Override the filename of the uploaded files:
