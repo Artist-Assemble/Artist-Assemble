@@ -30,9 +30,10 @@ class Account extends React.Component {
     }
 
     postPhoto() {
+        var user = JSON.parse(sessionStorage.getItem('user'))
         var data = new FormData()
         data.append('photo', this.state.photo)
-        fetch('/api/users/' + this.state.content.id, {
+        fetch('/api/users/' + this.state.content.id + '?token=' + user.token, {
         method: 'PUT',
         body: data
         })
