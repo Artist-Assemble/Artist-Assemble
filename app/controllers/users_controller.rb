@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :find_user, only: [:show, :update]
-  before_action :require_self, only: [:update]
+  before_action :require_user, only: [:update]
 
   def index
     @users = User.all
