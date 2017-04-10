@@ -8,13 +8,7 @@ class ApplicationController < ActionController::Base
 
   def require_user
     unless current_user
-      render json: ["You need to be logged in to do this."], status: 401
-    end
-  end
-
-  def require_self
-    unless current_user
-      render json: ["Keep your hands to yourself."], status: 404
+      render json: ["You need to be logged in to do this."], status: 404
     end
   end
 
