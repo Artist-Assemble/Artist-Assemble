@@ -50,7 +50,7 @@ class Signup extends React.Component {
         // headers: {
         //     'Content-Type': 'application/json'
         // },
-        
+
         // body: JSON.stringify({
         //     name: this.state.name,
         //     email: this.state.email,
@@ -87,7 +87,7 @@ class Signup extends React.Component {
             </header>
             <div className="lines">
                 <section className="container field-container">
-                    <img src="img/close.png" alt="close" className="close" onClick={() => browserHistory.push('/')}/> 
+                    <img src="img/close.png" alt="close" className="close" onClick={() => browserHistory.push('/')}/>
                     <div className="columns has-text-centered is-mobile">
                         <div className="column is-offset-2 is-8 signup-fields">
                             <div className="field">
