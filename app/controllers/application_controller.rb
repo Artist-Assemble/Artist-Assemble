@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_self
-    unless @user = current_user
+    unless current_user
       render json: ["Keep your hands to yourself."], status: 404
     end
   end

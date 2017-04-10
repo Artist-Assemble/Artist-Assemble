@@ -6,7 +6,6 @@ Rails.application.routes.draw do
     resources :collaborators, only: [:create]
     resources :ratings, only: [:create]
 
-
     post '/login' => 'sessions#create'
   end
 
