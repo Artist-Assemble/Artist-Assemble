@@ -2,7 +2,7 @@ import React from 'react'
 // import ReactDOM from 'react-dom'
 import { browserHistory } from 'react-router'
 import HeaderMin from './HeaderMin'
-import Fetch from 'whatwg-fetch'
+// import Fetch from 'whatwg-fetch'
 
 
 class Signup extends React.Component {
@@ -21,7 +21,7 @@ class Signup extends React.Component {
       artist: false,
       producer: false,
       engineer: false,
-      tag: '',
+      tag: 'electronic',
       audio: {},
     //   user: {}
     }
@@ -32,7 +32,6 @@ class Signup extends React.Component {
     // var input = this.state.audio.url
 
     var data = new FormData()
-    data.append('audio', this.state.audio)
     data.append('name', this.state.name)
     data.append('email', this.state.email)
     data.append('password', this.state.password)
@@ -42,6 +41,7 @@ class Signup extends React.Component {
     data.append('producer', this.state.producer)
     data.append('engineer', this.state.engineer)
     data.append('tag', this.state.tag)
+    data.append('audio', this.state.audio)
 
     fetch('/api/users', {
     method: 'POST',
