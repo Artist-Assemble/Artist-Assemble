@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
+  mount_uploader :audio, AudioUploader
 
 
   has_many :taggings, dependent: :destroy
@@ -14,6 +15,9 @@ class User < ApplicationRecord
 
   validates :name, :email, presence: true
   validates :email, uniqueness: true
+
+  validates :photo, optional: true, file_size: { less_than: 2.megabytes, message: "photo should be less than #{count}" }
+  validates :audio, optional: true, file_size: { less_than: 500.megabytes, message: "audio should be less than #{count}" }
 
   def demo_rating
     if ratings.blank?
