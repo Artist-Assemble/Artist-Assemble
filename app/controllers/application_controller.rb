@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_user
-    unless @user = current_user
+    unless current_user
       render json: ["You need to be logged in to do this."], status: 404
     end
   end

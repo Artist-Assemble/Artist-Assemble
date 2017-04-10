@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :find_user, only: [:show, :update]
+  before_action :find_user, only: [:show]
   before_action :require_user, only: [:update]
 
   def index
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update!(user_params)
+    if current_user.update!(user_params)
       render json: @user
     else
       render json: @user.errors.full_messages, status: 400
