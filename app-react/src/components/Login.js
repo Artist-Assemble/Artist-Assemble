@@ -29,6 +29,7 @@ class Login extends React.Component {
       .then(response => {
           if (response.token) {
               sessionStorage.setItem('user', JSON.stringify(response))
+              window.user = JSON.parse(sessionStorage.getItem('user'))
               browserHistory.push('/account')
           }
           else {

@@ -7,6 +7,7 @@ class HeaderSub extends React.Component {
     render() {
         const logout = () => {
             sessionStorage.clear()
+            window.user = {}
             browserHistory.push('/')
         }
         
