@@ -172,5 +172,4 @@ class SearchArtists extends React.Component {
 
 export default SearchArtists
 
-
 // <Link to={'api/user/' + artist.id } key={key}>
