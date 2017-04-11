@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :tags, only: [:show]
     resources :collaborators, only: [:create]
     resources :ratings, only: [:create]
+    resources :messages, only: [:index]
 
     post '/login' => 'sessions#create'
   end
