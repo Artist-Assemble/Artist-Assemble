@@ -7,4 +7,5 @@ CarrierWave.configure do |config|
     region:                'us-east-2'
   }
   config.fog_directory  = 'artist-assemble'                          # required
+  config.fog_public     = true
 end
