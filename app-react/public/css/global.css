@@ -507,6 +507,7 @@ select {
 .profile-img {
     margin-top: 60px;
     width: 120px;
+    border-radius: 50%;
     filter: drop-shadow( 1px 1px 3px rgba(0,0,0,0.2));
     opacity: 0.9;
 }
@@ -705,7 +706,7 @@ select {
     display: inline-block;
 }
 
-.shake-cont {
+.next-cont {
     background-color: #8077C4;
     border-radius: 3px;
     cursor: pointer;
@@ -713,9 +714,11 @@ select {
     box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
 }
 
-.shake-cont > i {
+.next-cont > img {
+    width: 12px;
+    height: auto;
     color: white;
-    padding: 25px 0;
+    padding: 25px 0 18px 0;
 }
 
 .result-name {
@@ -730,7 +733,7 @@ select {
     display: inline-block;
     border: 1px solid white;
     padding: 10px 12px 0 15px;
-    border-radius: 3px;
+    /*border-radius: 3px;*/
 }
 
 .pause-play-cont > i {
@@ -769,6 +772,6 @@ select {
 }
 
 .rate-track-h1 {
-    color: #8077C4;
+    color: white;
 }
 

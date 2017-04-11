@@ -30,7 +30,7 @@ class ViewProfile extends React.Component {
                 <HeaderSub/>
             </header>
             <div className="back-cont" onClick={()=> browserHistory.push('/searchartists')}>
-                <img src="img/back-icon.png" className="back-icon" alt="back"/>
+                <img src="/img/back-icon.png" className="back-icon" alt="back"/>
             </div>
             <div className="lines">
                 <section className="profile-container">

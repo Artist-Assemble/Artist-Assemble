@@ -10,8 +10,10 @@ class Account extends React.Component {
         this.renderAccount = this.renderAccount.bind(this)
         this.postPhoto = this.postPhoto.bind(this)
         this.state = {
-            content: [],
-            photo: {}
+            content: {
+                photo:{url: ''},
+                audio:{url: ''}
+            }
         };
     }
 
@@ -22,7 +24,6 @@ class Account extends React.Component {
             // .then(response => console.log(response))
             .then(response => this.setState({content: response}))
             .then(response => console.log(this.state.content))
-
     }
 
     componentWillMount() {
@@ -30,9 +31,10 @@ class Account extends React.Component {
     }
 
     postPhoto() {
+        var user = JSON.parse(sessionStorage.getItem('user'))
         var data = new FormData()
         data.append('photo', this.state.photo)
-        fetch('/api/users/' + this.state.content.id, {
+        fetch('/api/users/' + this.state.content.id + '?token=' + user.token, {
         method: 'PUT',
         body: data
         })
@@ -64,7 +66,7 @@ class Account extends React.Component {
                                 </p>
                                 <a href="#" onClick={this.postPhoto}>upload photo</a>
                             </div>
-                            <img src="img/profile-default.png" alt="profile default" className="profile-img"/>
+                            <img src={this.state.content.photo.url} alt="profile default" className="profile-img"/>
                             <p className="profile-bio bio-container">{this.state.content.bio}</p>
                             <div className="ratings1">
                                 <h2 className="rating-h1">my demo: {rating}</h2>
