@@ -9,6 +9,7 @@ class Chat extends React.Component {
   }
 
   componentWillMount() {
+    // window.pusherChannel = window.pusher.subscribe('chat_' + this.props.params.collaboration);
     window.pusherChannel.bind('new_message', chat => {
       let chats = this.state.chats
       chats.push(chat)
@@ -17,10 +18,13 @@ class Chat extends React.Component {
   }
 
   render() {
-    let chats = this.state.chats.map((chat, index) => <p key={index} className="notification is-primary">{chat.message}</p>)
+    let chats = this.state.chats.map((chat, index) => <p key={index} className="notification is-primary">{chat.body}</p>)
 
     return <div>
-      {chats}
+      <div className="chats-cont" style={{display: "hidden"}}>
+        {chats}
+      </div>
+      
     </div>
   }
 }
