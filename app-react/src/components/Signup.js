@@ -121,7 +121,7 @@ class Signup extends React.Component {
                                 </p>
                             </div>
                             <div className="field">
-                                <label className="label">I'm a..</label>
+                                <label className="label">Im a..</label>
                                 <div className="checkboxes">
                                     <p className="control">
                                     <label className="checkbox">

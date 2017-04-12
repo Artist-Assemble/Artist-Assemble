@@ -1,6 +1,12 @@
 class Collaboration < ApplicationRecord
   belongs_to :user
+  belongs_to :collaborator, class_name: "User"
 
-  validates :collaborator_id, :status, presence: true
+  has_many :messages
+  
+  validates :collaborator, :status, presence: true
+
+
+
 
 end
