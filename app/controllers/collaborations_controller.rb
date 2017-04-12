@@ -15,6 +15,14 @@ class CollaborationsController < ApplicationController
     end
   end
 
+  def update
+    if current_user.collaborations.update!(collab_params)
+      render json: current_user.collaborations
+    else
+      render json: current_user.collaborations.errors.full_messages
+    end
+  end
+
   private
 
   def collab_params
