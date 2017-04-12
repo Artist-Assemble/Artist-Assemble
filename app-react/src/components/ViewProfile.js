@@ -30,9 +30,14 @@ class ViewProfile extends React.Component {
 
     sendCollab() {
         var user = JSON.parse(sessionStorage.getItem('user'))
-        fetch('/api/collaborations/'+ this.props.params.user + '?token=' + user.token, {
-        method: 'POST',
-        status: true,
+        fetch('/api/collaborations/?token=' + user.token, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({collaborator_id: this.props.params.user,
+            status: true})
         })
     }
 

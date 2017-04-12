@@ -3,8 +3,10 @@ import React from 'react';
 class Chat extends React.Component {
   constructor(props) {
     super(props)
+    this.toggleChat = this.toggleChat.bind(this)
     this.state = {
-      chats: []
+      chats: [],
+      toggled: true
     }
   }
 
@@ -17,16 +19,49 @@ class Chat extends React.Component {
   //   })
   // }
 
+  toggleChat() {
+    if (this.state.toggled === true) {
+      return this.setState({toggled: false})
+    }
+    else if (this.state.toggled === false)
+      return this.setState({toggled: true})
+  }
+
   render() {
-    let toggleChat = {}
+    
     // let chats = this.state.chats.map((chat, index) => <p key={index} className="notification is-primary">{chat.body}</p>)
 
     return <div className="chat-cont">
-      <div className="chats-cont" style={{display: "none"}}>
-        <p>HReprehenderit  glossier pour-over, pok pok meh activated charcoal duis  kale chips.  Etsy ad consectetur, locavore meggings wolf biodiesel pug fap brunch meh.  Hashtag hella food truck placeat, shoreditch ad affogato letterpress leggings officia  chambray reprehenderit  consequat before they sold out.  Dolor  squid organic, chartreuse trust fund truffaut crucifix pabst vero eu  enim distillery kinfolk chillwave banh mi.  Typewriter asymmetrical fanny pack pinterest forage af.  Et migas veniam, blue bottle scenester williamsburg austin anim  food truck.  Cupidatat  delectus magna, cold-pressed cray tattooed sartorial XOXO fixie polaroid.</p>
+      <div className="chats-cont" style={{display: this.state.toggled ? "none" : "block"}}>
+        <div className="columns has-text-centered is-mobile">
+          <div className="column is-4">
+            <ul className="collab-list">
+              <li>pam</li>
+              <li>steve</li>
+              <li>mike</li>
+              <li>Carl</li>
+            </ul>
+          </div>
+          <div className="column is-6">
+            <ul>
+              <li>Hey</li>
+              <li>Hey there!</li>
+            </ul>
+            <div className="field has-addons">
+              <p className="control">
+                <input className="input" type="text" placeholder="message"/>
+              </p>
+              <p className="control">
+                <a className="button is-info chat-send-btn">
+                  send
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
       <div className="chat-btn-cont">
-        <div className="chat-btn has-text-centered" onClick={() => toggleChat}>
+        <div className="chat-btn has-text-centered" onClick={() => this.toggleChat()}>
           <i className="fa fa-handshake-o fa-2x" aria-hidden="true"></i>
         </div>
       </div>

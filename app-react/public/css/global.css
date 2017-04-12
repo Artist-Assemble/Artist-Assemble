@@ -589,9 +589,9 @@ select {
     border-radius: 5px;
 }
 
-.columns:last-child {
+/*.columns:last-child {
     margin-bottom: 0 !important;
-}
+}*/
 
 .collab-shake {
     background-color: #8077C4;
@@ -793,18 +793,20 @@ select {
     right: 0;
     position: fixed;
     z-index: 3000;
-    margin: 0 20px 20px 0;
     cursor: pointer;
     cursor: hand;
 }
 
 .chats-cont {
+    padding: 12px;
+    margin: 0 20px 10px 20px;
     border-radius: 5px 5px 0 5px;
-    margin-bottom: 10px;
     background: linear-gradient( 45deg, RGBA(140, 146, 252, .8), RGBA(252, 79, 97, .8));
 }
 
 .chat-btn {
+    margin: 0 20px 20px 0;
+    float: right;
     border-radius: 50%;
     background-color: #8077C4;
     width: 60px;
@@ -815,4 +817,12 @@ select {
 .chat-btn > i {
     margin-top: 14px;
     color: white;
+}
+
+.collab-list > li {
+    border: 1px solid #626262;
+}
+
+.chat-send-btn {
+    background-color: #8077C4 !important;
 }
