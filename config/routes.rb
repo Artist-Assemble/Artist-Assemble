@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   scope :api do
     resources :users
     resources :tags, only: [:show]
-    resources :collaborations, only: [:index, :create] do
+    resources :collaborations, only: [:index, :create, :update] do
       resources :messages, only: [:index, :create]
     end
     resources :ratings, only: [:create]
