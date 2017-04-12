@@ -30,10 +30,9 @@ class ViewProfile extends React.Component {
 
     sendCollab() {
         var user = JSON.parse(sessionStorage.getItem('user'))
-        fetch('/api/users/' + '?token=' + user.token, {
-        method: 'PUT',
+        fetch('/api/collaborations/'+ this.props.params.user + '?token=' + user.token, {
+        method: 'POST',
         status: true,
-        callaborate_id: this.props.params.id
         })
     }
 
@@ -94,7 +93,7 @@ class ViewProfile extends React.Component {
                                 </ul>
                             </div>
                             <div className="userP-collab-cont has-text-centered">
-                                <a href="#" className="button is-primary is-large userP-collab-btn" onClick={this.sendCollab()}>
+                                <a href="#" className="button is-primary is-large userP-collab-btn" onClick={() => this.sendCollab()}>
                                     <i className="fa fa-handshake-o" aria-hidden="true"></i>
                                 </a>
                             </div>
