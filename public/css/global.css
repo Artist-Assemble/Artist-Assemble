@@ -43,7 +43,6 @@ body {
     justify-content: center;
 }
   
-
 /*header-home*/
 
 header {
@@ -507,6 +506,7 @@ select {
 .profile-img {
     margin-top: 60px;
     width: 120px;
+    border-radius: 50%;
     filter: drop-shadow( 1px 1px 3px rgba(0,0,0,0.2));
     opacity: 0.9;
 }
@@ -589,9 +589,9 @@ select {
     border-radius: 5px;
 }
 
-.columns:last-child {
+/*.columns:last-child {
     margin-bottom: 0 !important;
-}
+}*/
 
 .collab-shake {
     background-color: #8077C4;
@@ -675,9 +675,6 @@ select {
     background: linear-gradient( 45deg, RGBA(140, 146, 252, .5), RGBA(252, 79, 97, .5));
     border-radius: 3px;
     margin-bottom: 20px;
-    
-    cursor: pointer;
-    cursor: hand;
 }
 
 .result-img {
@@ -705,7 +702,7 @@ select {
     display: inline-block;
 }
 
-.shake-cont {
+.next-cont {
     background-color: #8077C4;
     border-radius: 3px;
     cursor: pointer;
@@ -713,9 +710,11 @@ select {
     box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
 }
 
-.shake-cont > i {
+.next-cont > img {
+    width: 12px;
+    height: auto;
     color: white;
-    padding: 25px 0;
+    padding: 25px 0 18px 0;
 }
 
 .result-name {
@@ -730,7 +729,9 @@ select {
     display: inline-block;
     border: 1px solid white;
     padding: 10px 12px 0 15px;
-    border-radius: 3px;
+    cursor: pointer;
+    cursor: hand;
+    /*border-radius: 3px;*/
 }
 
 .pause-play-cont > i {
@@ -762,6 +763,19 @@ select {
     opacity: 0.9;
 }
 
+.userP-collab-cont {
+    margin-top: 100px;
+}
+
+.userP-collab-btn {
+    background-color: #8077C4 !important;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+}
+
+.userP-collab-btn > i {
+    padding: 10px 60px;
+}
+
 .rate-cont {
     margin: 100px 0;
     border: 1px solid white;
@@ -769,6 +783,79 @@ select {
 }
 
 .rate-track-h1 {
-    color: #8077C4;
+    color: white;
 }
 
+/*chats*/
+
+.chat-cont {
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    z-index: 3000;
+}
+
+.chats-cont {
+    padding: 12px;
+    margin: 0 80px 10px 80px;
+    border-radius: 5px 5px 0 5px;
+    background: linear-gradient( 45deg, RGBA(140, 146, 252, .8), RGBA(252, 79, 97, .8));
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+}
+
+.chat-btn {
+    margin: 0 20px 20px 0;
+    float: right;
+    border-radius: 50%;
+    background-color: #8077C4;
+    width: 60px;
+    height: 60px;
+    filter: drop-shadow( 1px 1px 3px rgba(0,0,0,0.4));
+    cursor: pointer;
+    cursor: hand;
+}
+
+.chat-btn > i {
+    margin-top: 14px;
+    color: white;
+}
+
+.collab-list > li {
+    border: 1px solid #626262;
+}
+
+.chat-send-btn {
+    background-color: #8077C4 !important;
+}
+
+.msg-cont {
+    max-width: 300px;
+    max-height: 400px;
+    overflow: hidden;
+    overflow-y: auto; 
+}
+
+.msg-name {
+    color: white;
+}
+
+.msg-from {
+    margin: 10px 40px 10px 0;
+    color: white;
+    background-color: RGBA(255, 255, 255, 0.3);
+    border-radius: 12px;
+}
+
+.msg-to {
+    margin: 10px 0 10px 40px;
+    color: white;
+    background-color: RGBA(128, 119, 196, 0.6);
+    border-radius: 12px;
+}
+
+.collab-msg-close {
+    width: 15px;
+    height: auto;
+    cursor: pointer;
+    cursor: hand;
+}
