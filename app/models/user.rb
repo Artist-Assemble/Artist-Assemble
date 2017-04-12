@@ -20,18 +20,18 @@ class User < ApplicationRecord
   validates :audio, file_size: { less_than: 500.megabytes, message: "audio should be less than #{count}" }
 
   def demo_rating
-    if ratings.blank?
-      0
-    else
+    if ratings.where("demo is not null").any?
       ratings.average(:demo).round(2)
+    else
+      0
     end
   end
 
   def collab_rating
-    if ratings.blank?
-      0
-    else
+    if ratings.where("collab is not null").any?
       ratings.average(:collab).round(2)
+    else
+      0
     end
   end
 
