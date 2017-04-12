@@ -33,20 +33,29 @@ class Chat extends React.Component {
 
     return <div className="chat-cont">
       <div className="chats-cont" style={{display: this.state.toggled ? "none" : "block"}}>
-        <div className="columns has-text-centered is-mobile">
-          <div className="column is-4">
-            <ul className="collab-list">
-              <li>pam</li>
-              <li>steve</li>
-              <li>mike</li>
-              <li>Carl</li>
-            </ul>
+        <div className="columns is-mobile">
+          <div className="column is-offset-2 is-8 has-text-centered">
+            <p className="msg-name">Dan</p>
           </div>
-          <div className="column is-6">
-            <ul>
-              <li>Hey</li>
-              <li>Hey there!</li>
-            </ul>
+          <div className="column is-2 msg-close-cont">
+            <img src="img/close.png" alt="close" className="collab-msg-close" onClick={() => this.setState({toggled: true})}/>
+          </div>
+        </div>
+        <div className="columns has-text-centered is-mobile">
+          <div className="column is-12 has-text-centered msg-cont">
+            <p className="msg-from">Hey</p>
+            <p className="msg-to">Hey there!</p>
+            <p className="msg-to">Hey there!</p>
+            <p className="msg-to">Hey there!</p>
+            <p className="msg-to">Hey there!</p>
+            <p className="msg-to">Hey there!</p>
+            <p className="msg-to">Hey there!</p>
+            <p className="msg-to">Hey there!</p>
+            <p className="msg-to">Wow tjasldkgasg a df dfg dfa ga fg a sga fgafg  fg afa s afg adfg a asf af ga fg afg   a fgdsdfgsfd?????? sdf sd f sdh  h f sf gsdfgsdfgsdfg  sdfgsd fg</p>
+          </div>
+        </div>
+        <div className="columns has-text-centered is-mobile">
+          <div className="column is-12 has-text-centered send-cont">
             <div className="field has-addons">
               <p className="control">
                 <input className="input" type="text" placeholder="message"/>
@@ -56,6 +65,12 @@ class Chat extends React.Component {
                   send
                 </a>
               </p>
+            </div>
+            <div className="field collab-upload-cont">
+              <p className="contol">
+                  <input type="file" className="Collab-uploadFile"/>
+              </p>
+              <a href="#">upload file</a>
             </div>
           </div>
         </div>

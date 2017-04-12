@@ -9,12 +9,14 @@ class Account extends React.Component {
      constructor() {
         super();
         this.renderAccount = this.renderAccount.bind(this)
+        this.renderCollaborations = this.renderCollaborations.bind(this)
         this.postPhoto = this.postPhoto.bind(this)
         this.state = {
             content: {
                 photo:{url: ''},
                 audio:{url: ''}
-            }
+            },
+            collaborations: []
         };
     }
 
@@ -27,8 +29,18 @@ class Account extends React.Component {
             .then(response => console.log(this.state.content))
     }
 
+    renderCollaborations() {
+        // console.log(window.user.token)
+        fetch('/api/users/' + window.user.id + '/collaborations?token=' + window.user.token)
+            .then(response => response.json())
+            .then(response => console.log(response))
+            // .then(response => this.setState({collaborations: response}))
+            // .then(response => console.log(this.state.content))
+    }
+
     componentWillMount() {
         this.renderAccount()
+        this.renderCollaborations()
     }
 
     postPhoto() {
@@ -67,7 +79,7 @@ class Account extends React.Component {
                                 </p>
                                 <a href="#" onClick={this.postPhoto}>upload photo</a>
                             </div>
-                            <img src={this.state.content.photo.url} alt="profile default" className="profile-img"/>
+                            <img src={this.state.content.photo.url ?this.state.content.photo.url : "/img/profile-default.png"} alt="profile default" className="profile-img"/>
                             <p className="profile-bio bio-container">{this.state.content.bio}</p>
                             <div className="ratings1">
                                 <h2 className="rating-h1">my demo: {rating}</h2>

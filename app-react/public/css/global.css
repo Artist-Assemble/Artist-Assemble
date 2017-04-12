@@ -793,15 +793,14 @@ select {
     right: 0;
     position: fixed;
     z-index: 3000;
-    cursor: pointer;
-    cursor: hand;
 }
 
 .chats-cont {
     padding: 12px;
-    margin: 0 20px 10px 20px;
+    margin: 0 80px 10px 80px;
     border-radius: 5px 5px 0 5px;
     background: linear-gradient( 45deg, RGBA(140, 146, 252, .8), RGBA(252, 79, 97, .8));
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.4);
 }
 
 .chat-btn {
@@ -811,7 +810,9 @@ select {
     background-color: #8077C4;
     width: 60px;
     height: 60px;
-     filter: drop-shadow( 1px 1px 3px rgba(0,0,0,0.4));
+    filter: drop-shadow( 1px 1px 3px rgba(0,0,0,0.4));
+    cursor: pointer;
+    cursor: hand;
 }
 
 .chat-btn > i {
@@ -825,4 +826,36 @@ select {
 
 .chat-send-btn {
     background-color: #8077C4 !important;
+}
+
+.msg-cont {
+    max-width: 300px;
+    max-height: 400px;
+    overflow: hidden;
+    overflow-y: auto; 
+}
+
+.msg-name {
+    color: white;
+}
+
+.msg-from {
+    margin: 10px 40px 10px 0;
+    color: white;
+    background-color: RGBA(255, 255, 255, 0.3);
+    border-radius: 12px;
+}
+
+.msg-to {
+    margin: 10px 0 10px 40px;
+    color: white;
+    background-color: RGBA(128, 119, 196, 0.6);
+    border-radius: 12px;
+}
+
+.collab-msg-close {
+    width: 15px;
+    height: auto;
+    cursor: pointer;
+    cursor: hand;
 }
