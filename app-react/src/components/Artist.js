@@ -81,27 +81,26 @@ class Artist extends React.Component {
                             onStarTwoClick={this.onStarTwoClick.bind(this)}/>
                     </div>
                     <div className="column is-2">
-                        <Link to={'/user/' + this.props.id }>
+                        <Link to={'/user/' + this.props.id}>
                             <div className="next-cont">
                                 <img src="img/arrow-right.png" alt="view profile"/>
                             </div>
                         </Link>
                     </div>
                 </div>
-                        <Wavesurfer
-                        audioFile={this.props.audio.url ? this.props.audio.url : 'audio/audio.wav'}
-                        pos={this.state.pos}
-                        onPosChange={this.handlePosChange}
-                        playing={this.state.playing}
-                        volume={1}
-                        audioRate={1}
-                        options={{
-                            height: 50,
-                            barWidth: 2,
-                            barHeight: 5,
-                            waveColor: "#FFFFFF"
-                        }}
-                    />
+                    <Wavesurfer
+                    audioFile={this.props.audio.url ? this.props.audio.url : 'audio/audio.wav'}
+                    pos={this.state.pos}
+                    onPosChange={this.handlePosChange}
+                    playing={this.state.playing}
+                    volume={1}
+                    audioRate={1}
+                    options={{
+                        height: 50,
+                        barWidth: 2,
+                        barHeight: 5,
+                        waveColor: "#FFFFFF"
+                    }}/>
                 <div className="pause-play-cont" onClick={() => this.setState({playing: true})}>
                     <i className={this.state.playing ? " fa fa-pause" : "fa fa-play"} aria-hidden="true"></i>
                 </div>

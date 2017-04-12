@@ -21,7 +21,7 @@ class SearchArtists extends React.Component {
         .then(response => response.json())
         // .then(response => console.log(response))
         .then(response => this.setState({artists: response}))
-        .then(response => console.log(this.state.artists))
+        // .then(response => console.log(this.state.artists))
     }
 
     render() {

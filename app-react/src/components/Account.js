@@ -2,6 +2,7 @@ import React from 'react'
 // import { browserHistory } from 'react-router'
 import HeaderSub from './HeaderSub'
 import StarRatingComponent from 'react-star-rating-component';
+import Chat from './Chat'
 
 
 class Account extends React.Component {
@@ -127,6 +128,7 @@ class Account extends React.Component {
                             </div> 
                         </div>
                     </div>
+                    <Chat/>
                 </section>
             </div>
         </div>
