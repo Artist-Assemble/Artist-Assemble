@@ -4,6 +4,7 @@ class CollaborationsController < ApplicationController
 
   def index
     @collabs = current_user.collaborations
+    render json: @collabs
   end
 
   def create
