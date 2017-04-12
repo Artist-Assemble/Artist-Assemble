@@ -20,12 +20,7 @@ ActiveRecord::Schema.define(version: 20170412145905) do
     t.integer  "collaborator_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-<<<<<<< HEAD
-    t.string   "status"
-    t.index ["collaborator_id"], name: "index_collaborations_on_collaborator_id", using: :btree
-=======
     t.boolean  "status"
->>>>>>> d14f4eb9bf081f617dc601eb027d1528a9e93937
     t.index ["user_id"], name: "index_collaborations_on_user_id", using: :btree
   end
 
