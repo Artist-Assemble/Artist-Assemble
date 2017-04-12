@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   scope :api do
-    resources :users
+    resources :users do
+      resources :collaborations, only: [:index, :create, :update]
+    end
     resources :tags, only: [:show]
     resources :collaborations, only: [:index, :create, :update] do
       resources :messages, only: [:index, :create]
