@@ -2,18 +2,25 @@ import React from 'react'
 // import { browserHistory } from 'react-router'
 import HeaderSub from './HeaderSub'
 import StarRatingComponent from 'react-star-rating-component';
+import Chat from './Chat'
+import Collaborations from './Collaborations'
 
 
 class Account extends React.Component {
      constructor() {
         super();
         this.renderAccount = this.renderAccount.bind(this)
+        this.renderCollaborations = this.renderCollaborations.bind(this)
         this.postPhoto = this.postPhoto.bind(this)
+        this.showChat = this.showChat.bind(this)
+
         this.state = {
             content: {
                 photo:{url: ''},
                 audio:{url: ''}
-            }
+            },
+            collaborations: [],
+            currentCollaboration: null
         };
     }
 
@@ -26,8 +33,18 @@ class Account extends React.Component {
             .then(response => console.log(this.state.content))
     }
 
+    renderCollaborations() {
+        // console.log(window.user.token)
+        fetch('/api/users/' + window.user.id + '/collaborations/?token=' + window.user.token)
+            .then(response => response.json())
+            // .then(response => console.log(response))
+            .then(response => this.setState({collaborations: response, currentCollaboration: null}))
+            .then(response => console.log(this.state.collaborations))
+    }
+
     componentWillMount() {
         this.renderAccount()
+        this.renderCollaborations()
     }
 
     postPhoto() {
@@ -47,8 +64,13 @@ class Account extends React.Component {
     onStarTwoClick(nextValue, prevValue, name) {
         this.setState({rating: nextValue});
     }
+
+    showChat(index) {
+        this.setState({currentCollaboration: index})
+    }
     
     render() {
+        let myCollabs = this.state.collaborations.map((collaboration, index) => <Collaborations key={index} index={index} {...collaboration} showChat={this.showChat} />)
 
         const { rating } = this.state;
         return <div>
@@ -66,7 +88,7 @@ class Account extends React.Component {
                                 </p>
                                 <a href="#" onClick={this.postPhoto}>upload photo</a>
                             </div>
-                            <img src={this.state.content.photo.url} alt="profile default" className="profile-img"/>
+                            <img src={this.state.content.photo.url ?this.state.content.photo.url : "/img/profile-default.png"} alt="profile default" className="profile-img"/>
                             <p className="profile-bio bio-container">{this.state.content.bio}</p>
                             <div className="ratings1">
                                 <h2 className="rating-h1">my demo: {rating}</h2>
@@ -99,34 +121,10 @@ class Account extends React.Component {
                         </div>
                         <div className="column is-6 collaborations">
                             <h1 className="collab-h">collaborations</h1>
-                            <div className="columns has-text-centered collab-bar is-mobile">
-                                <div className="collab-shake column is-2">
-                                    <i className="fa fa-handshake-o" aria-hidden="true"></i>
-                                </div>
-                                <div className="column is-9">
-                                    <img src="http://lorempixel.com/400/400/people" className="collab-me" alt="me"/>
-                                    <p className="collab-project">you and Dan's project</p>
-                                      <img src="http://lorempixel.com/400/400/people" className="collab-you" alt="me"/>
-                                </div>
-                                <div className="collab-delete column is-1">
-                                    <img src="img/close.png" alt="close"/>
-                                </div>
-                            </div>
-                            <div className="columns has-text-centered collab-bar is-mobile">
-                                <div className="collab-shake column is-2">
-                                    <i className="fa fa-handshake-o" aria-hidden="true"></i>
-                                </div>
-                                <div className="column is-9">
-                                    <img src="http://lorempixel.com/400/400/people" className="collab-me" alt="me"/>
-                                    <p className="collab-project">you and Michelles's project</p>
-                                      <img src="http://lorempixel.com/400/400/people" className="collab-you" alt="me"/>
-                                </div>
-                                <div className="collab-delete column is-1">
-                                    <img src="img/close.png" alt="close"/>
-                                </div>
-                            </div> 
+                            {myCollabs}
                         </div>
                     </div>
+                    {this.state.currentCollaboration !== null ? <Chat {...this.state.collaborations[this.state.currentCollaboration]} renderCollaborations={this.renderCollaborations} toggled={false} /> : ''}
                 </section>
             </div>
         </div>
@@ -136,3 +134,28 @@ class Account extends React.Component {
 export default Account
 
 // {this.state.content.tags[0].name}
+
+//  <div className="columns has-text-centered collab-bar is-mobile">
+//     <div className="collab-shake column is-2">
+//         <i className="fa fa-handshake-o" aria-hidden="true"></i>
+//     </div>
+//     <div className="column is-9">
+//         <img src="http://lorempixel.com/400/400/people" className="collab-me" alt="me"/>
+//         <p className="collab-project">you and Dan's project</p>
+//           <img src="http://lorempixel.com/400/400/people" className="collab-you" alt="me"/>
+//     </div>
+//     <div className="collab-delete column is-1">
+//         <img src="img/close.png" alt="close"/>
+//     </div>
+// </div>
+
+
+// {
+//     collaborator:{
+//         name: '',
+//         photo: {url: ''},
+//         collaborator_id: ''
+
+//     },
+//     messages: []
+// }

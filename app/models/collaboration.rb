@@ -6,7 +6,4 @@ class Collaboration < ApplicationRecord
   
   validates :collaborator, :status, presence: true
 
-
-
-
 end
