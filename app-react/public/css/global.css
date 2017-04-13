@@ -447,7 +447,7 @@ select {
     color: white;
 }
 
-/*soundcloud-auth*/
+/*soundcloud-auth
 
 
 .orange {
@@ -483,7 +483,7 @@ select {
 .sca-link > i {
     padding-top: 4px;
     color: #FF5906;
-}
+}*/
 
 /*profile*/
 
@@ -573,7 +573,7 @@ select {
 .collaborations {
     background-color: rgba(0,0,0,0.5);
     border-radius: 0 5px 5px 0;
-    padding-bottom: 20px;
+    padding-bottom: 35px;
 }
 
 .collab-h {
@@ -803,6 +803,8 @@ select {
     box-shadow: 1px 1px 5px rgba(0,0,0,0.4);
 }
 
+
+
 .chat-btn {
     margin: 0 20px 20px 0;
     float: right;
@@ -841,19 +843,22 @@ select {
 
 .msg-from {
     margin: 10px 40px 10px 0;
+    padding: 3px;
     color: white;
     background-color: RGBA(255, 255, 255, 0.3);
-    border-radius: 12px;
+    border-radius: 15px;
 }
 
 .msg-to {
     margin: 10px 0 10px 40px;
+    padding: 3px;
     color: white;
-    background-color: RGBA(128, 119, 196, 0.6);
-    border-radius: 12px;
+    background-color: RGBA(128, 119, 196, 0.8);
+    border-radius: 15px;
 }
 
 .collab-msg-close {
+    float: right;
     width: 15px;
     height: auto;
     cursor: pointer;

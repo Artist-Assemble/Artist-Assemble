@@ -31,7 +31,7 @@ class Account extends React.Component {
 
     renderCollaborations() {
         // console.log(window.user.token)
-        fetch('/api/users/' + window.user.id + '/collaborations?token=' + window.user.token)
+        fetch('/api/users/' + window.user.id + '/collaborations/?token=' + window.user.token)
             .then(response => response.json())
             .then(response => console.log(response))
             // .then(response => this.setState({collaborations: response}))

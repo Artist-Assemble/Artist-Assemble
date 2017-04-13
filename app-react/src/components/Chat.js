@@ -33,7 +33,7 @@ class Chat extends React.Component {
 
     return <div className="chat-cont">
       <div className="chats-cont" style={{display: this.state.toggled ? "none" : "block"}}>
-        <div className="columns is-mobile">
+        <div className="columns is-mobile msg-hdr">
           <div className="column is-offset-2 is-8 has-text-centered">
             <p className="msg-name">Dan</p>
           </div>
@@ -51,7 +51,7 @@ class Chat extends React.Component {
             <p className="msg-to">Hey there!</p>
             <p className="msg-to">Hey there!</p>
             <p className="msg-to">Hey there!</p>
-            <p className="msg-to">Wow tjasldkgasg a df dfg dfa ga fg a sga fgafg  fg afa s afg adfg a asf af ga fg afg   a fgdsdfgsfd?????? sdf sd f sdh  h f sf gsdfgsdfgsdfg  sdfgsd fg</p>
+            <p className="msg-from">Wow tjasldkgasg a df dfg dfa ga fg a sga fgafg  fg afa s afg adfg a asf af ga fg afg   a fgdsdfgsfd?????? sdf sd f sdh  h f sf gsdfgsdfgsdfg  sdfgsd fg</p>
           </div>
         </div>
         <div className="columns has-text-centered is-mobile">
@@ -73,6 +73,7 @@ class Chat extends React.Component {
               <a href="#">upload file</a>
             </div>
           </div>
+          
         </div>
       </div>
       <div className="chat-btn-cont">
@@ -87,3 +88,7 @@ class Chat extends React.Component {
 export default Chat
 
 // {chats}
+
+// <div className="column is-1 attatch-cont">  
+//    <img src="/img/attachment.png" className="attatchment" alt="upload attatchment"/>
+// </div>
