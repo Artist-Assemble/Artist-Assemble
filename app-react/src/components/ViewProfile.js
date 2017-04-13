@@ -2,23 +2,76 @@ import React from 'react'
 import { browserHistory } from 'react-router'
 import HeaderSub from './HeaderSub'
 import StarRatingComponent from 'react-star-rating-component';
+import Wavesurfer from 'react-wavesurfer'
 
 class ViewProfile extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props)
+        this.renderAccount = this.renderAccount.bind(this)
+        this.sendCollab = this.sendCollab.bind(this)
+        this.handleTogglePlay = this.handleTogglePlay.bind(this)
+        this.handlePosChange = this.handlePosChange.bind(this)
 
         this.state = {
+            userProfile: {
+                photo:{url: ''},
+                audio:{url: ''}
+            },
             ratingOne: 1,
-            ratingTwo: 1
+            ratingTwo: 1,
+            rateTrack: 1,
+            playing: false,
+            pos: 0
         };
     }
 
-    onStarOneClick(nextValue, prevValue, name) {
-        this.setState({ratingOne: nextValue});
+    renderAccount() {  
+        // console.log(window.user)
+        fetch('/api/users/' + this.props.params.user)
+            .then(response => response.json())
+            // .then(response => console.log(response))
+            .then(response => this.setState({userProfile: response}))
+            .then(response => console.log(this.state.userProfile))
     }
 
-    onStarTwoClick(nextValue, prevValue, name) {
-        this.setState({rating: nextValue});
+    sendCollab() {
+        var user = JSON.parse(sessionStorage.getItem('user'))
+        fetch('/api/collaborations/?token=' + user.token, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({collaborator_id: this.props.params.user,
+            status: true})
+        })
+    }
+
+    componentWillMount() {
+        this.renderAccount()
+    }
+
+    // onStarOneClick(nextValue, prevValue, name) {
+    //     this.setState({ratingOne: nextValue});
+    // }
+
+    // onStarTwoClick(nextValue, prevValue, name) {
+    //     this.setState({ratingTwo: nextValue});
+    // }
+
+    onRateTrackClick(nextValue, prevValue, name) {
+        this.setState({rateTrack: nextValue});
+        console.log(this.state.rateTrack)
+    }
+
+    handleTogglePlay() {
+        this.setState({playing: !this.state.playing});
+    }
+
+    handlePosChange(e) {
+        this.setState({
+        pos: e.originalArgs[0]
+        });
     }
 
     render() {
@@ -36,16 +89,17 @@ class ViewProfile extends React.Component {
                 <section className="profile-container">
                     <div className="columns has-text-centered profile">
                         <div className="column is-offset-2 is-8">
-                            <h1 className="profile-h">Dingle Dan</h1>
-                            <img src="http://lorempixel.com/400/400/people" alt="profile default" className="view-profile-img"/>
-                            <p className="profile-bio bio-container">Hammock culpa odio, 8-bit tacos mlkshk veniam eu. Pour-over marfa stumptown elit vice ugh, cred excepteur. Synth YOLO sustainable non  ugh. Direct trade eu man bun shoreditch chia stumptown.</p>
+                            <h1 className="profile-h">{this.state.userProfile.name}</h1>
+                            <img src={this.state.userProfile.photo.url ? this.state.userProfile.photo.url : "/img/user-default.png"} alt="profile default" className="view-profile-img"/>
+                            <p className="profile-bio bio-container">{this.state.userProfile.bio}</p>
                             <div className="ratings1">
                                 <h2 className="rating-h1">demo: {rating}</h2>
                                 <StarRatingComponent 
                                     name="rate1" 
                                     starCount={5}
                                     value={rating}
-                                    onStarOneClick={this.onStarOneClick.bind(this)}/>
+                                    className="rater"
+                                    />
                             </div>
                             <div  className="ratings2">
                                 <h2 className="rating-h2">collaborations: {rating}</h2>
@@ -53,26 +107,50 @@ class ViewProfile extends React.Component {
                                     name="rate2" 
                                     starCount={5}
                                     value={rating}
-                                    onStarTwoClick={this.onStarTwoClick.bind(this)}/>
+                                    className="rater"
+                                    />
                             </div>
                             <div className="tags-cont has-text-centered">
                                 <ul className="tags">
-                                    <li className="tag tag-si">singer/songwriter</li>
-                                    <li className="tag tag-pr">producer</li>
-                                    <li className=" tag tag-en" /*style={{display: 'none'}}*/>engineer</li>
+                                    <li className="tag tag-si" style={ this.state.userProfile.artist ? { display:'inline-flex'} : {display : 'none'}}>singer/songwriter</li>
+                                    <li className="tag tag-pr" style={ this.state.userProfile.producer ? { display:'inline-flex'} : {display : 'none'}}>producer</li>
+                                    <li className=" tag tag-en" style={ this.state.userProfile.engineer ? { display:'inline-flex'} : {display : 'none'}}>engineer</li>
                                 </ul>
                                 <ul className="genres tags">
-                                    <li className="genre tag" /*style={{display: 'none'}}*/>electronic</li>
+                                    <li className="genre tag">{this.state.userProfile.tags ? this.state.userProfile.tags[0].name : ""}</li>
                                 </ul>
+                            </div>
+                            <div className="profile-audio-cont">
+                                 <Wavesurfer
+                                    audioFile={this.state.userProfile.audio.url}
+                                    pos={this.state.pos}
+                                    onPosChange={this.handlePosChange}
+                                    playing={this.state.playing}
+                                    volume={1}
+                                    audioRate={1}
+                                    options={{
+                                        height: 50,
+                                        barWidth: 2,
+                                        barHeight: 5,
+                                        waveColor: "#FFFFFF"
+                                    }}/>
+                            </div>
+                            <div className="pause-play-cont" onClick={() => this.setState({playing: true})}>
+                                <i className={this.state.playing ? " fa fa-pause" : "fa fa-play"} aria-hidden="true"></i>
+                            </div>
+                            <div className="userP-collab-cont has-text-centered">
+                                <a href="#" className="button is-primary is-large userP-collab-btn" onClick={() => this.sendCollab()}>
+                                    <i className="fa fa-handshake-o" aria-hidden="true"></i>
+                                </a>
                             </div>
                             <div className="rate-cont">
                                  <div className="ratings1">
                                     <h2 className="rate-track-h1">rate their track!{rating}</h2>
                                     <StarRatingComponent 
-                                        name="rate1" 
+                                        name="rate3" 
                                         starCount={5}
                                         value={rating}
-                                        onStarOneClick={this.onStarOneClick.bind(this)}/>
+                                        onRateTrackClick={this.onRateTrackClick.bind(this)}/>
                                 </div>
                                 <div className="field">
                                     <p className="control">
