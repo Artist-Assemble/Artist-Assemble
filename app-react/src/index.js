@@ -14,7 +14,7 @@ import ViewCollaborations from './components/ViewCollaborations'
 window.user = JSON.parse(sessionStorage.getItem('user'));
 
 // Pusher global setup
-// window.Pusher.logToConsole = true;
+window.Pusher.logToConsole = true;
 window.pusher = new window.Pusher('14484d3cca04e223ce31', {encrypted: true});
 
 ReactDOM.render(

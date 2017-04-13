@@ -517,7 +517,16 @@ select {
     letter-spacing: 2px;
 }
 
+.rater {
+    cursor: default !important;
+}
+
+.ratings1 {
+    cursor: default;
+}
+
 .ratings2 {
+    cursor: default;
     margin-bottom: 40px;
 }
 
@@ -764,7 +773,7 @@ select {
 }
 
 .userP-collab-cont {
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .userP-collab-btn {
@@ -776,8 +785,12 @@ select {
     padding: 10px 60px;
 }
 
+.profile-audio-cont {
+    margin-top: 50px;
+}
+
 .rate-cont {
-    margin: 100px 0;
+    margin: 50px 0;
     border: 1px solid white;
     padding: 20px;
 }
@@ -832,7 +845,7 @@ select {
 
 .msg-cont {
     max-width: 300px;
-    max-height: 400px;
+    height: 400px;
     overflow: hidden;
     overflow-y: auto; 
 }

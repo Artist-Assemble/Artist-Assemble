@@ -2,12 +2,15 @@ import React from 'react'
 import { browserHistory } from 'react-router'
 import HeaderSub from './HeaderSub'
 import StarRatingComponent from 'react-star-rating-component';
+import Wavesurfer from 'react-wavesurfer'
 
 class ViewProfile extends React.Component {
     constructor(props) {
         super(props)
         this.renderAccount = this.renderAccount.bind(this)
         this.sendCollab = this.sendCollab.bind(this)
+        this.handleTogglePlay = this.handleTogglePlay.bind(this)
+        this.handlePosChange = this.handlePosChange.bind(this)
 
         this.state = {
             userProfile: {
@@ -15,7 +18,10 @@ class ViewProfile extends React.Component {
                 audio:{url: ''}
             },
             ratingOne: 1,
-            ratingTwo: 1
+            ratingTwo: 1,
+            rateTrack: 1,
+            playing: false,
+            pos: 0
         };
     }
 
@@ -45,12 +51,27 @@ class ViewProfile extends React.Component {
         this.renderAccount()
     }
 
-    onStarOneClick(nextValue, prevValue, name) {
-        this.setState({ratingOne: nextValue});
+    // onStarOneClick(nextValue, prevValue, name) {
+    //     this.setState({ratingOne: nextValue});
+    // }
+
+    // onStarTwoClick(nextValue, prevValue, name) {
+    //     this.setState({ratingTwo: nextValue});
+    // }
+
+    onRateTrackClick(nextValue, prevValue, name) {
+        this.setState({rateTrack: nextValue});
+        console.log(this.state.rateTrack)
     }
 
-    onStarTwoClick(nextValue, prevValue, name) {
-        this.setState({rating: nextValue});
+    handleTogglePlay() {
+        this.setState({playing: !this.state.playing});
+    }
+
+    handlePosChange(e) {
+        this.setState({
+        pos: e.originalArgs[0]
+        });
     }
 
     render() {
@@ -77,7 +98,8 @@ class ViewProfile extends React.Component {
                                     name="rate1" 
                                     starCount={5}
                                     value={rating}
-                                    onStarOneClick={this.onStarOneClick.bind(this)}/>
+                                    className="rater"
+                                    />
                             </div>
                             <div  className="ratings2">
                                 <h2 className="rating-h2">collaborations: {rating}</h2>
@@ -85,7 +107,8 @@ class ViewProfile extends React.Component {
                                     name="rate2" 
                                     starCount={5}
                                     value={rating}
-                                    onStarTwoClick={this.onStarTwoClick.bind(this)}/>
+                                    className="rater"
+                                    />
                             </div>
                             <div className="tags-cont has-text-centered">
                                 <ul className="tags">
@@ -97,6 +120,24 @@ class ViewProfile extends React.Component {
                                     <li className="genre tag">{this.state.userProfile.tags ? this.state.userProfile.tags[0].name : ""}</li>
                                 </ul>
                             </div>
+                            <div className="profile-audio-cont">
+                                 <Wavesurfer
+                                    audioFile={this.state.userProfile.audio.url}
+                                    pos={this.state.pos}
+                                    onPosChange={this.handlePosChange}
+                                    playing={this.state.playing}
+                                    volume={1}
+                                    audioRate={1}
+                                    options={{
+                                        height: 50,
+                                        barWidth: 2,
+                                        barHeight: 5,
+                                        waveColor: "#FFFFFF"
+                                    }}/>
+                            </div>
+                            <div className="pause-play-cont" onClick={() => this.setState({playing: true})}>
+                                <i className={this.state.playing ? " fa fa-pause" : "fa fa-play"} aria-hidden="true"></i>
+                            </div>
                             <div className="userP-collab-cont has-text-centered">
                                 <a href="#" className="button is-primary is-large userP-collab-btn" onClick={() => this.sendCollab()}>
                                     <i className="fa fa-handshake-o" aria-hidden="true"></i>
@@ -106,10 +147,10 @@ class ViewProfile extends React.Component {
                                  <div className="ratings1">
                                     <h2 className="rate-track-h1">rate their track!{rating}</h2>
                                     <StarRatingComponent 
-                                        name="rate1" 
+                                        name="rate3" 
                                         starCount={5}
                                         value={rating}
-                                        onStarOneClick={this.onStarOneClick.bind(this)}/>
+                                        onRateTrackClick={this.onRateTrackClick.bind(this)}/>
                                 </div>
                                 <div className="field">
                                     <p className="control">

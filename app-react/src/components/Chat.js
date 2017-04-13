@@ -4,20 +4,56 @@ class Chat extends React.Component {
   constructor(props) {
     super(props)
     this.toggleChat = this.toggleChat.bind(this)
+    this.close = this.close.bind(this)
+    this.sendMessage = this.sendMessage.bind(this)
+    this.setupPusher = this.setupPusher.bind(this)
+
     this.state = {
-      chats: [],
-      toggled: true
+      chats: props.messages,
+      toggled: props.toggled || false,
+      message: ''
     }
   }
 
-  // componentWillMount() {
-  //   window.pusherChannel = window.pusher.subscribe('chat_' + this.props.params.collaboration);
-  //   window.pusherChannel.bind('new_message', chat => {
-  //     let chats = this.state.chats
-  //     chats.push(chat)
-  //     this.setState({chats: chats})
-  //   })
-  // }
+  componentWillMount(props) {
+    this.setupPusher(this.props)
+  }
+
+  componentWillReceiveProps(props) {
+    this.setState({toggled: props.toggled || false, chats: props.messages})
+    this.setupPusher(props)
+  }
+
+  setupPusher(props) {
+    window.pusherChannel = window.pusher.subscribe('chat_' + props.id);
+    window.pusherChannel.bind('new_message', chat => {
+      let chats = this.state.chats
+      chats.push(chat)
+
+      this.setState({chats: chats})
+    })
+  }
+  
+  close() {
+    this.setState({toggled: true})
+    this.props.renderCollaborations()
+  }
+
+  sendMessage() {
+      fetch('/api/collaborations/' + this.props.id + '/messages',{
+        method: 'POST', 
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        
+        body: JSON.stringify({
+            body: this.state.message,
+            token: window.user.token
+        })
+      })
+      .then(response => response.json())
+      // .then(response => {console.log(response)})
+  }
 
   toggleChat() {
     if (this.state.toggled === true) {
@@ -28,40 +64,31 @@ class Chat extends React.Component {
   }
 
   render() {
-    
-    // let chats = this.state.chats.map((chat, index) => <p key={index} className="notification is-primary">{chat.body}</p>)
+    let chats = this.state.chats.map((chat, index) => <p key={index} className={chat.user_id === window.user.id ? "msg-from" : "msg-to"}>{chat.body || '-'}</p>)
 
     return <div className="chat-cont">
       <div className="chats-cont" style={{display: this.state.toggled ? "none" : "block"}}>
         <div className="columns is-mobile msg-hdr">
           <div className="column is-offset-2 is-8 has-text-centered">
-            <p className="msg-name">Dan</p>
+            <p className="msg-name">{this.props.collaborator.name}</p>
           </div>
           <div className="column is-2 msg-close-cont">
-            <img src="img/close.png" alt="close" className="collab-msg-close" onClick={() => this.setState({toggled: true})}/>
+            <img src="img/close.png" alt="close" className="collab-msg-close" onClick={this.close}/>
           </div>
         </div>
         <div className="columns has-text-centered is-mobile">
           <div className="column is-12 has-text-centered msg-cont">
-            <p className="msg-from">Hey</p>
-            <p className="msg-to">Hey there!</p>
-            <p className="msg-to">Hey there!</p>
-            <p className="msg-to">Hey there!</p>
-            <p className="msg-to">Hey there!</p>
-            <p className="msg-to">Hey there!</p>
-            <p className="msg-to">Hey there!</p>
-            <p className="msg-to">Hey there!</p>
-            <p className="msg-from">Wow tjasldkgasg a df dfg dfa ga fg a sga fgafg  fg afa s afg adfg a asf af ga fg afg   a fgdsdfgsfd?????? sdf sd f sdh  h f sf gsdfgsdfgsdfg  sdfgsd fg</p>
+            {chats.reverse()}
           </div>
         </div>
         <div className="columns has-text-centered is-mobile">
           <div className="column is-12 has-text-centered send-cont">
             <div className="field has-addons">
               <p className="control">
-                <input className="input" type="text" placeholder="message"/>
+                <input className="input" type="text" placeholder="message" onChange={(e) => this.setState({message: e.target.value})}/>
               </p>
               <p className="control">
-                <a className="button is-info chat-send-btn">
+                <a className="button is-info chat-send-btn" onClick={() => this.sendMessage()}>
                   send
                 </a>
               </p>
@@ -76,11 +103,7 @@ class Chat extends React.Component {
           
         </div>
       </div>
-      <div className="chat-btn-cont">
-        <div className="chat-btn has-text-centered" onClick={() => this.toggleChat()}>
-          <i className="fa fa-handshake-o fa-2x" aria-hidden="true"></i>
-        </div>
-      </div>
+     
     </div>
   }
 }
