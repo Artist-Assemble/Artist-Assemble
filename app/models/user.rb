@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
   has_many :ratings, dependent: :destroy
+  has_many :given_ratings, class_name: "Rating", foreign_key: :reviewer
   has_many :collaborations
   has_many :messages, dependent: :destroy
 
