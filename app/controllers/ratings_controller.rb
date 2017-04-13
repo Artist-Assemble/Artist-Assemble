@@ -1,9 +1,10 @@
 class RatingsController < ApplicationController
 
   before_action :require_user
+  before_action :find_user
 
   def create
-    @rating = Rating.new(rating_params)
+    @rating = current_user.given_ratings.new(rating_params)
     if @rating.save
       render json: @rating
     else
@@ -11,12 +12,15 @@ class RatingsController < ApplicationController
     end
   end
 
-  #reviewer is current user:
 
   private
 
   def rating_params
-    params.permit(:user_id, :collab, :review, :reviewer)
+    params.permit(:user_id, :collab, :demo, :review)
+  end
+
+  def find_user
+    @user = User.find(params[:id])
   end
 
 end

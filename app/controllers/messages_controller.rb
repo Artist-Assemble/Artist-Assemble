@@ -5,6 +5,7 @@ class MessagesController < ApplicationController
 
   def index
     @messages = @collaboration.messages
+    render json: @messages
   end
 
   def create

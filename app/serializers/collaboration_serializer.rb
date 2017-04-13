@@ -13,7 +13,7 @@ class CollaborationSerializer < ActiveModel::Serializer
 
   has_many :messages
   class MessageSerializer < ActiveModel::Serializer
-    attributes :id, :collaboration_id, :body, :attachment
+    attributes :id, :collaboration_id, :body, :attachment, :user_id
   end
 
 end
