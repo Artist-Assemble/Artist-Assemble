@@ -132,10 +132,11 @@ class ViewProfile extends React.Component {
                                         height: 50,
                                         barWidth: 2,
                                         barHeight: 5,
-                                        waveColor: "#FFFFFF"
+                                        waveColor: "#FFFFFF",
+                                        backend: 'MediaElement'
                                     }}/>
                             </div>
-                            <div className="pause-play-cont" onClick={() => this.setState({playing: true})}>
+                            <div className="pause-play-cont" onClick={() => this.setState({playing:  !this.state.playing})}>
                                 <i className={this.state.playing ? " fa fa-pause" : "fa fa-play"} aria-hidden="true"></i>
                             </div>
                             <div className="userP-collab-cont has-text-centered">

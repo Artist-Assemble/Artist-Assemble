@@ -101,7 +101,7 @@ class Artist extends React.Component {
                         barHeight: 5,
                         waveColor: "#FFFFFF"
                     }}/>
-                <div className="pause-play-cont" onClick={() => this.setState({playing: true})}>
+                <div className="pause-play-cont" onClick={() => this.setState({playing: !this.state.playing})}>
                     <i className={this.state.playing ? " fa fa-pause" : "fa fa-play"} aria-hidden="true"></i>
                 </div>
             </div>
