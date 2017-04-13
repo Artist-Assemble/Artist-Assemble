@@ -5,13 +5,15 @@ class MessagesController < ApplicationController
 
   def index
     @messages = @collaboration.messages
+    render json: @messages
   end
 
   def create
     @message = @collaboration.messages.new(message_params)
     @message.user = current_user
     if @message.save
-      Pusher.trigger("chat_#{params[:collaboration_id]}", 'new_message', body: params[:message])
+      Pusher.trigger("chat_#{params[:collaboration_id]}", 'new_message', body: params[:body])
+      render json: @message
     else
       render @message.errors.full_messages, status: 400
     end
