@@ -28,8 +28,8 @@ body {
 
 .profile-container {
     margin:0 auto;
-    padding: 45px 30px;
-    max-width: 1500px;
+    padding: 45px 0;
+    max-width: 1000px;
 }
 
 
@@ -530,6 +530,11 @@ select {
     margin-bottom: 40px;
 }
 
+.rating-space {
+    padding: 2px;
+    display: inline-block;
+}
+
 .rating-h1 {
     margin-top: 30px;
     color: #D04C5E
@@ -604,8 +609,16 @@ select {
 
 .collab-shake {
     background-color: #8077C4;
-
     border-radius: 3px 0 0 3px;
+    cursor: pointer;
+    cursor: hand;
+}
+
+.collab-shake:hover {
+    background-color: RGBA(128, 119, 196, 0.6);
+    border-radius: 3px 0 0 3px;
+    cursor: pointer;
+    cursor: hand;
 }
 
 .collab-shake > i {
@@ -637,11 +650,21 @@ select {
 .collab-delete {
     background-color: #D24A59;
     border-radius: 0 3px 3px 0;
+    cursor: pointer;
+    cursor: hand;
+}
+
+.collab-delete:hover {
+    background-color: RGBA(210, 74, 89, 0.6);
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+    cursor: hand;
 }
 
 .collab-delete img {
     padding-top: 11px;
     width: 12px;
+    min-width: 8px !important; 
 }
 
 /*search artists*/
@@ -754,7 +777,7 @@ select {
 /*view profile*/
 
 .back-cont {
-    padding: 50px 0 0 10px;
+    padding: 50px 0 0 0;
 }
 
 .back-icon {
@@ -771,9 +794,12 @@ select {
     filter: drop-shadow( 1px 1px 3px rgba(0,0,0,0.2));
     opacity: 0.9;
 }
+.vp-left {
+    background: linear-gradient( 45deg, RGBA(140, 146, 252, .3), RGBA(252, 79, 97, .3) );
+}
 
 .userP-collab-cont {
-    margin-top: 50px;
+    margin: 20px 0 100px 0;
 }
 
 .userP-collab-btn {
@@ -781,18 +807,39 @@ select {
     box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
 }
 
+
 .userP-collab-btn > i {
     padding: 10px 60px;
 }
 
 .profile-audio-cont {
-    margin-top: 50px;
+    margin-top: 10px;
 }
 
 .rate-cont {
     margin: 50px 0;
-    border: 1px solid white;
     padding: 20px;
+    border: 1px solid white;
+}
+
+.rate-input {
+    max-width: 300px !important;
+}
+
+.rate-btn {
+    margin-top: 10px;
+    background-color: #8077C4 !important;
+    border: none;
+    color: white;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+}
+
+.rate-btn:hover {
+    margin-top: 10px;
+    background-color: #8077C4 !important;
+    border: none;
+    color: white;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
 }
 
 .rate-track-h1 {
@@ -803,15 +850,16 @@ select {
 
 .chat-cont {
     bottom: 0;
-    right: 0;
+    /*margin: 0 auto;*/
+    right: 20px;
     position: fixed;
     z-index: 3000;
 }
 
 .chats-cont {
     padding: 12px;
-    margin: 0 80px 10px 80px;
-    border-radius: 5px 5px 0 5px;
+    margin: 0 auto;
+    border-radius: 5px 5px 0 0;
     background: linear-gradient( 45deg, RGBA(140, 146, 252, .8), RGBA(252, 79, 97, .8));
     box-shadow: 1px 1px 5px rgba(0,0,0,0.4);
 }
@@ -837,6 +885,10 @@ select {
 
 .collab-list > li {
     border: 1px solid #626262;
+}
+
+.msg-input {
+    border-radius: 3px 0 0 3px !important;
 }
 
 .chat-send-btn {
@@ -872,7 +924,7 @@ select {
 
 .collab-msg-close {
     float: right;
-    width: 15px;
+    width: 20px;
     height: auto;
     cursor: pointer;
     cursor: hand;

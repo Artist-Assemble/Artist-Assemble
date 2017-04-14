@@ -17,8 +17,6 @@ class ViewProfile extends React.Component {
                 photo:{url: ''},
                 audio:{url: ''}
             },
-            ratingOne: 1,
-            ratingTwo: 1,
             rateTrack: 1,
             playing: false,
             pos: 0
@@ -51,14 +49,6 @@ class ViewProfile extends React.Component {
         this.renderAccount()
     }
 
-    // onStarOneClick(nextValue, prevValue, name) {
-    //     this.setState({ratingOne: nextValue});
-    // }
-
-    // onStarTwoClick(nextValue, prevValue, name) {
-    //     this.setState({ratingTwo: nextValue});
-    // }
-
     onRateTrackClick(nextValue, prevValue, name) {
         this.setState({rateTrack: nextValue});
         console.log(this.state.rateTrack)
@@ -82,32 +72,42 @@ class ViewProfile extends React.Component {
             <header>
                 <HeaderSub/>
             </header>
-            <div className="back-cont" onClick={()=> browserHistory.push('/searchartists')}>
+            <div className="back-cont profile-container" onClick={()=> browserHistory.push('/searchartists')}>
                 <img src="/img/back-icon.png" className="back-icon" alt="back"/>
             </div>
             <div className="lines">
                 <section className="profile-container">
                     <div className="columns has-text-centered profile">
-                        <div className="column is-offset-2 is-8">
+                        <div className="column is-6">
                             <h1 className="profile-h">{this.state.userProfile.name}</h1>
                             <img src={this.state.userProfile.photo.url ? this.state.userProfile.photo.url : "/img/user-default.png"} alt="profile default" className="view-profile-img"/>
                             <p className="profile-bio bio-container">{this.state.userProfile.bio}</p>
                             <div className="ratings1">
-                                <h2 className="rating-h1">demo: {rating}</h2>
+                                <h2 className="rating-h1">demo:</h2>
                                 <StarRatingComponent 
                                     name="rate1" 
                                     starCount={5}
-                                    value={rating}
-                                    className="rater"
+                                    editing={false}
+                                    renderStarIcon={() => 
+                                        <span className="rating-space">
+                                            <i className="fa fa-circle" aria-hidden="true"></i>
+                                        </span>}
+                                    value={4.5}
+                                    starColor={"#FFFF19"}
                                     />
                             </div>
                             <div  className="ratings2">
-                                <h2 className="rating-h2">collaborations: {rating}</h2>
+                                <h2 className="rating-h2">collaborations:</h2>
                                 <StarRatingComponent 
                                     name="rate2" 
                                     starCount={5}
-                                    value={rating}
-                                    className="rater"
+                                    editing={false}
+                                    renderStarIcon={() => 
+                                        <span className="rating-space">
+                                            <i className="fa fa-circle" aria-hidden="true"></i>
+                                        </span>}
+                                    value={4.5}
+                                    starColor={"#FFFF19"}
                                     />
                             </div>
                             <div className="tags-cont has-text-centered">
@@ -119,6 +119,13 @@ class ViewProfile extends React.Component {
                                 <ul className="genres tags">
                                     <li className="genre tag">{this.state.userProfile.tags ? this.state.userProfile.tags[0].name : ""}</li>
                                 </ul>
+                            </div>
+                        </div>
+                        <div className="column is-6 vp-left">
+                            <div className="userP-collab-cont has-text-centered">
+                                <a href="#" className="button is-primary is-large userP-collab-btn" onClick={() => this.sendCollab()}>
+                                    <i className="fa fa-handshake-o" aria-hidden="true"></i>
+                                </a>
                             </div>
                             <div className="profile-audio-cont">
                                  <Wavesurfer
@@ -132,16 +139,12 @@ class ViewProfile extends React.Component {
                                         height: 50,
                                         barWidth: 2,
                                         barHeight: 5,
-                                        waveColor: "#FFFFFF"
+                                        waveColor: "#FFFFFF",
+                                        backend: 'MediaElement'
                                     }}/>
                             </div>
-                            <div className="pause-play-cont" onClick={() => this.setState({playing: true})}>
+                             <div className="pause-play-cont" onClick={() => this.setState({playing:  !this.state.playing})}>
                                 <i className={this.state.playing ? " fa fa-pause" : "fa fa-play"} aria-hidden="true"></i>
-                            </div>
-                            <div className="userP-collab-cont has-text-centered">
-                                <a href="#" className="button is-primary is-large userP-collab-btn" onClick={() => this.sendCollab()}>
-                                    <i className="fa fa-handshake-o" aria-hidden="true"></i>
-                                </a>
                             </div>
                             <div className="rate-cont">
                                  <div className="ratings1">
@@ -150,12 +153,21 @@ class ViewProfile extends React.Component {
                                         name="rate3" 
                                         starCount={5}
                                         value={rating}
-                                        onRateTrackClick={this.onRateTrackClick.bind(this)}/>
+                                        renderStarIcon={() => 
+                                        <span className="rating-space">
+                                            <i className="fa fa-circle" aria-hidden="true"></i>
+                                        </span>}
+                                        onRateTrackClick={this.onRateTrackClick.bind(this)}
+                                        starColor={"#FFFF19"}
+                                        />
                                 </div>
-                                <div className="field">
-                                    <p className="control">
-                                        <input className="input" type="text" placeholder="leave a comment (optional)"/>
+                                <div className="field rate-field-cont has-text-centered">
+                                    <p className="control rate-field-cont has-text-centered">
+                                    <input className="input" type="text" placeholder="leave a comment (optional)"/>
                                     </p>
+                                    <a className="button rate-btn">
+                                        rate
+                                    </a>
                                 </div>
                             </div>
                         </div>

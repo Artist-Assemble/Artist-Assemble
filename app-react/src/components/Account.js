@@ -13,6 +13,7 @@ class Account extends React.Component {
         this.renderCollaborations = this.renderCollaborations.bind(this)
         this.postPhoto = this.postPhoto.bind(this)
         this.showChat = this.showChat.bind(this)
+        this.deleteCollab = this.deleteCollab.bind(this)
 
         this.state = {
             content: {
@@ -30,7 +31,7 @@ class Account extends React.Component {
             .then(response => response.json())
             // .then(response => console.log(response))
             .then(response => this.setState({content: response}))
-            .then(response => console.log(this.state.content))
+            // .then(response => console.log(this.state.content))
     }
 
     renderCollaborations() {
@@ -57,20 +58,19 @@ class Account extends React.Component {
         })
     }
 
-    onStarOneClick(nextValue, prevValue, name) {
-        this.setState({ratingOne: nextValue});
-    }
-
-    onStarTwoClick(nextValue, prevValue, name) {
-        this.setState({rating: nextValue});
-    }
-
     showChat(index) {
         this.setState({currentCollaboration: index})
     }
+
+    deleteCollab(collabId) {
+        fetch('/api/collaborations/' + collabId + '/?token=' + window.user.token, {
+        method: 'DELETE'})
+            .then(response => response.json())
+            .then(response => console.log(response))
+    }
     
     render() {
-        let myCollabs = this.state.collaborations.map((collaboration, index) => <Collaborations key={index} index={index} {...collaboration} showChat={this.showChat} />)
+        let myCollabs = this.state.collaborations.map((collaboration, index) => <Collaborations key={index} index={index} {...collaboration} showChat={this.showChat} deleteCollab={this.deleteCollab}/>)
 
         const { rating } = this.state;
         return <div>
@@ -95,8 +95,13 @@ class Account extends React.Component {
                                 <StarRatingComponent 
                                     name="rate1" 
                                     starCount={5}
-                                    value={rating}
-                                    onStarOneClick={this.onStarOneClick.bind(this)}
+                                    editing={false}
+                                    renderStarIcon={() => 
+                                        <span className="rating-space">
+                                            <i className="fa fa-circle" aria-hidden="true"></i>
+                                        </span>}
+                                    value={4.5}
+                                    starColor={"#F1FF1C"}
                                 />
                             </div>
                             <div  className="ratings2">
@@ -104,8 +109,13 @@ class Account extends React.Component {
                                 <StarRatingComponent 
                                     name="rate2" 
                                     starCount={5}
-                                    value={rating}
-                                    onStarTwoClick={this.onStarTwoClick.bind(this)}
+                                    editing={false}
+                                    renderStarIcon={() => 
+                                        <span className="rating-space">
+                                            <i className="fa fa-circle" aria-hidden="true"></i>
+                                        </span>}
+                                    value={5}
+                                    starColor={"#F1FF1C"}
                                 />
                             </div>
                             <div className="tags-cont has-text-centered">
@@ -132,30 +142,3 @@ class Account extends React.Component {
 }
 
 export default Account
-
-// {this.state.content.tags[0].name}
-
-//  <div className="columns has-text-centered collab-bar is-mobile">
-//     <div className="collab-shake column is-2">
-//         <i className="fa fa-handshake-o" aria-hidden="true"></i>
-//     </div>
-//     <div className="column is-9">
-//         <img src="http://lorempixel.com/400/400/people" className="collab-me" alt="me"/>
-//         <p className="collab-project">you and Dan's project</p>
-//           <img src="http://lorempixel.com/400/400/people" className="collab-you" alt="me"/>
-//     </div>
-//     <div className="collab-delete column is-1">
-//         <img src="img/close.png" alt="close"/>
-//     </div>
-// </div>
-
-
-// {
-//     collaborator:{
-//         name: '',
-//         photo: {url: ''},
-//         collaborator_id: ''
-
-//     },
-//     messages: []
-// }

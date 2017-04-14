@@ -52,6 +52,7 @@ class Chat extends React.Component {
         })
       })
       .then(response => response.json())
+      this.refs.messageField.value = ''
       // .then(response => {console.log(response)})
   }
 
@@ -63,8 +64,15 @@ class Chat extends React.Component {
       return this.setState({toggled: true})
   }
 
+  _handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      this.sendMessage()
+    }
+  }
+
   render() {
-    let chats = this.state.chats.map((chat, index) => <p key={index} className={chat.user_id === window.user.id ? "msg-from" : "msg-to"}>{chat.body || '-'}</p>)
+
+    let chats = this.state.chats.map((chat, index) => <p key={index} className={chat.user_id === window.user.id ? "msg-to" : "msg-from"}>{chat.body || '-'}</p>)
 
     return <div className="chat-cont">
       <div className="chats-cont" style={{display: this.state.toggled ? "none" : "block"}}>
@@ -78,14 +86,14 @@ class Chat extends React.Component {
         </div>
         <div className="columns has-text-centered is-mobile">
           <div className="column is-12 has-text-centered msg-cont">
-            {chats.reverse()}
+            {chats}
           </div>
         </div>
         <div className="columns has-text-centered is-mobile">
           <div className="column is-12 has-text-centered send-cont">
             <div className="field has-addons">
-              <p className="control">
-                <input className="input" type="text" placeholder="message" onChange={(e) => this.setState({message: e.target.value})}/>
+              <p className="control msg-input">
+                <input className="input msg-input" ref="messageField" type="text" placeholder="message" onChange={(e) => this.setState({message: e.target.value})} onKeyPress={this._handleKeyPress}/>
               </p>
               <p className="control">
                 <a className="button is-info chat-send-btn" onClick={() => this.sendMessage()}>
@@ -93,14 +101,8 @@ class Chat extends React.Component {
                 </a>
               </p>
             </div>
-            <div className="field collab-upload-cont">
-              <p className="contol">
-                  <input type="file" className="Collab-uploadFile"/>
-              </p>
-              <a href="#">upload file</a>
-            </div>
+
           </div>
-          
         </div>
       </div>
      
@@ -114,4 +116,13 @@ export default Chat
 
 // <div className="column is-1 attatch-cont">  
 //    <img src="/img/attachment.png" className="attatchment" alt="upload attatchment"/>
+// </div>
+
+
+
+// <div className="field collab-upload-cont">
+//   <p className="contol">
+//       <input type="file" className="Collab-uploadFile"/>
+//   </p>
+//   <a href="#">upload file</a>
 // </div>
