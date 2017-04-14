@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       resources :collaborations, only: [:index, :create, :update]
     end
     resources :tags, only: [:show]
-    resources :collaborations, only: [:index, :create, :update] do
+    resources :collaborations, only: [:index, :create, :update, :destroy] do
       resources :messages, only: [:index, :create]
     end
     resources :ratings, only: [:create]
