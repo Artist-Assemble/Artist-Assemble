@@ -30,7 +30,7 @@ class Account extends React.Component {
             .then(response => response.json())
             // .then(response => console.log(response))
             .then(response => this.setState({content: response}))
-            .then(response => console.log(this.state.content))
+            // .then(response => console.log(this.state.content))
     }
 
     renderCollaborations() {
@@ -132,30 +132,3 @@ class Account extends React.Component {
 }
 
 export default Account
-
-// {this.state.content.tags[0].name}
-
-//  <div className="columns has-text-centered collab-bar is-mobile">
-//     <div className="collab-shake column is-2">
-//         <i className="fa fa-handshake-o" aria-hidden="true"></i>
-//     </div>
-//     <div className="column is-9">
-//         <img src="http://lorempixel.com/400/400/people" className="collab-me" alt="me"/>
-//         <p className="collab-project">you and Dan's project</p>
-//           <img src="http://lorempixel.com/400/400/people" className="collab-you" alt="me"/>
-//     </div>
-//     <div className="collab-delete column is-1">
-//         <img src="img/close.png" alt="close"/>
-//     </div>
-// </div>
-
-
-// {
-//     collaborator:{
-//         name: '',
-//         photo: {url: ''},
-//         collaborator_id: ''
-
-//     },
-//     messages: []
-// }
