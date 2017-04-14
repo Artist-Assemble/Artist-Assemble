@@ -2,12 +2,8 @@ class CollaborationSerializer < ActiveModel::Serializer
   attributes :id, :user_id, :collaborator_id, :status
 
   has_one :user
-  class UserSerializer < ActiveModel::Serializer
-    attributes :name, :photo
-  end
-
   has_one :collaborator
-  class CollaboratorSerializer < ActiveModel::Serializer
+  class UserSerializer < ActiveModel::Serializer
     attributes :name, :photo
   end
 
