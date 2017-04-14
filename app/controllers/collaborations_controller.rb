@@ -3,7 +3,7 @@ class CollaborationsController < ApplicationController
   before_action :require_user
 
   def index
-    @collabs = User.where(id: current_user.id).includes(:collaborations, :joined_collabs).first
+    @collabs = Collaboration.where("user_id = ? OR collaborator_id = ?", current_user.id, current_user.id)
     render json: @collabs
   end
 
