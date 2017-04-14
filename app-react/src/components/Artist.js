@@ -71,14 +71,26 @@ class Artist extends React.Component {
                         <StarRatingComponent 
                             name="rate1" 
                             starCount={5}
-                            value={rating}
-                            onStarOneClick={this.onStarOneClick.bind(this)}/><br/>
+                            editing={false}
+                            renderStarIcon={() => 
+                                <span className="rating-space">
+                                    <i className="fa fa-circle" aria-hidden="true"></i>
+                                </span>}
+                            value={4.5}
+                            starColor={"#FFFF19"}
+                                    /><br/>
                         <p>collaborations:</p>
                         <StarRatingComponent 
                             name="rate2" 
                             starCount={5}
-                            value={rating}
-                            onStarTwoClick={this.onStarTwoClick.bind(this)}/>
+                            editing={false}
+                            renderStarIcon={() => 
+                                <span className="rating-space">
+                                    <i className="fa fa-circle" aria-hidden="true"></i>
+                                </span>}
+                            value={4.5}
+                            starColor={"#FFFF19"}
+                            />
                     </div>
                     <div className="column is-2">
                         <Link to={'/user/' + this.props.id}>
