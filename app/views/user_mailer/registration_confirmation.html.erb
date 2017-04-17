@@ -1,0 +1,9 @@
+<h1>Helo <%= @user.name %>,</h1>
+
+<p>
+  Thanks for registering! To confirm your registration please click the URL below.
+</p>
+
+<p>
+  <%= confirm_email_user_url(@user.confirm_token) %>
+</p>

@@ -1,5 +1,9 @@
 class User < ApplicationRecord
 
+  before_create :confirmation_token
+
+
+
   mount_uploader :photo, PhotoUploader
   mount_uploader :audio, AudioUploader
 
@@ -35,6 +39,13 @@ class User < ApplicationRecord
       ratings.average(:collab).round(2)
     else
       0
+    end
+  end
+
+  private
+  def confirmation_token
+    if self.confirm_token.blank?
+        self.confirm_token = SecureRandom.urlsafe_base64.to_s
     end
   end
 

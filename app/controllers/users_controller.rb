@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     tag = Tag.find_or_create_by!(name: params[:tag])
     @user.tags << tag
     if @user.save
-      UserMailer.signup(@user).deliver
+      UserMailer.registration_confirmation(@user).deliver
       render json: @user, serializer: UserExtendedSerializer
     else
       render json: @user.errors.full_messages, status: 400
@@ -41,6 +41,19 @@ class UsersController < ApplicationController
     @users = @q.result
     render json: @users
     #?q[artist_true]=true
+  end
+
+  def confirm_email
+    user = User.find_by_confirm_token(params[:id])
+    if user
+      user.email_activate
+      flash[:success] = "Welcome to the Sample App! Your email has been confirmed.
+      Please sign in to continue."
+      redirect_to signin_url
+    else
+      flash[:error] = "Sorry. User does not exist"
+      redirect_to root_url
+    end
   end
 
 

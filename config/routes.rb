@@ -4,7 +4,10 @@ Rails.application.routes.draw do
     resources :users do
       collection do
        match 'search' => 'users#search', via: [:get], as: :search
-     end
+      end
+      member do
+        get :confirm_email
+      end
       resources :collaborations, only: [:index, :create, :update]
     end
     resources :tags, only: [:show]
