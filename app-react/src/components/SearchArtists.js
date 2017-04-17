@@ -31,7 +31,7 @@ class SearchArtists extends React.Component {
         <header>
             <HeaderSub/>
         </header>
-        <div className="lines">
+        <div className="search-lines">
             <section className="search-cont">
                 <div className="columns is-mobile has-text-centered">
                     <div className="column is-offset-3 is-6">

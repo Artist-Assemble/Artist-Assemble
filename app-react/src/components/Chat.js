@@ -52,8 +52,8 @@ class Chat extends React.Component {
         })
       })
       .then(response => response.json())
-      this.refs.messageField.value = ''
       // .then(response => {console.log(response)})
+      this.refs.messageField.value = ''
   }
 
   toggleChat() {
@@ -72,7 +72,12 @@ class Chat extends React.Component {
 
   render() {
 
-    let chats = this.state.chats.map((chat, index) => <p key={index} className={chat.user_id === window.user.id ? "msg-to" : "msg-from"}>{chat.body || '-'}</p>)
+    let chats = this.state.chats.map((chat, index) => (
+        <p key={index} className={chat.user_id === window.user.id ? "msg-to" : "msg-from"}>
+          {chat.body || '-'} 
+        </p>
+      )
+    )
 
     return <div className="chat-cont">
       <div className="chats-cont" style={{display: this.state.toggled ? "none" : "block"}}>

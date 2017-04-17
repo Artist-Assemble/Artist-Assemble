@@ -32,7 +32,6 @@ body {
     max-width: 1000px;
 }
 
-
 .bio-container {
     margin: 0 auto;
     max-width: 400px;
@@ -189,6 +188,12 @@ header img {
 .lines {
     background: url('../img/lines.png');
     background-size: 100% 100%;
+}
+
+.search-lines {
+    background: url('../img/lines.png');
+    background-size: 100% 100%;
+    background-attachment: fixed;
 }
 
 /*sec-top*/
@@ -387,11 +392,11 @@ select {
     background-color: RGBA(255, 255, 255, 0.8) !important;
 
 }
-
+/*
 .upload-cont {
     margin-top: 60px;
     background-color: RGBA(255, 255, 255, 0.8) !important;
-}
+}*/
 
 
 
@@ -492,6 +497,7 @@ select {
 }
 
 .profile {
+    margin: 10px;
     background: linear-gradient( 45deg, RGBA(140, 146, 252, .3), RGBA(252, 79, 97, .3) );
     border-radius: 5px;
 }
@@ -504,11 +510,32 @@ select {
 }
 
 .profile-img {
+    height: 120px;
+    background-size: contain;
+    margin: 0 auto;
     margin-top: 60px;
     width: 120px;
     border-radius: 50%;
     filter: drop-shadow( 1px 1px 3px rgba(0,0,0,0.2));
     opacity: 0.9;
+    overflow: hidden;
+    position: relative;
+}
+
+.profile-img [type=file] {
+    cursor: inherit;
+    display: block;
+    font-size: 999px;
+    filter: alpha(opacity=0);
+    min-height: 100%;
+    min-width: 100%;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: 0;
+    cursor: pointer;
+    cursor: hand;
 }
 
 .profile-bio {
@@ -670,8 +697,7 @@ select {
 /*search artists*/
 
 .search-cont {
-    margin-top: 100px;
-    padding-bottom: 100px;
+    padding: 100px 0;
 }
 
 .search-field {
@@ -817,7 +843,7 @@ select {
 }
 
 .rate-cont {
-    margin: 50px 0;
+    margin: 100px 0 50px 0;
     padding: 20px;
     border: 1px solid white;
 }
