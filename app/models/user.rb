@@ -3,6 +3,8 @@ class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   mount_uploader :audio, AudioUploader
 
+  before_save :downcase_fields
+
 
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
@@ -21,6 +23,10 @@ class User < ApplicationRecord
 
   validates :photo, file_size: { less_than: 2.megabytes, message: "photo should be less than #{count}" }
   validates :audio, file_size: { less_than: 500.megabytes, message: "audio should be less than #{count}" }
+
+  def downcase_fields
+     self.email.downcase
+  end
 
   def demo_rating
     if ratings.where("demo is not null").any?
