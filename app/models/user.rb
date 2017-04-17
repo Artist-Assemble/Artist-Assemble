@@ -30,7 +30,7 @@ class User < ApplicationRecord
 
   def demo_rating
     if ratings.where("demo is not null").any?
-      ratings.average(:demo).round(2)
+      ratings.average(:demo).round(2).to_f
     else
       0
     end
@@ -38,7 +38,7 @@ class User < ApplicationRecord
 
   def collab_rating
     if ratings.where("collab is not null").any?
-      ratings.average(:collab).round(2)
+      ratings.average(:collab).round(2).to_f
     else
       0
     end
