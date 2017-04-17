@@ -36,6 +36,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def search
+    @q = User.ransack(params[:q])
+    @users = @q.result
+    render json: @users
+    #?q[artist_true]=true
+  end
+
 
 
 
