@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     tag = Tag.find_or_create_by!(name: params[:tag])
     @user.tags << tag
     if @user.save
+      UserMailer.signup(@user).deliver
       render json: @user, serializer: UserExtendedSerializer
     else
       render json: @user.errors.full_messages, status: 400
@@ -35,6 +36,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def search
+    @q = User.ransack(params[:q])
+    @users = @q.result
+    render json: @users
+    #?q[artist_true]=true
+  end
+
 
 
 
@@ -45,7 +53,7 @@ class UsersController < ApplicationController
   end
 
   def find_user
-    @user = User.find(params[:id])
+    @user = User.find(id: params[:id])
   end
 
 
