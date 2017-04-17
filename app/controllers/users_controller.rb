@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     tag = Tag.find_or_create_by!(name: params[:tag])
     @user.tags << tag
     if @user.save
+      UserMailer.signup(@user).deliver
       render json: @user, serializer: UserExtendedSerializer
     else
       render json: @user.errors.full_messages, status: 400
