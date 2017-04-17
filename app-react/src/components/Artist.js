@@ -38,7 +38,6 @@ class Artist extends React.Component {
     }
 
     render() {
-        const { rating } = this.state;
 
         return <div className="result-cont">
             <div className="columns  vertical">
@@ -47,13 +46,13 @@ class Artist extends React.Component {
                 </div>
                 <div className="column is-2">
                 <ul className="tags search-tag-cont has-text-centered">
-                        <li className="tag search-tag tag-si" style={ this.props.artist ? { display:'inline-flex'} : {display : 'none'}}>
+                        <li className="tag search-tag tag-si" style={ this.props.artist ? { display:'inline-flex'} : {display: 'none'}}>
                             songwriter
                         </li>
-                        <li className="tag search-tag tag-pr" style={ this.props.producer ? { display:'inline-flex'} : {display :  'none'}}>
+                        <li className="tag search-tag tag-pr" style={ this.props.producer ? { display:'inline-flex'} : {display:  'none'}}>
                             producer
                         </li>
-                        <li className="tag search-tag tag-en" style={ this.props.engineer ? { display:'inline-flex'} : {display : 'none'}}>
+                        <li className="tag search-tag tag-en" style={ this.props.engineer ? { display:'inline-flex'} : {display: 'none'}}>
                             engineer
                         </li>
                     </ul>
@@ -77,9 +76,7 @@ class Artist extends React.Component {
                                 <i className="fa fa-circle" aria-hidden="true"></i>
                             </span>}
                         value={this.props.demo_rating}
-                        starColor={"#FFFF19"}
-                                /><br/>
-                    
+                        starColor={"#FFFF19"}/><br/>
                 </div>
                 <div className="column is-2">
                     <Link to={'/user/' + this.props.id}>
@@ -112,6 +109,9 @@ class Artist extends React.Component {
 export default Artist
 
 
+
+// **SAVE FOR COLLAB RATING INTEGRATION**
+
 // <p>collaborations:</p>
 //     <StarRatingComponent 
 //     name="rate2" 
@@ -122,5 +122,4 @@ export default Artist
 //             <i className="fa fa-circle" aria-hidden="true"></i>
 //         </span>}
 //     value={4.5}
-//     starColor={"#FFFF19"}
-//     />
+//     starColor={"#FFFF19"}/>

@@ -182,6 +182,7 @@ export default ViewProfile
 
 
 
+// **SAVE FOR COLLAB RATING INTEGRATION**
 
 //  <div  className="ratings2">
 //     <h2 className="rating-h2">collaborations:</h2>
@@ -194,6 +195,5 @@ export default ViewProfile
 //                 <i className="fa fa-circle" aria-hidden="true"></i>
 //             </span>}
 //         value={4.5}
-//         starColor={"#FFFF19"}
-//         />
+//         starColor={"#FFFF19"}/>
 // </div>

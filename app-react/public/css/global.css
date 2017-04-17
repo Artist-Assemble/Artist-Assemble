@@ -693,8 +693,24 @@ select {
 
 /*search artists*/
 
+.search-art-type-select {
+    background-color: #8077C4 !important;
+    border: none !important;
+    color: white !important;
+}
+
+.select:after {
+    border-bottom-color: white !important;
+    border-left-color: white !important;
+}
+
+.search-or-p   {
+    padding: 10px 0 20px 0;
+    color: white;
+}
+
 .search-cont {
-    padding: 100px 0;
+    padding: 100px 20px;
 }
 
 .search-field {
@@ -719,8 +735,6 @@ select {
     float: left;
     padding-right: 5px;
 }
-
-/*search artists*/
 
 .results-cont {
     padding:20px 20px 200px 20px;
