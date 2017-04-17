@@ -59,7 +59,7 @@ class SearchArtists extends React.Component {
             </section>
             <section className="results-cont">
                 <div className="columns has-text-centered">
-                    <div className="column is-offset-2 is-8">
+                    <div className="column is-12-tablet is-offset-1-desktop is-10-desktop is-offset-2-widescreen is-8-widescreen">
 
                     {artists}
 

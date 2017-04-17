@@ -76,7 +76,7 @@ class Artist extends React.Component {
                             <span className="rating-space">
                                 <i className="fa fa-circle" aria-hidden="true"></i>
                             </span>}
-                        value={4.5}
+                        value={this.props.demo_rating}
                         starColor={"#FFFF19"}
                                 /><br/>
                     

@@ -90,7 +90,7 @@ class Account extends React.Component {
                             </div>
                             <p className="profile-bio bio-container">{this.state.content.bio}</p>
                             <div className="ratings1">
-                                <h2 className="rating-h1">my demo: {rating}</h2>
+                                <h2 className="rating-h1">my track: {rating}</h2>
                                 <StarRatingComponent 
                                     name="rate1" 
                                     starCount={5}
