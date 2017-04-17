@@ -54,6 +54,7 @@ gem 'rack-cors', :require => 'rack/cors'
 gem 'pusher'
 gem 'wavesurfer'
 gem 'file_validators'
+gem 'ransack'
 
 
 

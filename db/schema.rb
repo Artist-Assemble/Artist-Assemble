@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170412145905) do
+ActiveRecord::Schema.define(version: 20170417162154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 20170412145905) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.boolean  "status"
-    t.index ["collaborator_id"], name: "index_collaborations_on_collaborator_id", using: :btree
     t.index ["user_id"], name: "index_collaborations_on_user_id", using: :btree
   end
 
@@ -74,6 +73,8 @@ ActiveRecord::Schema.define(version: 20170412145905) do
     t.string   "token"
     t.string   "photo"
     t.string   "audio"
+    t.boolean  "email_confirmed"
+    t.string   "confirm_token"
   end
 
   add_foreign_key "collaborations", "users"

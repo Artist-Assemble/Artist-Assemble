@@ -1,7 +1,6 @@
 class RatingsController < ApplicationController
 
   before_action :require_user
-  before_action :find_user
 
   def create
     @rating = current_user.given_ratings.new(rating_params)
@@ -19,8 +18,5 @@ class RatingsController < ApplicationController
     params.permit(:user_id, :collab, :demo, :review)
   end
 
-  def find_user
-    @user = User.find(params[:id])
-  end
 
 end
