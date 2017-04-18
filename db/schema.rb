@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20170417162154) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.boolean  "status"
+    t.index ["collaborator_id"], name: "index_collaborations_on_collaborator_id", using: :btree
     t.index ["user_id"], name: "index_collaborations_on_user_id", using: :btree
   end
 

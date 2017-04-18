@@ -7,6 +7,7 @@ class Chat extends React.Component {
     this.close = this.close.bind(this)
     this.sendMessage = this.sendMessage.bind(this)
     this.setupPusher = this.setupPusher.bind(this)
+    this.uploadAttach = this.uploadAttach.bind(this)
 
     this.state = {
       chats: props.messages,
@@ -52,8 +53,8 @@ class Chat extends React.Component {
         })
       })
       .then(response => response.json())
-      this.refs.messageField.value = ''
       // .then(response => {console.log(response)})
+      this.refs.messageField.value = ''
   }
 
   toggleChat() {
@@ -70,9 +71,27 @@ class Chat extends React.Component {
     }
   }
 
+  uploadAttach(e) {
+    var data = new FormData()
+    data.append('attachment', e.target.files[0])
+    data.append('token', window.user.token)
+    fetch('/api/collaborations/' + this.props.id + '/messages',{
+        method: 'POST',
+        body:  data
+      })
+      .then(response => response.json())
+      .then(response => {console.log(response)})
+      this.refs.messageField.value = ''
+ }
+
   render() {
 
-    let chats = this.state.chats.map((chat, index) => <p key={index} className={chat.user_id === window.user.id ? "msg-to" : "msg-from"}>{chat.body || '-'}</p>)
+    let chats = this.state.chats.map((chat, index) => (
+        <p key={index} className={chat.user_id === window.user.id ? "msg-to" : "msg-from"}>
+          {chat.body || '-'} {chat.attachment.url ? <a href={chat.attachment.url} target="_blank" alt="attachment" className="attachment">attachment</a> : ''}
+        </p>
+      )
+    )
 
     return <div className="chat-cont">
       <div className="chats-cont" style={{display: this.state.toggled ? "none" : "block"}}>
@@ -90,7 +109,7 @@ class Chat extends React.Component {
           </div>
         </div>
         <div className="columns has-text-centered is-mobile">
-          <div className="column is-12 has-text-centered send-cont">
+          <div className="column is-10 has-text-centered send-cont">
             <div className="field has-addons">
               <p className="control msg-input">
                 <input className="input msg-input" ref="messageField" type="text" placeholder="message" onChange={(e) => this.setState({message: e.target.value})} onKeyPress={this._handleKeyPress}/>
@@ -101,16 +120,23 @@ class Chat extends React.Component {
                 </a>
               </p>
             </div>
-
+          </div>
+          <div className="attach-cont has-text-centered">
+            <div className="field">
+                <p className="contol chat-attach" style={{backgroundImage: 'url(/img/attachment.png)'}}> 
+                    <input type="file" className="uploadFile" onChange={(e) => this.uploadAttach(e)}/>
+                </p>
+            </div>
           </div>
         </div>
       </div>
-     
     </div>
   }
 }
 
 export default Chat
+
+// accept=".jpg,.png"  ect...
 
 // {chats}
 
@@ -126,3 +152,5 @@ export default Chat
 //   </p>
 //   <a href="#">upload file</a>
 // </div>
+
+// 

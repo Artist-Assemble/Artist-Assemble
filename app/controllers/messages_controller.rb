@@ -12,7 +12,7 @@ class MessagesController < ApplicationController
     @message = @collaboration.messages.new(message_params)
     @message.user = current_user
     if @message.save
-      Pusher.trigger("chat_#{params[:collaboration_id]}", 'new_message', {body: params[:body], user_id: @message.user_id})
+      Pusher.trigger("chat_#{params[:collaboration_id]}", 'new_message', {body: params[:body], user_id: @message.user_id, attachment: {url: @message.attachment.url}})
       render json: @message
     else
       render @message.errors.full_messages, status: 400

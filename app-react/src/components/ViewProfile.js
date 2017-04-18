@@ -9,6 +9,7 @@ class ViewProfile extends React.Component {
         super(props)
         this.renderAccount = this.renderAccount.bind(this)
         this.sendCollab = this.sendCollab.bind(this)
+        this.sendRating = this.sendRating.bind(this)
         this.handleTogglePlay = this.handleTogglePlay.bind(this)
         this.handlePosChange = this.handlePosChange.bind(this)
 
@@ -45,13 +46,28 @@ class ViewProfile extends React.Component {
         })
     }
 
+    sendRating() {
+        var user = JSON.parse(sessionStorage.getItem('user'))
+        fetch('/api/ratings/?token=' + user.token, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+            user_id: this.state.userProfile.id,
+            demo: this.state.rateTrack
+            })
+        })
+    }
+
     componentWillMount() {
         this.renderAccount()
     }
 
     onRateTrackClick(nextValue, prevValue, name) {
         this.setState({rateTrack: nextValue});
-        console.log(this.state.rateTrack)
+        console.log(nextValue)
     }
 
     handleTogglePlay() {
@@ -92,24 +108,11 @@ class ViewProfile extends React.Component {
                                         <span className="rating-space">
                                             <i className="fa fa-circle" aria-hidden="true"></i>
                                         </span>}
-                                    value={4.5}
+                                    value={this.state.userProfile.demo_rating}
                                     starColor={"#FFFF19"}
                                     />
                             </div>
-                            <div  className="ratings2">
-                                <h2 className="rating-h2">collaborations:</h2>
-                                <StarRatingComponent 
-                                    name="rate2" 
-                                    starCount={5}
-                                    editing={false}
-                                    renderStarIcon={() => 
-                                        <span className="rating-space">
-                                            <i className="fa fa-circle" aria-hidden="true"></i>
-                                        </span>}
-                                    value={4.5}
-                                    starColor={"#FFFF19"}
-                                    />
-                            </div>
+                           
                             <div className="tags-cont has-text-centered">
                                 <ul className="tags">
                                     <li className="tag tag-si" style={ this.state.userProfile.artist ? { display:'inline-flex'} : {display : 'none'}}>singer/songwriter</li>
@@ -147,7 +150,7 @@ class ViewProfile extends React.Component {
                                 <i className={this.state.playing ? " fa fa-pause" : "fa fa-play"} aria-hidden="true"></i>
                             </div>
                             <div className="rate-cont">
-                                 <div className="ratings1">
+                                <div className="ratings2">
                                     <h2 className="rate-track-h1">rate their track!{rating}</h2>
                                     <StarRatingComponent 
                                         name="rate3" 
@@ -157,14 +160,11 @@ class ViewProfile extends React.Component {
                                         <span className="rating-space">
                                             <i className="fa fa-circle" aria-hidden="true"></i>
                                         </span>}
-                                        onRateTrackClick={this.onRateTrackClick.bind(this)}
+                                        onStarClick={this.onRateTrackClick.bind(this)}
                                         starColor={"#FFFF19"}
                                         />
                                 </div>
-                                <div className="field rate-field-cont has-text-centered">
-                                    <p className="control rate-field-cont has-text-centered">
-                                    <input className="input" type="text" placeholder="leave a comment (optional)"/>
-                                    </p>
+                                <div className="field rate-field-cont has-text-centered" onClick={() => this.sendRating()}>
                                     <a className="button rate-btn">
                                         rate
                                     </a>
@@ -179,3 +179,21 @@ class ViewProfile extends React.Component {
 }
 
 export default ViewProfile
+
+
+
+// **SAVE FOR COLLAB RATING INTEGRATION**
+
+//  <div  className="ratings2">
+//     <h2 className="rating-h2">collaborations:</h2>
+//     <StarRatingComponent 
+//         name="rate2" 
+//         starCount={5}
+//         editing={false}
+//         renderStarIcon={() => 
+//             <span className="rating-space">
+//                 <i className="fa fa-circle" aria-hidden="true"></i>
+//             </span>}
+//         value={4.5}
+//         starColor={"#FFFF19"}/>
+// </div>

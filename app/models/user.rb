@@ -3,7 +3,7 @@ class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   mount_uploader :audio, AudioUploader
 
-  before_save :downcase_fields
+  before_validation :downcase_fields
 
 
   has_many :taggings, dependent: :destroy
@@ -22,7 +22,7 @@ class User < ApplicationRecord
   validates_format_of :email, :with => /@/
 
   validates :photo, file_size: { less_than: 2.megabytes, message: "photo should be less than #{count}" }
-  validates :audio, file_size: { less_than: 500.megabytes, message: "audio should be less than #{count}" }
+  validates :audio, file_size: { less_than: 5.megabytes, message: "audio should be less than #{count}" }
 
   def downcase_fields
     self.email = email.downcase
