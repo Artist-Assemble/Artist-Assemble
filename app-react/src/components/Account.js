@@ -80,7 +80,7 @@ class Account extends React.Component {
             </header>
             <div className="lines">
                 <section className="profile-container">
-                    <div className="columns has-text-centered profile">
+                    <div className="columns is-gapless has-text-centered profile">
                         <div className="column is-6">
                             <h1 className="profile-h">profile</h1>
                             <div className="field upload-cont">
@@ -91,8 +91,8 @@ class Account extends React.Component {
                             <p className="profile-bio bio-container">{this.state.content.bio}</p>
                             <div className="ratings1">
                                 <h2 className="rating-h1">my track: {rating}</h2>
-                                <StarRatingComponent 
-                                    name="rate1" 
+                                <StarRatingComponent
+                                    name="rate1"
                                     starCount={5}
                                     editing={false}
                                     renderStarIcon={() => 
