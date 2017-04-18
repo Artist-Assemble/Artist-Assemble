@@ -165,7 +165,7 @@ class Signup extends React.Component {
                                     <input type="file" className="uploadFile" onChange={(e) => this.setState({audio: e.target.files[0]})}/>
                                 </p>
                             </div>
-                            <a className="signup-next" onClick={this.postUser}>
+                            <a className="signup-next" onClick={() => this.postUser()}>
                                 next <i className="fa fa-step-forward" aria-hidden="true"></i>
                             </a>
                         </div>
