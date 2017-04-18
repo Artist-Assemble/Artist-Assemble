@@ -12,7 +12,8 @@ class SearchArtists extends React.Component {
         
         this.state = {
             artists: [],
-            searchArtistValue: ''
+            searchArtistValue: '',
+            nameValue: ''
         };
     }
 
@@ -42,9 +43,16 @@ class SearchArtists extends React.Component {
     }
 
     filterArtistName() {
-        fetch('/api/users/search?q[name_cont]=')
+        fetch('/api/users/search?q[name_cont]=' + this.state.nameValue)
         .then(response => response.json())
-        .then(response => console.log(response))
+        .then(response => this.setState({artists: response}))
+        this.refs.nameSearch.value = ''
+    }
+
+    _handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+        this.filterArtistName()
+        }
     }
  
     render() {
@@ -75,11 +83,10 @@ class SearchArtists extends React.Component {
                         </div>
                         <div className="field has-addons search-field is-fullwidth">
                             <p className="control search-field">
-                                <input className="input search-input" type="text" placeholder="search artist by name"/>
+                                <input className="input search-input" ref="nameSearch" type="text" placeholder="search artist by name" onChange={(e) => this.setState({nameValue: e.target.value})} onKeyPress={this._handleKeyPress}/>
                             </p>
-                            <p className="control">
-                                <a className="button is-primary search-btn"><i className="fa fa-search" aria-hidden="true"></i> artists 
-                                </a>
+                            <p className="control" onClick={() => this.filterArtistName()}>
+                                <a className="button is-primary search-btn"><i className="fa fa-search" aria-hidden="true"></i> artists</a>
                             </p>
                         </div>
                     </div>
