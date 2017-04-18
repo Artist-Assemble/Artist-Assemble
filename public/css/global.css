@@ -28,10 +28,9 @@ body {
 
 .profile-container {
     margin:0 auto;
-    padding: 45px 30px;
-    max-width: 1500px;
+    padding: 45px 0;
+    max-width: 1000px;
 }
-
 
 .bio-container {
     margin: 0 auto;
@@ -189,6 +188,12 @@ header img {
 .lines {
     background: url('../img/lines.png');
     background-size: 100% 100%;
+}
+
+.search-lines {
+    background: url('../img/lines.png');
+    background-size: 100% 100%;
+    background-attachment: fixed;
 }
 
 /*sec-top*/
@@ -388,12 +393,11 @@ select {
 
 }
 
+/*
 .upload-cont {
     margin-top: 60px;
     background-color: RGBA(255, 255, 255, 0.8) !important;
-}
-
-
+}*/
 
 .upload-cont > input {
     display: block;
@@ -447,7 +451,7 @@ select {
     color: white;
 }
 
-/*soundcloud-auth*/
+/*soundcloud-auth
 
 
 .orange {
@@ -483,7 +487,7 @@ select {
 .sca-link > i {
     padding-top: 4px;
     color: #FF5906;
-}
+}*/
 
 /*profile*/
 
@@ -492,6 +496,7 @@ select {
 }
 
 .profile {
+    margin: 10px;
     background: linear-gradient( 45deg, RGBA(140, 146, 252, .3), RGBA(252, 79, 97, .3) );
     border-radius: 5px;
 }
@@ -503,12 +508,64 @@ select {
     font-size: 22px;
 }
 
+.attach-cont {
+    padding-top: 20px;
+    padding-left: 14px;
+}
+
+.chat-attach {
+    margin-top: 10px;
+    margin: 0 auto;
+    height: 25px;
+    width: 25px;
+    background-size: contain;
+    overflow: hidden;
+    position: relative;
+}
+
+.chat-attach [type=file] {
+    cursor: inherit;
+    display: block;
+    font-size: 999px;
+    filter: alpha(opacity=0);
+    min-height: 100%;
+    min-width: 100%;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: 0;
+    cursor: pointer;
+    cursor: hand;
+}
+
 .profile-img {
+    height: 120px;
+    background-size: contain;
+    margin: 0 auto;
     margin-top: 60px;
     width: 120px;
     border-radius: 50%;
     filter: drop-shadow( 1px 1px 3px rgba(0,0,0,0.2));
     opacity: 0.9;
+    overflow: hidden;
+    position: relative;
+}
+
+.profile-img [type=file] {
+    cursor: inherit;
+    display: block;
+    font-size: 999px;
+    filter: alpha(opacity=0);
+    min-height: 100%;
+    min-width: 100%;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: 0;
+    cursor: pointer;
+    cursor: hand;
 }
 
 .profile-bio {
@@ -517,8 +574,19 @@ select {
     letter-spacing: 2px;
 }
 
-.ratings2 {
+.ratings1 {
+    cursor: default;
     margin-bottom: 40px;
+}
+
+.ratings2 {
+    cursor: default;
+    /*margin-bottom: 40px;*/
+}
+
+.rating-space {
+    padding: 2px;
+    display: inline-block;
 }
 
 .rating-h1 {
@@ -573,7 +641,7 @@ select {
 .collaborations {
     background-color: rgba(0,0,0,0.5);
     border-radius: 0 5px 5px 0;
-    padding-bottom: 20px;
+    padding-bottom: 35px;
 }
 
 .collab-h {
@@ -595,8 +663,16 @@ select {
 
 .collab-shake {
     background-color: #8077C4;
-
     border-radius: 3px 0 0 3px;
+    cursor: pointer;
+    cursor: hand;
+}
+
+.collab-shake:hover {
+    background-color: RGBA(128, 119, 196, 0.6);
+    border-radius: 3px 0 0 3px;
+    cursor: pointer;
+    cursor: hand;
 }
 
 .collab-shake > i {
@@ -628,18 +704,43 @@ select {
 .collab-delete {
     background-color: #D24A59;
     border-radius: 0 3px 3px 0;
+    cursor: pointer;
+    cursor: hand;
+}
+
+.collab-delete:hover {
+    background-color: RGBA(210, 74, 89, 0.6);
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+    cursor: hand;
 }
 
 .collab-delete img {
     padding-top: 11px;
     width: 12px;
+    min-width: 8px !important; 
 }
 
 /*search artists*/
 
+.search-art-type-select {
+    background-color: #8077C4 !important;
+    border: none !important;
+    color: white !important;
+}
+
+.select:after {
+    border-bottom-color: white !important;
+    border-left-color: white !important;
+}
+
+.search-or-p   {
+    padding: 10px 0 20px 0;
+    color: white;
+}
+
 .search-cont {
-    margin-top: 100px;
-    padding-bottom: 100px;
+    padding: 100px 20px;
 }
 
 .search-field {
@@ -664,8 +765,6 @@ select {
     float: left;
     padding-right: 5px;
 }
-
-/*search artists*/
 
 .results-cont {
     padding:20px 20px 200px 20px;
@@ -745,7 +844,7 @@ select {
 /*view profile*/
 
 .back-cont {
-    padding: 50px 0 0 10px;
+    padding: 50px 0 0 0;
 }
 
 .back-icon {
@@ -762,9 +861,12 @@ select {
     filter: drop-shadow( 1px 1px 3px rgba(0,0,0,0.2));
     opacity: 0.9;
 }
+.vp-left {
+    background: linear-gradient( 45deg, RGBA(140, 146, 252, .3), RGBA(252, 79, 97, .3) );
+}
 
 .userP-collab-cont {
-    margin-top: 100px;
+    margin: 20px 0 100px 0;
 }
 
 .userP-collab-btn {
@@ -772,14 +874,39 @@ select {
     box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
 }
 
+
 .userP-collab-btn > i {
     padding: 10px 60px;
 }
 
+.profile-audio-cont {
+    margin-top: 10px;
+}
+
 .rate-cont {
-    margin: 100px 0;
-    border: 1px solid white;
+    margin: 100px 0 50px 0;
     padding: 20px;
+    border: 1px solid white;
+}
+
+.rate-input {
+    max-width: 300px !important;
+}
+
+.rate-btn {
+    margin-top: 10px;
+    background-color: #8077C4 !important;
+    border: none;
+    color: white;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+}
+
+.rate-btn:hover {
+    margin-top: 10px;
+    background-color: #8077C4 !important;
+    border: none;
+    color: white;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
 }
 
 .rate-track-h1 {
@@ -790,17 +917,22 @@ select {
 
 .chat-cont {
     bottom: 0;
-    right: 0;
+    /*margin: 0 auto;*/
+    right: 20px;
     position: fixed;
     z-index: 3000;
 }
 
 .chats-cont {
     padding: 12px;
-    margin: 0 80px 10px 80px;
-    border-radius: 5px 5px 0 5px;
+    margin: 0 auto;
+    border-radius: 5px 5px 0 0;
     background: linear-gradient( 45deg, RGBA(140, 146, 252, .8), RGBA(252, 79, 97, .8));
     box-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+}
+
+.send-cont {
+    padding-right: 0 !important;
 }
 
 .chat-btn {
@@ -824,13 +956,17 @@ select {
     border: 1px solid #626262;
 }
 
+.msg-input {
+    border-radius: 3px 0 0 3px !important;
+}
+
 .chat-send-btn {
     background-color: #8077C4 !important;
 }
 
 .msg-cont {
     max-width: 300px;
-    max-height: 400px;
+    height: 400px;
     overflow: hidden;
     overflow-y: auto; 
 }
@@ -841,20 +977,23 @@ select {
 
 .msg-from {
     margin: 10px 40px 10px 0;
+    padding: 3px;
     color: white;
     background-color: RGBA(255, 255, 255, 0.3);
-    border-radius: 12px;
+    border-radius: 15px;
 }
 
 .msg-to {
     margin: 10px 0 10px 40px;
+    padding: 3px;
     color: white;
-    background-color: RGBA(128, 119, 196, 0.6);
-    border-radius: 12px;
+    background-color: RGBA(128, 119, 196, 0.8);
+    border-radius: 15px;
 }
 
 .collab-msg-close {
-    width: 15px;
+    float: right;
+    width: 20px;
     height: auto;
     cursor: pointer;
     cursor: hand;
