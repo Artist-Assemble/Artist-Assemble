@@ -99,7 +99,7 @@ class Account extends React.Component {
                                         <span className="rating-space">
                                             <i className="fa fa-circle" aria-hidden="true"></i>
                                         </span>}
-                                    value={4.5}
+                                    value={this.state.content.demo_rating}
                                     starColor={"#F1FF1C"}
                                 />
                             </div>
