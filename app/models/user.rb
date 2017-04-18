@@ -3,7 +3,7 @@ class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   mount_uploader :audio, AudioUploader
 
-  before_save :downcase_fields
+  before_validation :downcase_fields
 
 
   has_many :taggings, dependent: :destroy
