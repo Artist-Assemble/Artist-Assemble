@@ -1,5 +1,9 @@
 class ApplicationController < ActionController::Base
 
+  def fallback
+    render file: Rails.root + '/public/index.html', layout: false
+  end
+
   private
 
   def current_user
