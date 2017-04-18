@@ -100,7 +100,7 @@ class Account extends React.Component {
                                             <i className="fa fa-circle" aria-hidden="true"></i>
                                         </span>}
                                     value={this.state.content.demo_rating}
-                                    starColor={"#F1FF1C"}
+                                    starColor={"#F1FF1C"} 
                                 />
                             </div>
                            
