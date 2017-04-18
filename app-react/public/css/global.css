@@ -32,7 +32,6 @@ body {
     max-width: 1000px;
 }
 
-
 .bio-container {
     margin: 0 auto;
     max-width: 400px;
@@ -189,6 +188,12 @@ header img {
 .lines {
     background: url('../img/lines.png');
     background-size: 100% 100%;
+}
+
+.search-lines {
+    background: url('../img/lines.png');
+    background-size: 100% 100%;
+    background-attachment: fixed;
 }
 
 /*sec-top*/
@@ -388,12 +393,11 @@ select {
 
 }
 
+/*
 .upload-cont {
     margin-top: 60px;
     background-color: RGBA(255, 255, 255, 0.8) !important;
-}
-
-
+}*/
 
 .upload-cont > input {
     display: block;
@@ -492,6 +496,7 @@ select {
 }
 
 .profile {
+    margin: 10px;
     background: linear-gradient( 45deg, RGBA(140, 146, 252, .3), RGBA(252, 79, 97, .3) );
     border-radius: 5px;
 }
@@ -503,12 +508,64 @@ select {
     font-size: 22px;
 }
 
+.attach-cont {
+    padding-top: 20px;
+    padding-left: 14px;
+}
+
+.chat-attach {
+    margin-top: 10px;
+    margin: 0 auto;
+    height: 25px;
+    width: 25px;
+    background-size: contain;
+    overflow: hidden;
+    position: relative;
+}
+
+.chat-attach [type=file] {
+    cursor: inherit;
+    display: block;
+    font-size: 999px;
+    filter: alpha(opacity=0);
+    min-height: 100%;
+    min-width: 100%;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: 0;
+    cursor: pointer;
+    cursor: hand;
+}
+
 .profile-img {
+    height: 120px;
+    background-size: contain;
+    margin: 0 auto;
     margin-top: 60px;
     width: 120px;
     border-radius: 50%;
     filter: drop-shadow( 1px 1px 3px rgba(0,0,0,0.2));
     opacity: 0.9;
+    overflow: hidden;
+    position: relative;
+}
+
+.profile-img [type=file] {
+    cursor: inherit;
+    display: block;
+    font-size: 999px;
+    filter: alpha(opacity=0);
+    min-height: 100%;
+    min-width: 100%;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: 0;
+    cursor: pointer;
+    cursor: hand;
 }
 
 .profile-bio {
@@ -517,17 +574,14 @@ select {
     letter-spacing: 2px;
 }
 
-.rater {
-    cursor: default !important;
-}
-
 .ratings1 {
     cursor: default;
+    margin-bottom: 40px;
 }
 
 .ratings2 {
     cursor: default;
-    margin-bottom: 40px;
+    /*margin-bottom: 40px;*/
 }
 
 .rating-space {
@@ -669,9 +723,24 @@ select {
 
 /*search artists*/
 
+.search-art-type-select {
+    background-color: #8077C4 !important;
+    border: none !important;
+    color: white !important;
+}
+
+.select:after {
+    border-bottom-color: white !important;
+    border-left-color: white !important;
+}
+
+.search-or-p   {
+    padding: 10px 0 20px 0;
+    color: white;
+}
+
 .search-cont {
-    margin-top: 100px;
-    padding-bottom: 100px;
+    padding: 100px 20px;
 }
 
 .search-field {
@@ -696,8 +765,6 @@ select {
     float: left;
     padding-right: 5px;
 }
-
-/*search artists*/
 
 .results-cont {
     padding:20px 20px 200px 20px;
@@ -817,7 +884,7 @@ select {
 }
 
 .rate-cont {
-    margin: 50px 0;
+    margin: 100px 0 50px 0;
     padding: 20px;
     border: 1px solid white;
 }
@@ -864,7 +931,9 @@ select {
     box-shadow: 1px 1px 5px rgba(0,0,0,0.4);
 }
 
-
+.send-cont {
+    padding-right: 0 !important;
+}
 
 .chat-btn {
     margin: 0 20px 20px 0;

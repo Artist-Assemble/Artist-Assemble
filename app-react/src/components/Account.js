@@ -48,14 +48,15 @@ class Account extends React.Component {
         this.renderCollaborations()
     }
 
-    postPhoto() {
+    postPhoto(e) {
         var user = JSON.parse(sessionStorage.getItem('user'))
         var data = new FormData()
-        data.append('photo', this.state.photo)
+        data.append('photo', e.target.files[0])
         fetch('/api/users/' + this.state.content.id + '?token=' + user.token, {
         method: 'PUT',
         body: data
         })
+        .then(response => this.renderAccount())
     }
 
     showChat(index) {
@@ -66,7 +67,7 @@ class Account extends React.Component {
         fetch('/api/collaborations/' + collabId + '/?token=' + window.user.token, {
         method: 'DELETE'})
             .then(response => response.json())
-            .then(response => console.log(response))
+            .then(response => this.renderCollaborations())
     }
     
     render() {
@@ -79,21 +80,19 @@ class Account extends React.Component {
             </header>
             <div className="lines">
                 <section className="profile-container">
-                    <div className="columns has-text-centered profile">
+                    <div className="columns is-gapless has-text-centered profile">
                         <div className="column is-6">
                             <h1 className="profile-h">profile</h1>
                             <div className="field upload-cont">
-                                <p className="contol">
-                                    <input type="file" className="uploadFile" onChange={(e) => this.setState({photo: e.target.files[0]})}/>
+                                <p className="contol profile-img" style={{backgroundImage: 'url(' + (this.state.content.photo.url ? this.state.content.photo.url : "/img/profile-default.png") + ')'}}> 
+                                    <input type="file" className="uploadFile" onChange={(e) => this.postPhoto(e)}/>
                                 </p>
-                                <a href="#" onClick={this.postPhoto}>upload photo</a>
                             </div>
-                            <img src={this.state.content.photo.url ?this.state.content.photo.url : "/img/profile-default.png"} alt="profile default" className="profile-img"/>
                             <p className="profile-bio bio-container">{this.state.content.bio}</p>
                             <div className="ratings1">
-                                <h2 className="rating-h1">my demo: {rating}</h2>
-                                <StarRatingComponent 
-                                    name="rate1" 
+                                <h2 className="rating-h1">my track: {rating}</h2>
+                                <StarRatingComponent
+                                    name="rate1"
                                     starCount={5}
                                     editing={false}
                                     renderStarIcon={() => 
@@ -104,20 +103,7 @@ class Account extends React.Component {
                                     starColor={"#F1FF1C"}
                                 />
                             </div>
-                            <div  className="ratings2">
-                                <h2 className="rating-h2">my collaborations: {rating}</h2>
-                                <StarRatingComponent 
-                                    name="rate2" 
-                                    starCount={5}
-                                    editing={false}
-                                    renderStarIcon={() => 
-                                        <span className="rating-space">
-                                            <i className="fa fa-circle" aria-hidden="true"></i>
-                                        </span>}
-                                    value={5}
-                                    starColor={"#F1FF1C"}
-                                />
-                            </div>
+                           
                             <div className="tags-cont has-text-centered">
                                 <ul className="tags">
                                     <li className="tag tag-si" style={ this.state.content.artist ? { display:'inline-flex'} : {display : 'none'}}>singer/songwriter</li>
@@ -142,3 +128,19 @@ class Account extends React.Component {
 }
 
 export default Account
+
+
+//  <div  className="ratings2">
+//     <h2 className="rating-h2">my collaborations: {rating}</h2>
+//     <StarRatingComponent 
+//         name="rate2" 
+//         starCount={5}
+//         editing={false}
+//         renderStarIcon={() => 
+//             <span className="rating-space">
+//                 <i className="fa fa-circle" aria-hidden="true"></i>
+//             </span>}
+//         value={5}
+//         starColor={"#F1FF1C"}
+//     />
+// </div>
