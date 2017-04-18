@@ -37,8 +37,8 @@ class SearchArtists extends React.Component {
         // console.log(this.state.searchArtistValue)
         fetch('/api/users/search?q[' + this.state.searchArtistValue + '_true]=true')
         .then(response => response.json())
-        .then(response => console.log(response))
-        // .then(response => this.setState({artists: response}))
+        // .then(response => console.log(response))
+        .then(response => this.setState({artists: response}))
         // .then(response => console.log(this.state.artists))
     }
 
