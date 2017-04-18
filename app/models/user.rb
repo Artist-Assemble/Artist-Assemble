@@ -25,7 +25,7 @@ class User < ApplicationRecord
   validates :audio, file_size: { less_than: 500.megabytes, message: "audio should be less than #{count}" }
 
   def downcase_fields
-     self.email.downcase
+    self.email = email.downcase
   end
 
   def demo_rating
