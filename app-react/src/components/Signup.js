@@ -22,13 +22,10 @@ class Signup extends React.Component {
       engineer: false,
       tag: 'electronic',
       audio: {},
-    //   user: {}
     }
 }
 
  postUser() {
-    // console.log(this.state)
-    // var input = this.state.audio.url
 
     var data = new FormData()
     data.append('name', this.state.name)
@@ -45,23 +42,6 @@ class Signup extends React.Component {
     fetch('/api/users', {
     method: 'POST',
     body: data
-    // fetch('',{
-        // method: 'POST',
-        // headers: {
-        //     'Content-Type': 'application/json'
-        // },
-
-        // body: JSON.stringify({
-        //     name: this.state.name,
-        //     email: this.state.email,
-        //     password: this.state.password,
-        //     password_confirmation: this.state.password_confirmation,
-        //     bio: this.state.bio,
-        //     artist: this.state.artist,
-        //     producer: this.state.producer,
-        //     engineer: this.state.engineer,
-        //     tag: this.state.tag
-        // })
     })
       .then(response => response.json())
     //   .then(response => this.setState({user: response}))
@@ -73,10 +53,9 @@ class Signup extends React.Component {
               browserHistory.push('/account')
           }
           else {
-              alert('Failed to login.')
+              alert('hmmm something seems wrong with your login.')
           }
       })
-    //   .then(()=> browserHistory.push('/account'))
 }
 
     render() {
@@ -165,7 +144,7 @@ class Signup extends React.Component {
                                     <input type="file" className="uploadFile" onChange={(e) => this.setState({audio: e.target.files[0]})}/>
                                 </p>
                             </div>
-                            <a className="signup-next" onClick={this.postUser}>
+                            <a className="signup-next" onClick={() => this.postUser()}>
                                 next <i className="fa fa-step-forward" aria-hidden="true"></i>
                             </a>
                         </div>

@@ -59,6 +59,7 @@ class ViewProfile extends React.Component {
             demo: this.state.rateTrack
             })
         })
+        this.setState({rateTrack: 1})
     }
 
     componentWillMount() {

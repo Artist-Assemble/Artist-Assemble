@@ -17,4 +17,6 @@ Rails.application.routes.draw do
     post '/login' => 'sessions#create'
   end
 
+  get '/:sdfnahsughga/(:optional)' => 'application#fallback'
+
 end

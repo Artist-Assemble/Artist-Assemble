@@ -14,7 +14,7 @@ class HeaderSub extends React.Component {
         return <div className="container my-container hdr-sub">
             <div className="columns is-mobile vertical">
                 <div className="column is-4">
-                    <img src="/img/logo.png" alt="artist assemble logo" className="hdr-img-sub" onClick={()=> browserHistory.push('/')}/>
+                    <img src="/img/logo.png" alt="artist assemble logo" className="hdr-img-sub"/>
                 </div>
                 <div className="column is-2"></div>
                 <div className="column is-2" onClick={()=> browserHistory.push('/account')}>
