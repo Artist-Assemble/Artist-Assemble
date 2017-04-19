@@ -208,8 +208,6 @@ header img {
     background-image: linear-gradient( 45deg, RGBA(140, 146, 252, .8), RGBA(252, 79, 97, .8) ), url('../img/vocals.png');
     background-size: cover;
     box-shadow: 1px 1px 10px rgba(0,0,0,0.2);
-    cursor: pointer;
-    cursor: hand;
 }
 
 .singer-tab p {
@@ -237,8 +235,6 @@ header img {
     background-image: linear-gradient( 45deg, RGBA(140, 146, 252, .8), RGBA(252, 79, 97, .8) ), url('../img/header.jpg');
     background-size: cover;
     box-shadow: 1px 1px 10px rgba(0,0,0,0.2);
-    cursor: pointer;
-    cursor: hand;
 }
 
 .producer-tab p {
@@ -267,8 +263,6 @@ header img {
     background-image: linear-gradient( 45deg, RGBA(140, 146, 252, .8), RGBA(252, 79, 97, .8) ), url('../img/mix-master.png');
     background-size: cover;
     box-shadow: 1px 1px 10px rgba(0,0,0,0.2);
-    cursor: pointer;
-    cursor: hand;
 }
 
 .eng-tab p {
@@ -842,7 +836,7 @@ select {
 /*view profile*/
 
 .back-cont {
-    padding: 50px 0 0 0;
+    padding: 50px 0 0 15px;
 }
 
 .back-icon {
@@ -881,6 +875,10 @@ select {
     margin-top: 10px;
 }
 
+.rate-not {
+    margin-top: 40px;
+}
+
 .rate-cont {
     margin: 100px 0 50px 0;
     padding: 20px;
@@ -910,6 +908,24 @@ select {
 .rate-track-h1 {
     color: white;
 }
+
+.notification-in {
+    display: none;
+}
+
+.notification-out {
+    padding: 3px 12px !important; 
+    position: absolute;
+    color: #565656 !important;
+    background-color: white !important;
+    animation: fadeOut 3s ease-in-out both 1s 1;
+}
+
+@keyframes fadeOut {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
 
 /*chats*/
 

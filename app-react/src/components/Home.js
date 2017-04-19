@@ -1,5 +1,5 @@
 import React from 'react'
-// import { browserHistory } from 'react-router'
+import { browserHistory } from 'react-router'
 import HeaderHome from './HeaderHome'
 
 class Home extends React.Component {
@@ -20,14 +20,14 @@ class Home extends React.Component {
                         <div className="column is-8-mobile is-6-tablet is-6-desktop singer-tab has-text-centered">
                             <img src="img/tab-circle.png" alt="tab circle" className="tab-circle"/>
                             <p>singer<br/>songwriters</p>
-                            <img src="img/arrow-right.png" alt="tab arrow" className="tab-arrow"/>
+                            
                         </div>
                         <div className="column"></div>
                     </div>
                     <div className="columns is-mobile">
                         <div className="column"></div>
                         <div className="column is-8-mobile is-6-tablet is-6-desktop producer-tab has-text-centered">
-                            <img src="img/arrow-left.png" alt="tab arrow" className="tab-arrow"/>
+                            
                             <p>producers</p>
                             <img src="img/tab-circle.png" alt="tab circle" className="tab-circle"/>
                         </div>
@@ -36,7 +36,7 @@ class Home extends React.Component {
                         <div className="column is-8-mobile is-6-tablet is-6-desktop eng-tab has-text-centered">
                             <img src="img/tab-circle.png" alt="tab circle" className="tab-circle"/>
                             <p>mix &amp; mastering<br/>engineers</p>
-                            <img src="img/arrow-right.png" alt="tab arrow" className="tab-arrow"/>
+                            
                         </div>
                         <div className="column"></div>
                     </div>
@@ -53,7 +53,7 @@ class Home extends React.Component {
                 <footer className="container">
                     <div className="columns has-text-centered">
                         <div className="column is-12">
-                            <a href="#" alt="learn more" className="learn-more">Learn More</a>
+                            <a href="#" alt="learn more" className="learn-more" onClick={() => browserHistory.push('/learnmore')}>Learn More</a>
                         </div>
                     </div>
                     <div className="columns has-text-centered">
@@ -70,3 +70,9 @@ class Home extends React.Component {
 }
 
 export default Home
+
+
+
+// <img src="img/arrow-right.png" alt="tab arrow" className="tab-arrow"/>
+// <img src="img/arrow-left.png" alt="tab arrow" className="tab-arrow"/>
+// <img src="img/arrow-right.png" alt="tab arrow" className="tab-arrow"/>
