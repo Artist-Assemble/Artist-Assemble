@@ -21,8 +21,8 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates_format_of :email, :with => /@/
 
-  validates :photo, file_size: { less_than: 2.megabytes, message: "photo should be less than #{count}" }
-  validates :audio, file_size: { less_than: 5.megabytes, message: "audio should be less than #{count}" }
+  validates :photo, file_size: { less_than: 2.megabytes, message: " should be less than #{count}" }
+  validates :audio, file_size: { less_than: 5.megabytes, message: " should be less than #{count}" }
 
   def downcase_fields
     self.email = email.downcase
