@@ -59,7 +59,6 @@ class ViewProfile extends React.Component {
             demo: this.state.rateTrack
             })
         })
-        this.setState({rateTrack: 1})
     }
 
     componentWillMount() {
@@ -180,7 +179,6 @@ class ViewProfile extends React.Component {
 }
 
 export default ViewProfile
-
 
 
 // **SAVE FOR COLLAB RATING INTEGRATION**
