@@ -1,8 +1,6 @@
 import React from 'react'
-// import ReactDOM from 'react-dom'
 import { browserHistory } from 'react-router'
 import HeaderMin from './HeaderMin'
-// import Fetch from 'whatwg-fetch'
 
 class Signup extends React.Component {
 
@@ -45,7 +43,7 @@ class Signup extends React.Component {
     })
       .then(response => response.json())
     //   .then(response => this.setState({user: response}))
-    //   .then(response => consogit ple.log(response))
+    //   .then(response => console.log(response))
       .then(response => {
           if (response.token) {
               sessionStorage.setItem('user', JSON.stringify(response))
@@ -70,37 +68,37 @@ class Signup extends React.Component {
                     <div className="columns has-text-centered is-mobile">
                         <div className="column is-offset-2 is-8 signup-fields">
                             <div className="field">
-                                <label className="label" id="name">name</label>
+                                <label className="label" id="name">*name</label>
                                 <p className="control">
                                     <input className="input" type="text" onChange={(e)=> this.setState({name: e.target.value})}/>
                                 </p>
                             </div>
                             <div className="field">
-                                <label className="label" id="email">email</label>
+                                <label className="label" id="email">*email</label>
                                 <p className="control">
                                     <input className="input" type="text" onChange={(e)=> this.setState({email: e.target.value})}/>
                                 </p>
                             </div>
                             <div className="field">
-                                <label className="label" id="password">password</label>
+                                <label className="label" id="password">*password</label>
                                 <p className="control">
                                     <input className="input" type="password" onChange={(e)=> this.setState({password: e.target.value})}/>
                                 </p>
                             </div>
                             <div className="field">
-                                <label className="label" id="re-password">retype password</label>
+                                <label className="label" id="re-password">*retype password</label>
                                 <p className="control">
                                     <input className="input" type="password" onChange={(e)=> this.setState({password_confirmation: e.target.value})}/>
                                 </p>
                             </div>
                             <div className="field">
-                                <label className="label">Bio</label>
+                                <label className="label">*Bio</label>
                                 <p className="control">
                                     <textarea className="textarea" placeholder="In one or two sentences, tell others about yourself and your music!" onChange={(e)=> this.setState({bio: e.target.value})}></textarea>
                                 </p>
                             </div>
                             <div className="field">
-                                <label className="label">Im a..</label>
+                                <label className="label">*Im a..</label>
                                 <div className="checkboxes">
                                     <p className="control">
                                     <label className="checkbox">
@@ -123,7 +121,7 @@ class Signup extends React.Component {
                                 </div>
                             </div>
                             <div className="field has-text-centered genre-drop">
-                                 <label className="label" id="name">my genre</label>
+                                 <label className="label" id="name">*my genre</label>
                                 <p className="control">
                                     <span className="select">
                                     <select className="options" onChange={(e)=> this.setState({tag: e.target.value})}>
@@ -139,9 +137,9 @@ class Signup extends React.Component {
                                 </p>
                             </div>
                             <div className="field upload-cont">
-                                <label className="label">upload track</label>
+                                <label className="label">*upload track</label>
                                 <p className="contol">
-                                    <input type="file" className="uploadFile" onChange={(e) => this.setState({audio: e.target.files[0]})}/>
+                                    <input type="file" className="uploadFile input" onChange={(e) => this.setState({audio: e.target.files[0]})}/>
                                 </p>
                             </div>
                             <a className="signup-next" onClick={() => this.postUser()}>
@@ -157,5 +155,7 @@ class Signup extends React.Component {
 
 export default Signup
 
-/*onClick={()=> browserHistory.push('/soundcloudauthenticate')}*/
-/*onClick= {this.setState({artist: true})}*/
+
+// **SAVE FOR TAB LINKS**
+// onClick={()=> browserHistory.push('/soundcloudauthenticate')}
+// onClick= {this.setState({artist: true})}

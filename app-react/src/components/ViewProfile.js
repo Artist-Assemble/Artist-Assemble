@@ -20,7 +20,8 @@ class ViewProfile extends React.Component {
             },
             rateTrack: 1,
             playing: false,
-            pos: 0
+            pos: 0,
+            notiState: 'notification-in notification is-success rate-not'
         };
     }
 
@@ -47,6 +48,7 @@ class ViewProfile extends React.Component {
     }
 
     sendRating() {
+        this.setState({notiState: 'notification-out notification is-success rate-not'})
         var user = JSON.parse(sessionStorage.getItem('user'))
         fetch('/api/ratings/?token=' + user.token, {
             method: 'POST',
@@ -59,7 +61,6 @@ class ViewProfile extends React.Component {
             demo: this.state.rateTrack
             })
         })
-        this.setState({rateTrack: 1})
     }
 
     componentWillMount() {
@@ -150,6 +151,9 @@ class ViewProfile extends React.Component {
                              <div className="pause-play-cont" onClick={() => this.setState({playing:  !this.state.playing})}>
                                 <i className={this.state.playing ? " fa fa-pause" : "fa fa-play"} aria-hidden="true"></i>
                             </div>
+                            <div className={this.state.notiState}>
+                                thanks! you can also rerate anytime
+                            </div>
                             <div className="rate-cont">
                                 <div className="ratings2">
                                     <h2 className="rate-track-h1">rate their track!{rating}</h2>
@@ -180,7 +184,6 @@ class ViewProfile extends React.Component {
 }
 
 export default ViewProfile
-
 
 
 // **SAVE FOR COLLAB RATING INTEGRATION**
