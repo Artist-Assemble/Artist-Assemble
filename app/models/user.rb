@@ -18,8 +18,11 @@ class User < ApplicationRecord
   has_secure_token :token
 
   validates :name, :email, presence: true
-  validates :email, uniqueness: true
-  validates_format_of :email, :with => /@/
+  validates :email, uniqueness: true,
+                  format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i }
+
+  validates_length_of :name, maximum: 30, too_long: 'Name must be less than 30 characters'
+
 
   validates :photo, file_size: { less_than: 5.megabytes, message: " should be less than #{count} MB" }
   validates :audio, file_size: { less_than: 10.megabytes, message: " should be less than #{count} MB" }
