@@ -38,6 +38,12 @@ class Login extends React.Component {
       })
     }
 
+     _handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+        this.loginUser()
+        }
+    }
+
     render() {
         return <div>
             <header>
@@ -57,7 +63,7 @@ class Login extends React.Component {
                             <div className="field">
                                 <label className="label" id="password">password</label>
                                 <p className="control">
-                                    <input className="input" type="password" onChange={(e)=> this.setState({password: e.target.value})}/>
+                                    <input className="input" type="password" onChange={(e)=> this.setState({password: e.target.value})} onKeyPress={this._handleKeyPress}/>/>
                                 </p>
                             </div>
                             <a className="login-go"  onClick={this.loginUser} >
