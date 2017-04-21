@@ -69,8 +69,8 @@ class SearchArtists extends React.Component {
                      <div className="field">
                             <p className="control">
                                 <span className="select">
-                                <select className="search-art-type-select" onChange={(e)=> this.getArtistValue(e)}>
-                                    <option disabled selected value>Artist Type</option>
+                                <select className="search-art-type-select" value="" onChange={(e)=> this.getArtistValue(e)}>
+                                    <option disabled value="">Artist Type</option>
                                     <option value="artist">singer/songwriter</option>
                                     <option value="producer">producer</option>
                                     <option value="engineer">mixing/mastering engineer</option>

@@ -133,24 +133,28 @@ class ViewProfile extends React.Component {
                                 </a>
                             </div>
                             <div className="profile-audio-cont">
-                                 <Wavesurfer
-                                    audioFile={this.state.userProfile.audio.url}
-                                    pos={this.state.pos}
-                                    onPosChange={this.handlePosChange}
-                                    playing={this.state.playing}
-                                    volume={1}
-                                    audioRate={1}
-                                    options={{
-                                        height: 50,
-                                        barWidth: 2,
-                                        barHeight: 5,
-                                        waveColor: "#FFFFFF",
-                                        backend: 'MediaElement'
-                                    }}/>
-                            </div>
-                             <div className="pause-play-cont" onClick={() => this.setState({playing:  !this.state.playing})}>
-                                <i className={this.state.playing ? " fa fa-pause" : "fa fa-play"} aria-hidden="true"></i>
-                            </div>
+                                {this.state.userProfile.audio.url ?
+                                 <div>
+                                    <Wavesurfer
+                                        audioFile={this.state.userProfile.audio.url}
+                                        pos={this.state.pos}
+                                        onPosChange={this.handlePosChange}
+                                        playing={this.state.playing}
+                                        volume={1}
+                                        audioRate={1}
+                                        options={{
+                                            height: 50,
+                                            barWidth: 2,
+                                            barHeight: 5,
+                                            waveColor: "#FFFFFF",
+                                            backend: 'MediaElement'
+                                        }}/>
+                                    <div className="pause-play-cont" onClick={() => this.setState({playing:  !this.state.playing})}>
+                                        <i className={this.state.playing ? " fa fa-pause" : "fa fa-play"} aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                                : <div className="content"><h3>User Has Not Uploaded A Sample Track.</h3></div>}
+                            </div>                             
                             <div className={this.state.notiState}>
                                 thanks! you can also rerate anytime
                             </div>
